@@ -1,4 +1,4 @@
-# Programação Estruturada - 2023.2
+# Programação Estruturada - 2024.1
 
 Conteúdo das aulas da disciplina Programação Estruturada do Ibmec/RJ - Período 2023.2
 
