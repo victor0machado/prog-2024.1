@@ -11,7 +11,7 @@ A agenda abaixo está sujeita a alterações ao longo do semestre.
 |  **Data**  |                          **Tópico planejado**                          |
 |:----------:|:----------------------------------------------------------------------:|
 |   23/fev   |              Introdução à disciplina / Introdução à Python             |
-|   01/mar   |                          Funções / Operadores                          |
+|   01/mar   |                          Operadores / Funções                          |
 |   08/mar   |                          Estruturas de seleção                         |
 |   15/mar   |                         Estruturas de repetição                        |
 |   22/mar   |            Estruturas de dados: listas, tuplas e dicionários           |

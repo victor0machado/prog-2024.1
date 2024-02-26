@@ -13,8 +13,8 @@ A agenda abaixo está sujeita a alterações ao longo do semestre.
 |   19/fev   |                      Welcome Day                      |
 |   21/fev   |                Introdução à disciplina                |
 |   26/fev   |                  Introdução à Python                  |
-|   28/fev   |                        Funções                        |
-|   11/mar   |                       Operadores                      |
+|   28/fev   |                       Operadores                      |
+|   11/mar   |                        Funções                        |
 |   13/mar   |                 Estruturas de seleção                 |
 |   18/mar   |                Estruturas de repetição                |
 |   20/mar   |                Exercícios de aplicação                |
