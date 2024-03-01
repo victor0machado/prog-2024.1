@@ -34,4 +34,5 @@ def main():
     media()
     print(outra_media(7.7, 6.5, 7.3))
 
+# Chama a função main
 main()
