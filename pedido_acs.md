@@ -2,6 +2,10 @@
 
 Abaixo estão indicados os pedidos para cada AC do curso. Consulte os prazos em http://estudante.ibmec.br, e as orientações gerais para entrega [aqui](https://victor0machado.github.io/prog/orientacao_entregas.html).
 
+* [AC1](#ac1)
+* [AC2](#ac2)
+* [AC3](#ac3)
+
 ## AC1
 
 ### Exercício 1: equações de segundo grau
@@ -54,4 +58,70 @@ False
 ``` cmd
 Informe o ano: 2000
 True
+```
+
+## Pedido AC2
+
+### Exercício 1: revisite a AC1
+
+Desenvolva duas funções em Python:
+
+* `eq_seg_grau(a, b, c)`, que recebe três valores reais e retorna as raízes de uma equação de segundo grau no formato `ax² + bx + c = 0`, supondo as raízes sempre reais;
+* `bissexto(ano)`, que recebe um valor inteiro e retorna um valor booleano, informando se o ano é bissexto ou não.
+
+### Exercício 2: salário
+
+Desenvolva uma função em Python cujo nome é `calcula_salario`. Essa função recebe dois parâmetros posicionais reais, `valor_hora` e `num_horas`, que correspondem ao valor do salário por hora e o número de horas trabalhadas no mês, respectivamente. Além disso, a função tem um parâmetro-chave `irpf`, que calcula o imposto de renda a ser deduzido, cujo valor padrão é `0.275`. A função retorna o salário líquido de um funcionário, calculado como o produto do valor por hora pelo número de horas, reduzido o percentual do imposto de renda dado.
+
+## AC3
+
+### Exercício 1: triângulos
+
+Desenvolva uma função `determina_tipo_triangulo` que recebe três lados de um triângulo e retorna uma string, `"Escaleno"`, `"Isósceles"` ou `"Equilátero"`, conforme o tipo do triângulo. A função deve retornar `"Não é um triângulo"` se os três lados não formarem um triângulo. Use a função abaixo como teste:
+
+``` python
+def testa_triangulo():
+    print(determina_tipo_triangulo(4, 4, 4)) # Equilátero
+    print(determina_tipo_triangulo(2, 4, 4)) # Isósceles
+    print(determina_tipo_triangulo(3, 4, 5)) # Escaleno
+    print(determina_tipo_triangulo(1, 1, 4)) # Não é um triângulo
+```
+
+### Exercício 2: dia da semana
+
+Desenvolva uma função `dia_semana` que recebe um número inteiro e retorna uma string indicando o dia da semana equivalente, considerando que o dia da semana igual a 1 é o domingo, 2 é segunda-feira, etc. A função deve retornar uma string vazia caso o número seja inválido. Use a função abaixo como teste:
+
+``` python
+def testa_dia_semana():
+    print(dia_semana(2)) # segunda-feira
+    print(dia_semana(6)) # sexta-feira
+    print(dia_semana(7)) # sábado
+    print(dia_semana(9)) # string vazia
+```
+
+### Exercício 3: calculadora simples
+
+Desenvolva funções de operações aritméticas `soma`, `subtracao`, `multiplicacao` e `divisao`, que recebem dois números cada uma e retornam o resultado da operação indicada. Em seguida, crie uma função que elabora uma interface por linha de comando (CLI), que lê dois números e uma operação e exibe na tela o valor do resultado, ou exibe "operação inválida" se o usuário inserir uma mensagem diferente das quatro operações.
+
+#### Exemplos
+
+```
+Informe um número: 5.5
+Informe outro número: 10
+Informe a operação: soma
+Resultado: 15.5
+```
+
+```
+Informe um número: 5.5
+Informe outro número: 10
+Informe a operação: multiplicação
+Resultado: 55.0
+```
+
+```
+Informe um número: 5.5
+Informe outro número: 10
+Informe a operação: abcd
+operação inválida
 ```
