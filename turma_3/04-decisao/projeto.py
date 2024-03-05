@@ -46,7 +46,7 @@ def informar_aprovacao(media):
 
 def main():
     nome = ler_nome_usuario()
-    if not nome:
+    if nome:
         ap1, ap2, asub, ac = ler_notas()
         if validar_notas(ap1, ap2, asub, ac):
             n1, n2 = duas_maiores_notas(ap1, ap2, asub)
