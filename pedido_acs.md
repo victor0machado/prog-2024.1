@@ -5,6 +5,7 @@ Abaixo estão indicados os pedidos para cada AC do curso. Consulte os prazos em 
 * [AC1](#ac1)
 * [AC2](#ac2)
 * [AC3](#ac3)
+* [AC4](#ac4)
 
 ## AC1
 
@@ -125,3 +126,13 @@ Informe outro número: 10
 Informe a operação: abcd
 operação inválida
 ```
+
+## AC4
+
+Desenvolva uma versão inicial de CLI (_command-line interface_) para analisar se um aluno foi ou não aprovado em uma disciplina. A aplicação deve atender aos seguintes requisitos:
+
+* A CLI deve perguntar ao usuário o seu nome. Caso a resposta do usuário seja um texto vazio, o programa deve ser encerrado;
+* Em seguida, o programa deve calcular a média do usuário. Para isso, o programa deve ler as notas de AP1, AP2, AS e AC. Em seguida, deve exibir na tela a média final do aluno. Considere que a média é calculada como `(AP1 + AP2) * 0.4 + AC * 0.2`, sendo que a AS pode substituir a AP1 ou a AP2 (a menor dentre as duas);
+* Por fim, a aplicação deve exibir na tela se o aluno foi aprovado ou reprovado, baseado na sua média. A média para aprovação é 7.0.
+
+Organize o seu código em funções com responsabilidades distintas (uma para o cálculo de nota, uma para exibição de informações, uma para leitura de dados, etc.)
