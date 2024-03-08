@@ -37,6 +37,7 @@ def main():
         ap1, ap2, asub, ac = ler_notas()
         if notas_sao_validas(ap1, ap2, asub, ac):
             media = calcular_media(ap1, ap2, asub, ac)
+            print("Média final:", media)
             if aluno_foi_aprovado(media):
                 print("Aluno foi aprovado.")
             else:
