@@ -6,6 +6,7 @@ Abaixo estão indicados os pedidos para cada AC do curso. Consulte os prazos em 
 * [AC2](#ac2)
 * [AC3](#ac3)
 * [AC4](#ac4)
+* [AC5](#ac5)
 
 ## AC1
 
