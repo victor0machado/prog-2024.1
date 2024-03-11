@@ -43,6 +43,13 @@ def aluno_foi_aprovado(media):
     """
     return media >= 7
 
+def informa_resultado(media):
+    """Exibe na tela se o aluno foi aprovado ou não."""
+    if aluno_foi_aprovado(media):
+        print("Aluno foi aprovado!")
+    else:
+        print("Aluno foi reprovado!")
+
 def main():
     nome = ler_nome()
     if nome:
@@ -50,9 +57,6 @@ def main():
         if notas_sao_validas(ap1, ap2, asub, ac):
             prova1, prova2 = duas_maiores_notas(ap1, ap2, asub)
             media = calcular_media(prova1, prova2, ac)
-            if aluno_foi_aprovado(media):
-                print("Aluno foi aprovado!")
-            else:
-                print("Aluno foi reprovado!")
+            informa_resultado(media)
 
 main()
