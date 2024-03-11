@@ -136,3 +136,134 @@ Desenvolva uma versão inicial de CLI (_command-line interface_) para analisar s
 * Por fim, a aplicação deve exibir na tela se o aluno foi aprovado ou reprovado, baseado na sua média. A média para aprovação é 7.0.
 
 Organize o seu código em funções com responsabilidades distintas (uma para o cálculo de nota, uma para exibição de informações, uma para leitura de dados, etc.). Caso as notas passadas sejam inválidas (menores que 0 ou maiores que 10), o programa não deve calcular nada e deve ser encerrado.
+
+## AC5
+
+Pesquise sobre o módulo `random`, em particular sobre a função `randint()` ([veja aqui a documentação oficial](https://docs.python.org/3/library/random.html#random.randint)). Entendendo como essa função é utilizada, elabore um jogo por CLI e que você controla um aventureiro e está lutando contra um monstro. Considere os seguintes requisitos:
+
+* O aventureiro possui uma vida inicial igual a 100, seu ataque é um valor aleatório entre 10 e 20, e sua defesa é um valor aleatório entre 1 e 5;
+* O monstro possui uma vida aleatória entre 60 e 80, seu ataque é um valor aleatório entre 20 e 30, e não possui defesa;
+* Após a definição dos atributos do aventureiro e do monstro, o programa deve exibir os atributos iniciais e em seguida rodar um loop até que a vida de um dos dois fique igual ou abaixo de zero;
+* No loop, considere as seguintes ações:
+  * O programa escreve o número da rodada do combate;
+  * O aventureiro ataca o monstro, reduzindo da vida do monstro um valor aleatório entre 1 e o ataque do aventureiro;
+  * Se a vida do monstro ficar igual ou abaixo de zero, o programa deve escrever na tela que o monstro morreu e encerrar o loop;
+  * Em seguida, o monstro ataca o aventureiro, reduzindo da vida deste um valor aleatório entre 1 e o ataque do monstro, menos a defesa do aventureiro;
+  * Se a vida do aventureiro ficar igual ou abaixo de zero, o programa deve escrever na tela que o aventureiro morreu e encerrar o loop;
+  * Por fim, o programa deve escrever os atributos do aventureiro e do monstro.
+
+O programa não deve possuir inputs do usuário, ele apenas deve exibir as informações. Faça o exercício em uma única função, `main()`.
+
+### Exemplos
+
+```
+Aventureiro: vida 100 - att 20 - def 1
+Monstro: vida 77 - att 24
+Rodada 1
+Aventureiro: vida 81 - att 20 - def 1
+Monstro: vida 72 - att 24
+Rodada 2
+Aventureiro: vida 71 - att 20 - def 1
+Monstro: vida 70 - att 24
+Rodada 3
+Aventureiro: vida 67 - att 20 - def 1
+Monstro: vida 61 - att 24
+Rodada 4
+Aventureiro: vida 66 - att 20 - def 1
+Monstro: vida 44 - att 24
+Rodada 5
+Aventureiro: vida 50 - att 20 - def 1
+Monstro: vida 42 - att 24
+Rodada 6
+Aventureiro: vida 43 - att 20 - def 1
+Monstro: vida 29 - att 24
+Rodada 7
+Aventureiro: vida 27 - att 20 - def 1
+Monstro: vida 15 - att 24
+Rodada 8
+Aventureiro: vida 25 - att 20 - def 1
+Monstro: vida 10 - att 24
+Rodada 9
+O monstro morreu!
+```
+
+```
+Aventureiro: vida 100 - att 20 - def 1
+Monstro: vida 79 - att 22
+Rodada 1
+Aventureiro: vida 87 - att 20 - def 1
+Monstro: vida 73 - att 22
+Rodada 2
+Aventureiro: vida 76 - att 20 - def 1
+Monstro: vida 64 - att 22
+Rodada 3
+Aventureiro: vida 56 - att 20 - def 1
+Monstro: vida 54 - att 22
+Rodada 4
+Aventureiro: vida 49 - att 20 - def 1
+Monstro: vida 51 - att 22
+Rodada 5
+Aventureiro: vida 43 - att 20 - def 1
+Monstro: vida 31 - att 22
+Rodada 6
+Aventureiro: vida 39 - att 20 - def 1
+Monstro: vida 28 - att 22
+Rodada 7
+Aventureiro: vida 36 - att 20 - def 1
+Monstro: vida 23 - att 22
+Rodada 8
+Aventureiro: vida 34 - att 20 - def 1
+Monstro: vida 4 - att 22
+Rodada 9
+O monstro morreu!
+```
+
+```
+Aventureiro: vida 100 - att 14 - def 1
+Monstro: vida 75 - att 24
+Rodada 1
+Aventureiro: vida 88 - att 14 - def 1
+Monstro: vida 71 - att 24
+Rodada 2
+Aventureiro: vida 66 - att 14 - def 1
+Monstro: vida 58 - att 24
+Rodada 3
+Aventureiro: vida 54 - att 14 - def 1
+Monstro: vida 55 - att 24
+Rodada 4
+Aventureiro: vida 35 - att 14 - def 1
+Monstro: vida 52 - att 24
+Rodada 5
+Aventureiro: vida 22 - att 14 - def 1
+Monstro: vida 44 - att 24
+Rodada 6
+Aventureiro: vida 20 - att 14 - def 1
+Monstro: vida 39 - att 24
+Rodada 7
+Aventureiro: vida 2 - att 14 - def 1
+Monstro: vida 25 - att 24
+Rodada 8
+Você morreu!
+```
+
+```
+Aventureiro: vida 100 - att 20 - def 1
+Monstro: vida 68 - att 23
+Rodada 1
+Aventureiro: vida 80 - att 20 - def 1
+Monstro: vida 53 - att 23
+Rodada 2
+Aventureiro: vida 70 - att 20 - def 1
+Monstro: vida 34 - att 23
+Rodada 3
+Aventureiro: vida 61 - att 20 - def 1
+Monstro: vida 29 - att 23
+Rodada 4
+Aventureiro: vida 42 - att 20 - def 1
+Monstro: vida 17 - att 23
+Rodada 5
+Aventureiro: vida 23 - att 20 - def 1
+Monstro: vida 7 - att 23
+Rodada 6
+O monstro morreu!
+```
