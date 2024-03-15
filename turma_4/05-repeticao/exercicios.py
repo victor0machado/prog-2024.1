@@ -34,3 +34,23 @@ def fatorial(num):
     positivo fornecido pelo usuário.
     Ex.: 5! = 5 * 4 * 3 * 2 * 1 = 120.
     """
+    fat = 1
+    for mult in range(1, num + 1):
+        fat *= mult
+
+    return fat
+
+def fatorial2(num):
+    """
+    Exercício resolvido 04
+    Faça um programa que calcule o fatorial de um número inteiro
+    positivo fornecido pelo usuário.
+    Ex.: 5! = 5 * 4 * 3 * 2 * 1 = 120.
+
+    x! = x * (x - 1)!
+    """
+    if num == 1:
+        return 1
+    return num * fatorial2(num - 1)
+
+print(fatorial2(5))
