@@ -23,6 +23,16 @@ def notas_sao_validas(ap1, ap2, asub, ac):
     Returna False caso contrário.
     """
 
+print(notas_sao_validas(10, 8, 5, 6)) # True
+print(notas_sao_validas(11, 8, 5, 6)) # False
+print(notas_sao_validas(-1, 8, 5, 6)) # False
+print(notas_sao_validas(8, 11, 5, 6)) # False
+print(notas_sao_validas(8, -1, 5, 6)) # False
+print(notas_sao_validas(8, 8, 11, 6)) # False
+print(notas_sao_validas(8, 8, -1, 6)) # False
+print(notas_sao_validas(8, 8, 8, 11)) # False
+print(notas_sao_validas(8, 8, 8, -1)) # False
+
 def selecionar_notas(ap1, ap2, asub):
     """
     Retorna as duas maiores notas, considerando que a AS pode substituir a
@@ -35,7 +45,7 @@ def calcular_media(nota1, nota2, ac):
     Retorna a média da disciplina, arredondada em duas casas decimais.
     M = (AP1 + AP2) * 0.4 + AC * 0.2
     """
-    return (nota1 + nota2) * 0.4 + 0.2 * ac
+    return round((nota1 + nota2) * 0.4 + 0.2 * ac, 2)
 
 def aluno_foi_aprovado(media):
     """
