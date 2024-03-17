@@ -7,6 +7,7 @@ Abaixo estão indicados os pedidos para cada AC do curso. Consulte os prazos em 
 * [AC3](#ac3)
 * [AC4](#ac4)
 * [AC5](#ac5)
+* [AC6](#ac6)
 
 ## AC1
 
@@ -268,3 +269,9 @@ Monstro: vida 7 - att 23
 Rodada 6
 O monstro morreu!
 ```
+
+## AC6
+
+Acessar o convite para o site **Beecrowd** recebido no seu e-mail do Ibmec (matricula@alunos.ibmec.edu.br). Caso já tenha uma conta no Beecrowd com seu e-mail pessoal, me envie um e-mail (silva.victor@ibmec.edu.br) ou entre em contato pelo WhatsApp para que eu possa enviar um novo convite.
+
+Na disciplina "Estruturas de Dados", realizar a lista com o nome "AC6". Suba o código no GitHub como normalmente e envie pelo https://estudante.ibmec.br o link para os exercícios no GitHub.
