@@ -80,6 +80,242 @@ O combate encerra assim que um dos dois, aventureiro ou monstro, chega a uma vid
 
 O jogo acaba quando (a) o aventureiro morre, ou (b) o aventureiro chega no tesouro.
 
+## Exemplo de execução do jogo
+
+O trecho abaixo é uma extração de como foi executado o jogo:
+
+```
+Deseja buscar um tesouro? Primeiro, informe seu nome: Victor
+Saudações, Victor! Boa sorte!
+@ . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: d
+. @ . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: s
+. . . . . . . . . .
+. @ . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: s
+Um novo monstro apareceu!
+Victor causa 15 de dano! Vida do monstro: 29
+Monstro causa 12 de dano! Vida de Victor: 118
+Victor causa 13 de dano! Vida do monstro: 16
+Monstro causa 12 de dano! Vida de Victor: 117
+Victor causa 14 de dano! Vida do monstro: 2
+Monstro causa 12 de dano! Vida de Victor: 116
+Victor causa 17 de dano! Vida do monstro: -15
+Monstro foi derrotado!
+. . . . . . . . . .
+. . . . . . . . . .
+. @ . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: d
+. . . . . . . . . .
+. . . . . . . . . .
+. . @ . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: d
+Um novo monstro apareceu!
+Victor causa 15 de dano! Vida do monstro: 72
+Monstro causa 21 de dano! Vida de Victor: 106
+Victor causa 17 de dano! Vida do monstro: 55
+Monstro causa 21 de dano! Vida de Victor: 96
+Victor causa 13 de dano! Vida do monstro: 42
+Monstro causa 21 de dano! Vida de Victor: 86
+Victor causa 17 de dano! Vida do monstro: 25
+Monstro causa 21 de dano! Vida de Victor: 76
+Victor causa 16 de dano! Vida do monstro: 9
+Monstro causa 21 de dano! Vida de Victor: 66
+Victor causa 18 de dano! Vida do monstro: -9
+Monstro foi derrotado!
+. . . . . . . . . .
+. . . . . . . . . .
+. . . @ . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: d
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . @ . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: d
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . @ . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: d
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . @ . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: d
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . @ . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: d
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . @ .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: s
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . @ .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: s
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . @ .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: s
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . @ .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: s
+Um novo monstro apareceu!
+Victor causa 17 de dano! Vida do monstro: 47
+Monstro causa 7 de dano! Vida de Victor: 66
+Victor causa 14 de dano! Vida do monstro: 33
+Monstro causa 7 de dano! Vida de Victor: 66
+Victor causa 15 de dano! Vida do monstro: 18
+Monstro causa 7 de dano! Vida de Victor: 66
+Victor causa 17 de dano! Vida do monstro: 1
+Monstro causa 7 de dano! Vida de Victor: 66
+Victor causa 13 de dano! Vida do monstro: -12
+Monstro foi derrotado!
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . @ .
+. . . . . . . . . .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: s
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . @ .
+. . . . . . . . X .
+. . . . . . . . . .
+Insira o seu comando: s
+Um novo monstro apareceu!
+Victor causa 18 de dano! Vida do monstro: 25
+Monstro causa 19 de dano! Vida de Victor: 58
+Victor causa 17 de dano! Vida do monstro: 8
+Monstro causa 19 de dano! Vida de Victor: 50
+Victor causa 18 de dano! Vida do monstro: -10
+Monstro foi derrotado!
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . . .
+. . . . . . . . @ .
+. . . . . . . . . .
+Parabéns, Victor! Você encontrou o tesouro!
+```
+
 ## Avaliação
 
 Os projetos serão avaliados de acordo com os seguintes critérios:
