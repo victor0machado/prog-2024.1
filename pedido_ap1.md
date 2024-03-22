@@ -1,6 +1,6 @@
 # Pedido da AP1
 
-Recomendo utilizar o modelo do projeto [disponível aqui](https://github.com/victor0machado/prog-2024.1/blob/main/modelos/ap1/ap1.py).
+Recomendo utilizar o modelo do projeto [disponível aqui](https://github.com/victor0machado/prog-2024.1/blob/main/modelos/ap1/ap1.py). Mesmo que não use o modelo, veja a documentação de cada função para entender os detalhes das mecânicas e do desenrolar do jogo.
 
 ## Descrição do projeto
 
