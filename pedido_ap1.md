@@ -325,7 +325,7 @@ Os projetos serão avaliados de acordo com os seguintes critérios:
 
 ## Informações gerais:
 
-* Prazo: entrega até 23/04/2023 (impreterivelmente);
+* Prazo: entrega até 28/04/2023 (impreterivelmente);
 * Grupos de no mínimo 3 e no máximo 5 pessoas;
 * Método de entrega: via Sala de Aula Virtual (estudante.ibmec.br). Formato de entrega:
   * Criar um repositório no GitHub exclusivo para a AP1, torná-lo **privado** e adicionar o professor (@victor0machado) como colaborador. Subir no estudante o link para o repositório;
