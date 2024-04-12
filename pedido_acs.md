@@ -8,6 +8,7 @@ Abaixo estão indicados os pedidos para cada AC do curso. Consulte os prazos em 
 * [AC4](#ac4)
 * [AC5](#ac5)
 * [AC6](#ac6)
+* [AC7](#ac7)
 
 ## AC1
 
@@ -275,3 +276,8 @@ O monstro morreu!
 Acessar o convite para o site **Beecrowd** recebido no seu e-mail do Ibmec (matricula@alunos.ibmec.edu.br). Caso já tenha uma conta no Beecrowd com seu e-mail pessoal, me envie um e-mail (silva.victor@ibmec.edu.br) ou entre em contato pelo WhatsApp para que eu possa enviar um novo convite.
 
 Na disciplina "Programação Estruturada", realizar a lista com o nome "AC6". Suba o código no GitHub como normalmente e envie pelo https://estudante.ibmec.br o link para os exercícios no GitHub.
+
+## AC7
+
+No Beecrowd, na disciplina "Programação Estruturada", realizar a lista com o nome "AC7". Resolva os problemas pelo Beecrowd, suba o código no GitHub como normalmente e envie pelo https://estudante.ibmec.br o link para os exercícios no GitHub.
+
