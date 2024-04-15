@@ -1,0 +1,12 @@
+[
+    {
+        "nome": "ana",
+        "matricula": "1234",
+        "email": "ana@gmail.com"
+    },
+    {
+        "nome": "bernardo",
+        "matricula": "56789",
+        "email": "bernardo@outlook.com"
+    }
+]
