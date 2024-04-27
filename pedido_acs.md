@@ -9,6 +9,7 @@ Abaixo estão indicados os pedidos para cada AC do curso. Consulte os prazos em 
 * [AC5](#ac5)
 * [AC6](#ac6)
 * [AC7](#ac7)
+* [AC8](#ac8)
 
 ## AC1
 
@@ -281,3 +282,29 @@ Na disciplina "Programação Estruturada", realizar a lista com o nome "AC6". Su
 
 No Beecrowd, na disciplina "Programação Estruturada", realizar a lista com o nome "AC7". Resolva os problemas pelo Beecrowd, suba o código no GitHub como normalmente e envie pelo https://estudante.ibmec.br o link para os exercícios no GitHub.
 
+## AC8
+
+No Beecrowd, na disciplina "Programação Estruturada", realizar a lista com o nome "AC8". Resolva os problemas pelo Beecrowd, suba o código no GitHub como normalmente e envie pelo https://estudante.ibmec.br o link para os exercícios no GitHub.
+
+**Dicas:**
+
+- No exercício 1161, você deverá rodar o código até chegar no EOF (_end of file_). Isso pode ser analisado com um `try/except`, como no caso abaixo:
+
+  ``` python
+  def le_info():
+    try:
+      n = int(input())
+    except EOFError:
+      return
+  ```
+
+- No exercício 1171, você pode usar a seguinte expressão para obter uma lista com dados únicos a partir de uma outra lista:
+
+  ``` python
+  lista = [1, 2, 3, 4, 5, 1, 2, 3, 6]
+  unicos = list(set(lista))
+
+  print(lista) # [1, 2, 3, 4, 5, 6]
+  ```
+
+- No exercício 1221, para ser amis eficiente, você pode usar o conceito que diz que todo número não primo `n` possui pelo menos um divisor menor ou igual a `n ** 0.5`.
