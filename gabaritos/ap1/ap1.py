@@ -242,7 +242,7 @@ def main():
             print("Já correndo?")
             break
         elif op == "T":
-            ver_atributos_aventureiro()
+            ver_atributos_aventureiro(aventureiro)
         elif op in ["W", "A", "S", "D"]:
             if movimentar(aventureiro, op):
                 desenhar(aventureiro, tesouro)
