@@ -1,19 +1,14 @@
 class Agencia:
-    """
-    numero
-    endereco
-    gerente
-    """
-    def __init__(self, numero, endereco, gerente):
+    def __init__(self, numero, endereco):
         self.numero = numero
         self.endereco = endereco
-        self.gerente = gerente
         self.contador_contas = 0
 
     def criar_numero_conta(self):
         self.contador_contas += 1
         return self.contador_contas
 
+    # sobrescrita
     def __str__(self):
         return f"Agência {self.endereco} - número {self.numero}"
 
