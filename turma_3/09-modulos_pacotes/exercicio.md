@@ -1,0 +1,4 @@
+- Criar um novo módulo, exp.py, no pacote operacoes
+- No módulo exp, criar funções potencia(a, b) e raiz(a, b)
+- Atualizar o módulo decisor para conter as operações exponenciais
+- Atualizar calculadora para contemplar as operações
