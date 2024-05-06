@@ -35,6 +35,14 @@ def executar():
             if evento.type == pygame.QUIT:
                 return
 
+        teclas = pygame.key.get_pressed()
+        if teclas[pygame.K_q]:
+            print("Já correndo?")
+            return
+
+        if teclas[pygame.K_t]:
+            print(aventureiro)
+
         tela.renderizar(aventureiro, tesouro)
         pygame.time.Clock().tick(60)
 
