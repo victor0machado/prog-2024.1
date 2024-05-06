@@ -71,4 +71,3 @@ def executar():
 
         tela.renderizar(aventureiro, tesouro)
         pygame.time.Clock().tick(60)
-

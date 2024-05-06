@@ -1,5 +1,5 @@
 [x] desenhar mapa
-[ ] movimentar o aventureiro
+[X] movimentar o aventureiro
 [ ] exibir os atributos na tela
 [ ] exibir um resumo do combate na tela
 
