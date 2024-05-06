@@ -43,28 +43,13 @@ def executar():
         if teclas[pygame.K_t]:
             print(aventureiro)
 
+        if not movimentar(aventureiro, teclas):
+            print("Game Over")
+            return
+
         tela.renderizar(aventureiro, tesouro)
         pygame.time.Clock().tick(60)
 
-
-    # mapa.desenhar(aventureiro, tesouro)
-
-    # while True:
-    #     op = input("Insira o seu comando: ").upper()
-    #     if op == "Q":
-    #         print("Já correndo?")
-    #         break
-    #     elif op == "T":
-    #         print(aventureiro)
-    #     elif op in ["W", "A", "S", "D"]:
-    #         if movimentar(aventureiro, op):
-    #             mapa.desenhar(aventureiro, tesouro)
-    #         else:
-    #             print("Game Over...")
-    #             break
-    #     else:
-    #         print(f"{aventureiro.nome}, não conheço essa opção! Tente novamente!")
-
-    #     if aventureiro.posicao == tesouro.posicao:
-    #         print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
-    #         break
+        if aventureiro.posicao == tesouro.posicao:
+            print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
+            return

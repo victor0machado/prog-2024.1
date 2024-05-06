@@ -2,6 +2,8 @@ import random
 
 from jogo.personagens.monstro import Monstro
 
+import pygame
+
 def iniciar_combate(aventureiro, monstro):
     """
     Executa um loop infinito, que possui as seguintes etapas:
@@ -29,7 +31,19 @@ def iniciar_combate(aventureiro, monstro):
             print(f"{aventureiro.nome} foi derrotado!")
             return False
 
-def movimentar(aventureiro, direcao):
+def determina_direcao(teclas):
+    if teclas[pygame.K_a]:
+        return "A"
+    if teclas[pygame.K_w]:
+        return "W"
+    if teclas[pygame.K_s]:
+        return "S"
+    if teclas[pygame.K_d]:
+        return "D"
+
+    return ""
+
+def movimentar(aventureiro, teclas):
     """
     Realiza a ação de movimento e analisa as consequências.
 
@@ -45,6 +59,10 @@ def movimentar(aventureiro, direcao):
 
     Caso não seja um monstro, retorna True.
     """
+    direcao = determina_direcao(teclas)
+    if direcao == "":
+        return True
+
     if not aventureiro.andar(direcao):
         return True
 
