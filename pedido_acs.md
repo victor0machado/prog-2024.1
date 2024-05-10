@@ -10,6 +10,7 @@ Abaixo estão indicados os pedidos para cada AC do curso. Consulte os prazos em 
 * [AC6](#ac6)
 * [AC7](#ac7)
 * [AC8](#ac8)
+* [AC9](#ac9)
 
 ## AC1
 
@@ -308,3 +309,7 @@ No Beecrowd, na disciplina "Programação Estruturada", realizar a lista com o n
   ```
 
 - No exercício 1221, para ser amis eficiente, você pode usar o conceito que diz que todo número não primo `n` possui pelo menos um divisor menor ou igual a `n ** 0.5`.
+
+## AC9
+
+No Beecrowd, na disciplina "Programação Estruturada", realizar a lista com o nome "AC9". Resolva os problemas pelo Beecrowd, suba o código no GitHub como normalmente e envie pelo https://estudante.ibmec.br o link para os exercícios no GitHub.
