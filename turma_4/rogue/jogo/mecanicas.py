@@ -1,10 +1,14 @@
 import random
 
+from jogo.gui.tela import Tela
+
 from jogo.personagens.monstro import Monstro
 from jogo.personagens.aventureiro import Aventureiro
 from jogo.personagens.tesouro import Tesouro
 
 from jogo import mapa
+
+import pygame
 
 def iniciar_combate(aventureiro, monstro):
     """
@@ -79,27 +83,39 @@ def jogo():
     """
     aventureiro = Aventureiro()
     tesouro = Tesouro()
+    tela = Tela()
 
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
-    mapa.desenhar(aventureiro, tesouro)
-
     while True:
-        op = input("Insira o seu comando: ").upper()
-        if op == "Q":
-            print("Já correndo?")
-            break
-        elif op == "T":
-            print(aventureiro)
-        elif op in ["W", "A", "S", "D"]:
-            if movimentar(aventureiro, op):
-                mapa.desenhar(aventureiro, tesouro)
-            else:
-                print("Game Over...")
-                break
-        else:
-            print(f"{aventureiro.nome}, não conheço essa opção! Tente novamente!")
+        # Controlar os eventos
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                return
 
-        if aventureiro.posicao == tesouro.posicao:
-            print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
-            break
+        # Executar as ações do jogo
+
+        # Desenho na tela
+        tela.renderizar()
+
+        # Chamar o relógio interno do jogo
+        pygame.time.Clock().tick(60)
+
+        # op = input("Insira o seu comando: ").upper()
+        # if op == "Q":
+        #     print("Já correndo?")
+        #     break
+        # elif op == "T":
+        #     print(aventureiro)
+        # elif op in ["W", "A", "S", "D"]:
+        #     if movimentar(aventureiro, op):
+        #         mapa.desenhar(aventureiro, tesouro)
+        #     else:
+        #         print("Game Over...")
+        #         break
+        # else:
+        #     print(f"{aventureiro.nome}, não conheço essa opção! Tente novamente!")
+
+        # if aventureiro.posicao == tesouro.posicao:
+        #     print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
+        #     break
