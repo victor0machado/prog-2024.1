@@ -4,7 +4,7 @@ import pygame
 
 GRID = 40
 TAM_MAPA = 10
-LARGURA = GRID * TAM_MAPA + 300
+LARGURA = GRID * TAM_MAPA + 400
 ALTURA = GRID * TAM_MAPA + 100
 MARGEM = 10
 FONTE = "Courier New"
@@ -41,7 +41,11 @@ class Tela:
     def aventureiro(self, aventureiro):
         self.escreve_grid("@", aventureiro.posicao)
 
-        atributos = f"{aventureiro.nome} - vida: {aventureiro.vida}; força: {aventureiro.forca}; defesa: {aventureiro.defesa}"
+        atributos = f"{aventureiro.nome}" \
+            f" nv {aventureiro.nivel}" \
+            f" - vida: {aventureiro.vida}/{aventureiro.vida_max};" \
+            f" força: {aventureiro.forca};" \
+            f" defesa: {aventureiro.defesa}"
         fonte = pygame.font.SysFont(FONTE, GRID // 2)
         texto = fonte.render(atributos, True, CORES.branco)
         self.display.blit(texto, [MARGEM, ALTURA - MARGEM - texto.get_height()])

@@ -22,6 +22,7 @@ def iniciar_combate(aventureiro, monstro):
         print(f"{aventureiro.nome} causa {dano} de dano! Vida do monstro: {monstro.vida}")
         if not monstro.esta_vivo():
             print("Monstro foi derrotado!")
+            aventureiro.ganhar_xp(monstro.xp)
             return True
 
         dano = monstro.atacar()

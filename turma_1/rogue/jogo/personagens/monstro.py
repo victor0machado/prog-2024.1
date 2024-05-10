@@ -13,6 +13,7 @@ class Monstro:
         """
         self.forca = random.randint(5, 25)
         self.vida = random.randint(10, 100)
+        self.xp = 1
         print("Um novo monstro apareceu!")
 
     def atacar(self):
