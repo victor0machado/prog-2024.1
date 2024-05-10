@@ -2,7 +2,9 @@ import random
 
 from jogo.gui.tela import Tela
 
-from jogo.personagens.monstro import Monstro
+from jogo.personagens.monstros.monstro import Monstro
+from jogo.personagens.monstros.boss import Boss
+
 from jogo.personagens.aventureiro import Aventureiro
 from jogo.personagens.tesouro import Tesouro
 
@@ -23,14 +25,14 @@ def iniciar_combate(aventureiro, monstro):
     while True:
         dano = aventureiro.atacar()
         monstro.defender(dano)
-        print(f"{aventureiro.nome} causa {dano} de dano! Vida do monstro: {monstro.vida}")
+        print(f"{aventureiro.nome} causa {dano} de dano! Vida de {monstro.nome}: {monstro.vida}")
         if not monstro.esta_vivo():
-            print("Monstro foi derrotado!")
+            print(f"{monstro.nome} foi derrotado!")
             return True
 
         dano = monstro.atacar()
         aventureiro.defender(dano)
-        print(f"Monstro causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
+        print(f"{monstro.nome} causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
         if not aventureiro.esta_vivo():
             print(f"{aventureiro.nome} foi derrotado!")
             return False
@@ -103,7 +105,8 @@ def jogo():
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
     mensagem_combate = ""
-    while True:
+    jogo_acabou = False
+    while not jogo_acabou:
         # Controlar os eventos
         teclas = pygame.key.get_pressed()
 
@@ -133,8 +136,13 @@ def jogo():
                     mensagem_combate = ""
 
                 if aventureiro.posicao == tesouro.posicao:
-                    print(f"Parabéns, {aventureiro.nome}, você encontrou o tesouro!")
-                    return
+                    boss = Boss()
+                    if iniciar_combate(aventureiro, boss):
+                        mensagem_combate = f"Parabéns, {aventureiro.nome}, você encontrou o tesouro!"
+                    else:
+                        mensagem_combate = f"Você foi derrotado pelo chefão... =("
+
+                    jogo_acabou = True
 
         # Desenho na tela
         tela.renderizar(aventureiro, tesouro, mensagem_combate)

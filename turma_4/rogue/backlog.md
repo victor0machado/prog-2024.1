@@ -11,12 +11,16 @@
 - Criar atalhos no teclado
 - Refatorar método de renderização
 
+[X] criar um boss no local do tesouro
+- Criar uma classe que herda Monstro
+- Definir novos atributos
+- Quando a posição do aventureiro for igual à do tesouro, iniciar um combate com o boss
+
 [ ] criar monstros diferentes
 [ ] criar sistema de itens
 [ ] criar sistema de equipamentos
 [ ] criar sistema de classes
 [ ] monstar sistema de níveis de dificuldades
-[ ] criar um boss no local do tesouro
 [ ] sistema de níveis
 [ ] outros atributos
 [ ] sistema de batalhas por turnos
@@ -27,3 +31,4 @@
 [ ] expandir o mapa
 [ ] sistema de andares
 [ ] sistema de loja no jogo (drop de dinheiro e compra de itens)
+[ ] criar um monstro especial que persegue o aventureiro

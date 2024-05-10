@@ -12,6 +12,7 @@ class Monstro:
         Antes de retornar o dicionário, exibe na tela a mensagem "Um novo monstro
         apareceu!".
         """
+        self.nome = "Monstro"
         self.forca = random.randint(5, 25)
         self.vida = random.randint(10, 100)
         print("Um novo monstro apareceu!")
