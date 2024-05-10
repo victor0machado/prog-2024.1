@@ -1,4 +1,5 @@
 from .cores import CORES
+from .relogio import relogio
 
 import pygame
 
@@ -25,8 +26,14 @@ class Tela:
         self.tesouro(tesouro)
         self.mapa(aventureiro, tesouro)
         self.combate(mensagem_combate)
+        self.relogio()
 
         pygame.display.update()
+
+    def relogio(self):
+        fonte = pygame.font.SysFont(FONTE, GRID // 2)
+        texto = fonte.render(relogio.medir_tempo(), True, CORES.branco)
+        self.display.blit(texto, [LARGURA - MARGEM - texto.get_width(), MARGEM])
 
     def combate(self, mensagem):
         fonte = pygame.font.SysFont(FONTE, GRID // 2)

@@ -1,11 +1,13 @@
 import time
 
 from jogo.mecanicas import loop
+from jogo.gui.relogio import relogio
 
 import pygame
 
 def iniciar():
     pygame.init()
+    relogio.iniciar()
 
 def encerrar():
     print("Saindo do jogo!")
