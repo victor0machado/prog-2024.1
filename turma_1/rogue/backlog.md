@@ -1,7 +1,7 @@
-[x] desenhar mapa
+[X] desenhar mapa
 [X] movimentar o aventureiro
-[ ] exibir os atributos na tela
-[ ] exibir um resumo do combate na tela
+[X] exibir os atributos na tela
+[X] exibir um resumo do combate na tela
 
 [ ] criar sistema de classes
 [ ] criar mecânica de itens

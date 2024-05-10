@@ -19,13 +19,19 @@ class Tela:
         self.display = pygame.display.set_mode((LARGURA, ALTURA))
         pygame.display.set_caption("Rogue")
 
-    def renderizar(self, aventureiro, tesouro):
+    def renderizar(self, aventureiro, tesouro, mensagem_combate):
         self.display.fill(CORES.preto)
         self.aventureiro(aventureiro)
         self.tesouro(tesouro)
         self.mapa(aventureiro, tesouro)
+        self.combate(mensagem_combate)
 
         pygame.display.update()
+
+    def combate(self, mensagem):
+        fonte = pygame.font.SysFont(FONTE, GRID // 2)
+        texto = fonte.render(mensagem, True, CORES.branco)
+        self.display.blit(texto, [MARGEM, MARGEM])
 
     def escreve_grid(self, mensagem, posicao):
         fonte = pygame.font.SysFont(FONTE, GRID)
