@@ -1,21 +1,6 @@
-import random
-
 class Monstro:
     def __init__(self):
-        """
-        Inicia um novo monstro, retornando um dicionário com as seguintes chaves
-        e valores:
-
-        - forca: Um valor aleatório entre 5 e 25
-        - vida: um valor aleatório entre 10 e 100
-
-        Antes de retornar o dicionário, exibe na tela a mensagem "Um novo monstro
-        apareceu!".
-        """
-        self.nome = "Monstro"
-        self.forca = random.randint(5, 25)
-        self.vida = random.randint(10, 100)
-        print("Um novo monstro apareceu!")
+        raise NotImplementedError
 
     def atacar(self):
         """

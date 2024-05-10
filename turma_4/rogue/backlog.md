@@ -16,7 +16,11 @@
 - Definir novos atributos
 - Quando a posição do aventureiro for igual à do tesouro, iniciar um combate com o boss
 
-[ ] criar monstros diferentes
+[X] criar monstros diferentes
+- Criar subclasses de Monstro
+- Criar a lista de monstros
+- Na função `movimentar`, quando for definido que um monstro vai aparecer, escolher aleatoriamente entre os monstros
+
 [ ] criar sistema de itens
 [ ] criar sistema de equipamentos
 [ ] criar sistema de classes

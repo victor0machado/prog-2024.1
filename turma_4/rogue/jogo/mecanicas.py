@@ -2,8 +2,9 @@ import random
 
 from jogo.gui.tela import Tela
 
-from jogo.personagens.monstros.monstro import Monstro
 from jogo.personagens.monstros.boss import Boss
+from jogo.personagens.monstros.thanos import Thanos
+from jogo.personagens.monstros.demogorgon import Demogorgon
 
 from jogo.personagens.aventureiro import Aventureiro
 from jogo.personagens.tesouro import Tesouro
@@ -68,17 +69,19 @@ def movimentar(aventureiro, teclas):
     """
     direcao = determina_direcao(teclas)
     if direcao == "":
-        return 2
+        return 2, None
 
     if not aventureiro.andar(direcao):
-        return 2
+        return 2, None
+
+
 
     efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
     if efeito == "monstro":
-        monstro = Monstro()
-        return int(iniciar_combate(aventureiro, monstro))
+        monstro = random.choices([Thanos, Demogorgon])[0]()
+        return int(iniciar_combate(aventureiro, monstro)), monstro.nome
 
-    return 2
+    return 2, None
 
 def jogo():
     """
@@ -126,14 +129,14 @@ def jogo():
                     aventureiro.mudar_char()
 
                 # Executar as ações do jogo
-                resultado = movimentar(aventureiro, teclas)
+                resultado, nome_monstro = movimentar(aventureiro, teclas)
                 if resultado == 0:
-                    return
-
-                if resultado == 1:
-                    mensagem_combate = "Monstro foi derrotado!"
+                    mensagem_combate = f"Você foi derrotado por {nome_monstro}..."
+                    jogo_acabou = True
+                elif resultado == 1:
+                    mensagem_combate = f"{nome_monstro} foi derrotado!"
                 else:
-                    mensagem_combate = ""
+                    mensagem_combate = "Você não encontrou nada"
 
                 if aventureiro.posicao == tesouro.posicao:
                     boss = Boss()
