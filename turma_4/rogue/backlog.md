@@ -1,7 +1,15 @@
 [X] transportar o mapa para a interface gráfica
 [X] movimento do aventureiro
 [X] visualizar na tela os atributos do aventureiro
-[ ] resumir o combate na tela
+[X] resumir o combate na tela
+
+[X] skins (caractere e cor)
+- Adicionar novas cores
+- Criar lista de cores possíveis
+- Criar lista de caracteres possíveis
+- Criar métodos para mudar de cor e caractere
+- Criar atalhos no teclado
+- Refatorar método de renderização
 
 [ ] criar monstros diferentes
 [ ] criar sistema de itens
@@ -11,7 +19,6 @@
 [ ] criar um boss no local do tesouro
 [ ] sistema de níveis
 [ ] outros atributos
-[ ] skins (caractere e cor)
 [ ] sistema de batalhas por turnos
 [ ] habilidades diferentes
 [ ] ataques especiais para monstros

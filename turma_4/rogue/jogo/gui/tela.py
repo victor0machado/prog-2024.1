@@ -37,13 +37,13 @@ class Tela:
         texto = fonte.render(mensagem_combate, True, CORES.branco)
         self.display.blit(texto, [MARGEM, MARGEM])
 
-    def desenha_mensagem(self, mensagem, posicao):
+    def desenha_mensagem(self, mensagem, posicao, cor=CORES.branco):
         fonte = pygame.font.SysFont(FONTE, GRID)
-        texto = fonte.render(mensagem, True, CORES.branco)
+        texto = fonte.render(mensagem, True, cor)
         self.display.blit(texto, centralizar_texto_mapa(posicao, texto))
 
     def aventureiro(self, aventureiro):
-        self.desenha_mensagem("@", aventureiro.posicao)
+        self.desenha_mensagem(aventureiro.char, aventureiro.posicao, aventureiro.cor)
 
         atributos = f"{aventureiro.nome}: vida - {aventureiro.vida}; força - {aventureiro.forca}; defesa: {aventureiro.defesa}"
 

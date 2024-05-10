@@ -1,5 +1,17 @@
 import random
 
+from ..gui.cores import CORES
+
+CORES_POSSIVEIS = [CORES.branco, CORES.vermelho, CORES.verde, CORES.azul]
+CHARS_POSSIVEIS = ["@", "#", "$", "&"]
+
+def pega_prox_valor(lista, valor_atual):
+    ind = lista.index(valor_atual) + 1
+    if ind == len(lista):
+        ind = 0
+
+    return lista[ind]
+
 class Aventureiro:
     def __init__(self):
         self.vida = random.randint(100, 120)
@@ -8,6 +20,15 @@ class Aventureiro:
         self.posicao = [0, 0]
         # self.nome = input("Deseja buscar um tesouro? Primeiro, informe seu nome: ")
         self.nome = "Aventureiro"
+
+        self.cor = CORES.branco
+        self.char = "@"
+
+    def mudar_cor(self):
+        self.cor = pega_prox_valor(CORES_POSSIVEIS, self.cor)
+
+    def mudar_char(self):
+        self.char = pega_prox_valor(CHARS_POSSIVEIS, self.char)
 
     def andar(self, direcao):
         """

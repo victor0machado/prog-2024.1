@@ -116,6 +116,12 @@ def jogo():
                     print("Já correndo?")
                     return
 
+                if teclas[pygame.K_z]:
+                    aventureiro.mudar_cor()
+
+                if teclas[pygame.K_x]:
+                    aventureiro.mudar_char()
+
                 # Executar as ações do jogo
                 resultado = movimentar(aventureiro, teclas)
                 if resultado == 0:
