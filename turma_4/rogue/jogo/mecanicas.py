@@ -116,9 +116,6 @@ def jogo():
                     print("Já correndo?")
                     return
 
-                if teclas[pygame.K_t]:
-                    print(aventureiro)
-
                 # Executar as ações do jogo
                 if not movimentar(aventureiro, teclas):
                     return

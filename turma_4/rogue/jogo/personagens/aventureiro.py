@@ -71,13 +71,3 @@ class Aventureiro:
         Retorna True se a vida do aventureiro é maior que zero.
         """
         return self.vida > 0
-
-    def __str__(self):
-        """
-        Exibe na tela os atributos do aventureiro (nome, vida, força, defesa).
-        """
-        return f"""Informações de {self.nome}:
-Vida:   {self.vida}
-Força:  {self.forca}
-Defesa: {self.defesa}
-"""
