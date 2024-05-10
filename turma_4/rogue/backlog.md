@@ -1,5 +1,5 @@
-[ ] transportar o mapa para a interface gráfica
-[ ] movimento do aventureiro
+[X] transportar o mapa para a interface gráfica
+[X] movimento do aventureiro
 [ ] visualizar na tela os atributos do aventureiro
 [ ] resumir o combate na tela
 

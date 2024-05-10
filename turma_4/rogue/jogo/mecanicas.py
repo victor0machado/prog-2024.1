@@ -34,10 +34,22 @@ def iniciar_combate(aventureiro, monstro):
         aventureiro.defender(dano)
         print(f"Monstro causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
         if not aventureiro.esta_vivo():
-            print(f"{aventureiro['nome']} foi derrotado!")
+            print(f"{aventureiro.nome} foi derrotado!")
             return False
 
-def movimentar(aventureiro, direcao):
+def determina_direcao(teclas):
+    if teclas[pygame.K_a]:
+        return "A"
+    if teclas[pygame.K_w]:
+        return "W"
+    if teclas[pygame.K_s]:
+        return "S"
+    if teclas[pygame.K_d]:
+        return "D"
+
+    return ""
+
+def movimentar(aventureiro, teclas):
     """
     Realiza a ação de movimento e analisa as consequências.
 
@@ -53,6 +65,10 @@ def movimentar(aventureiro, direcao):
 
     Caso não seja um monstro, retorna True.
     """
+    direcao = determina_direcao(teclas)
+    if direcao == "":
+        return True
+
     if not aventureiro.andar(direcao):
         return True
 
@@ -89,33 +105,30 @@ def jogo():
 
     while True:
         # Controlar os eventos
+        teclas = pygame.key.get_pressed()
+
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 return
 
-        # Executar as ações do jogo
+            if evento.type == pygame.KEYUP:
+                if teclas[pygame.K_q]:
+                    print("Já correndo?")
+                    return
+
+                if teclas[pygame.K_t]:
+                    print(aventureiro)
+
+                # Executar as ações do jogo
+                if not movimentar(aventureiro, teclas):
+                    return
+
+                if aventureiro.posicao == tesouro.posicao:
+                    print(f"Parabéns, {aventureiro.nome}, você encontrou o tesouro!")
+                    return
 
         # Desenho na tela
         tela.renderizar(aventureiro, tesouro)
 
         # Chamar o relógio interno do jogo
         pygame.time.Clock().tick(60)
-
-        # op = input("Insira o seu comando: ").upper()
-        # if op == "Q":
-        #     print("Já correndo?")
-        #     break
-        # elif op == "T":
-        #     print(aventureiro)
-        # elif op in ["W", "A", "S", "D"]:
-        #     if movimentar(aventureiro, op):
-        #         mapa.desenhar(aventureiro, tesouro)
-        #     else:
-        #         print("Game Over...")
-        #         break
-        # else:
-        #     print(f"{aventureiro.nome}, não conheço essa opção! Tente novamente!")
-
-        # if aventureiro.posicao == tesouro.posicao:
-        #     print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
-        #     break
