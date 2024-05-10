@@ -96,7 +96,7 @@ def jogo():
         # Executar as ações do jogo
 
         # Desenho na tela
-        tela.renderizar()
+        tela.renderizar(aventureiro, tesouro)
 
         # Chamar o relógio interno do jogo
         pygame.time.Clock().tick(60)
