@@ -3,16 +3,20 @@ from .cores import CORES
 import pygame
 
 GRID = 40
+TAM_MAPA = 10
+LARGURA = GRID * TAM_MAPA + 300
+ALTURA = GRID * TAM_MAPA + 100
+MARGEM = 10
+FONTE = "Courier New"
 
 def centralizar_grid(posicao, texto):
-    return [
-        posicao[0] * GRID + (GRID - texto.get_width()) // 2,
-        posicao[1] * GRID + (GRID - texto.get_height()) // 2,
-    ]
+    x = posicao[0] * GRID + (GRID - texto.get_width()) // 2
+    y = posicao[1] * GRID + (GRID - texto.get_height()) // 2
+    return [x + (LARGURA - GRID * TAM_MAPA) // 2, y + (ALTURA - GRID * TAM_MAPA) // 2]
 
 class Tela:
     def __init__(self):
-        self.display = pygame.display.set_mode((10 * GRID, 10 * GRID))
+        self.display = pygame.display.set_mode((LARGURA, ALTURA))
         pygame.display.set_caption("Rogue")
 
     def renderizar(self, aventureiro, tesouro):
@@ -24,12 +28,17 @@ class Tela:
         pygame.display.update()
 
     def escreve_grid(self, mensagem, posicao):
-        fonte = pygame.font.SysFont(None, GRID)
+        fonte = pygame.font.SysFont(FONTE, GRID)
         texto = fonte.render(mensagem, True, CORES.branco)
         self.display.blit(texto, centralizar_grid(posicao, texto))
 
     def aventureiro(self, aventureiro):
         self.escreve_grid("@", aventureiro.posicao)
+
+        atributos = f"{aventureiro.nome} - vida: {aventureiro.vida}; força: {aventureiro.forca}; defesa: {aventureiro.defesa}"
+        fonte = pygame.font.SysFont(FONTE, GRID // 2)
+        texto = fonte.render(atributos, True, CORES.branco)
+        self.display.blit(texto, [MARGEM, ALTURA - MARGEM - texto.get_height()])
 
     def tesouro(self, tesouro):
         self.escreve_grid("X", tesouro.posicao)
