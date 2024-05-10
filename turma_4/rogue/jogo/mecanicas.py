@@ -6,8 +6,6 @@ from jogo.personagens.monstro import Monstro
 from jogo.personagens.aventureiro import Aventureiro
 from jogo.personagens.tesouro import Tesouro
 
-from jogo import mapa
-
 import pygame
 
 def iniciar_combate(aventureiro, monstro):
@@ -53,8 +51,7 @@ def movimentar(aventureiro, teclas):
     """
     Realiza a ação de movimento e analisa as consequências.
 
-    Chama a função aventureiro.andar e analisa o seu resultado. Se for False,
-    ou seja, se o aventureiro não tiver andado nada, retorna True.
+    Chama a função aventureiro.andar e analisa o seu resultado.
 
     Em seguida, analisa o efeito do movimento. Há 60% de chance de nada
     acontecer, e 40% de chance de um monstro aparecer (pesquise sobre a função
@@ -63,21 +60,23 @@ def movimentar(aventureiro, teclas):
     Se um monstro aparecer, inicia um novo monstro e retorna e resultado da
     função iniciar_combate.
 
-    Caso não seja um monstro, retorna True.
+    Se não aconteceu nada, retorna 2.
+    Se houve um combate o aventureiro foi vitorioso, retorna 1.
+    Se houve um combate e o aventureiro morreu, retorna 0.
     """
     direcao = determina_direcao(teclas)
     if direcao == "":
-        return True
+        return 2
 
     if not aventureiro.andar(direcao):
-        return True
+        return 2
 
     efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
     if efeito == "monstro":
         monstro = Monstro()
-        return iniciar_combate(aventureiro, monstro)
+        return int(iniciar_combate(aventureiro, monstro))
 
-    return True
+    return 2
 
 def jogo():
     """
@@ -103,6 +102,7 @@ def jogo():
 
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
+    mensagem_combate = ""
     while True:
         # Controlar os eventos
         teclas = pygame.key.get_pressed()
@@ -117,15 +117,21 @@ def jogo():
                     return
 
                 # Executar as ações do jogo
-                if not movimentar(aventureiro, teclas):
+                resultado = movimentar(aventureiro, teclas)
+                if resultado == 0:
                     return
+
+                if resultado == 1:
+                    mensagem_combate = "Monstro foi derrotado!"
+                else:
+                    mensagem_combate = ""
 
                 if aventureiro.posicao == tesouro.posicao:
                     print(f"Parabéns, {aventureiro.nome}, você encontrou o tesouro!")
                     return
 
         # Desenho na tela
-        tela.renderizar(aventureiro, tesouro)
+        tela.renderizar(aventureiro, tesouro, mensagem_combate)
 
         # Chamar o relógio interno do jogo
         pygame.time.Clock().tick(60)
