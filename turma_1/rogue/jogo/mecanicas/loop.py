@@ -6,22 +6,6 @@ from ..gui.tela import Tela
 
 import pygame
 
-TECLAS_VALIDAS = [
-    pygame.K_a,
-    pygame.K_w,
-    pygame.K_s,
-    pygame.K_d,
-    pygame.K_q,
-    pygame.K_t
-]
-
-def pressionou_tecla_valida(teclas):
-    for tecla_valida in TECLAS_VALIDAS:
-        if teclas[tecla_valida]:
-            return True
-
-    return False
-
 def executar():
     """
     Fluxo principal do jogo, possui as seguintes etapas:
@@ -46,7 +30,9 @@ def executar():
 
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
-    while True:
+    mensagem_combate = "Comece a explorar"
+    jogo_encerrou = False
+    while not jogo_encerrou:
         teclas = pygame.key.get_pressed()
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
@@ -57,17 +43,18 @@ def executar():
                     print("Já correndo?")
                     return
 
-                if teclas[pygame.K_t]:
-                    print(aventureiro)
-
-                if not movimentar(aventureiro, teclas):
-                    print("Game Over")
-                    return
+                resultado_movimento = movimentar(aventureiro, teclas)
+                if resultado_movimento == 0:
+                    mensagem_combate = "Você foi derrotado..."
+                    jogo_encerrou = True
+                elif resultado_movimento == 1:
+                    mensagem_combate = "Monstro foi derrotado!"
+                else:
+                    mensagem_combate = "Continue explorando"
 
                 if aventureiro.posicao == tesouro.posicao:
                     print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
                     return
 
-
-        tela.renderizar(aventureiro, tesouro)
+        tela.renderizar(aventureiro, tesouro, mensagem_combate)
         pygame.time.Clock().tick(60)

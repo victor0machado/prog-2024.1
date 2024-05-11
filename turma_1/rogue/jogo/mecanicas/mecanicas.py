@@ -22,6 +22,7 @@ def iniciar_combate(aventureiro, monstro):
         print(f"{aventureiro.nome} causa {dano} de dano! Vida do monstro: {monstro.vida}")
         if not monstro.esta_vivo():
             print("Monstro foi derrotado!")
+            aventureiro.ganhar_xp(monstro.xp)
             return True
 
         dano = monstro.atacar()
@@ -48,7 +49,6 @@ def movimentar(aventureiro, teclas):
     Realiza a ação de movimento e analisa as consequências.
 
     Chama a o método andar do objeto aventureiro e analisa o seu resultado.
-    Se for False, ou seja, se o aventureiro não tiver andado nada, retorna True.
 
     Em seguida, analisa o efeito do movimento. Há 60% de chance de nada
     acontecer, e 40% de chance de um monstro aparecer (pesquise sobre a função
@@ -57,18 +57,20 @@ def movimentar(aventureiro, teclas):
     Se um monstro aparecer, inicia um novo monstro e retorna e resultado da
     função iniciar_combate.
 
-    Caso não seja um monstro, retorna True.
+    Retorna 0 se o aventureiro morreu.
+    Retorna 1 se o aventureiro venceu um combate.
+    Retorna 2 se nada aconteceu.
     """
     direcao = determina_direcao(teclas)
     if direcao == "":
-        return True
+        return 2
 
     if not aventureiro.andar(direcao):
-        return True
+        return 2
 
     efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
     if efeito == "monstro":
         monstro = Monstro()
-        return iniciar_combate(aventureiro, monstro)
+        return int(iniciar_combate(aventureiro, monstro))
 
-    return True
+    return 2

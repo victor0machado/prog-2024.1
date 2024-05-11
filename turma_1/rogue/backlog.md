@@ -1,19 +1,33 @@
-[x] desenhar mapa
+[X] desenhar mapa
 [X] movimentar o aventureiro
-[ ] exibir os atributos na tela
-[ ] exibir um resumo do combate na tela
+[X] exibir os atributos na tela
+[X] exibir um resumo do combate na tela
+
+[X] sistema de nível do aventureiro
+- Criar atributos de nível e xp no aventureiro
+- Inserir o atributo de xp e nível na tela
+- Criar um atributo de xp para o monstro
+- Criar uma regra para subida de nível
+- Criar um sistema de progressão de atributos
+
+[X] relógio de tempo
+- Criar um contador de tempo
+- No método renderizar, incluir o relógio
 
 [ ] criar sistema de classes
+[ ] criar um timer para o jogador conseguir achar o tesouro
 [ ] criar mecânica de itens
 [ ] criar variedade de monstros
+[ ] colocar uma imagem dos monstros na tela
+[ ] colocar que o aventureiro encontrou o tesouro na tela
+[ ] colocar caixa de diálogo para nomear o aventureiro
+[ ] opção de salvar o jogo
 [ ] ampliar o mapa, criando mais salas
 [ ] movimentação do monstro
 [ ] criar níveis da dungeon
 [ ] criar design bonitinho para eventos
 [ ] criar um boss no local do tesouro ou em cada nível
-[ ] relógio de tempo
 [ ] co-op local
-[ ] sistema de nível do aventureiro
 [ ] loja para comprar itens
 [ ] criar um sistema monetário para o jogo
 [ ] criar poções
