@@ -11,6 +11,7 @@ Abaixo estão indicados os pedidos para cada AC do curso. Consulte os prazos em 
 * [AC7](#ac7)
 * [AC8](#ac8)
 * [AC9](#ac9)
+* [AC10](#ac10)
 
 ## AC1
 
@@ -313,3 +314,17 @@ No Beecrowd, na disciplina "Programação Estruturada", realizar a lista com o n
 ## AC9
 
 No Beecrowd, na disciplina "Programação Estruturada", realizar a lista com o nome "AC9". Resolva os problemas pelo Beecrowd, suba o código no GitHub como normalmente e envie pelo https://estudante.ibmec.br o link para os exercícios no GitHub.
+
+## AC10
+
+No Beecrowd, na disciplina "Programação Estruturada", realizar a lista com o nome "AC10". Resolva os problemas pelo Beecrowd, suba o código no GitHub como normalmente e envie pelo https://estudante.ibmec.br o link para os exercícios no GitHub.
+
+**Dicas:**
+
+- No exercício 1258, considere que:
+  - É possível que uma pessoa compre mais de uma camisa
+  - É possível que uma pessoa compre camisas de cores ou tamanhos diferentes
+  - O último conjunto de testes não possui uma linha em branco ao final
+- No exercício 1260, considere que:
+  - O último conjunto de testes não possui uma linha em branco ao final
+  - Ao executar o programa, na leitura de cada espécie, é possível que haja um erro do tipo `EOFError`. Você precisa tratar esse erro com um `try/except`
