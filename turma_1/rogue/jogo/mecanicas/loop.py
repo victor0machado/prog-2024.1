@@ -47,6 +47,7 @@ def executar():
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
     mensagem_combate = "Comece a explorar"
+    primeiro_movimento = True
     jogo_encerrou = False
     while not jogo_encerrou:
         teclas = pygame.key.get_pressed()
@@ -66,7 +67,11 @@ def executar():
                 elif resultado_movimento == 1:
                     mensagem_combate = "Monstro foi derrotado!"
                 else:
-                    mensagem_combate = "Continue explorando"
+                    if primeiro_movimento:
+                        mensagem_combate = "Comece a explorar"
+                        primeiro_movimento = False
+                    else:
+                        mensagem_combate = "Continue explorando"
 
                 if aventureiro.posicao == tesouro.posicao:
                     print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
