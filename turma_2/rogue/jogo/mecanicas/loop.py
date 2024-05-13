@@ -9,6 +9,18 @@ from ..personagens.tesouro import Tesouro
 
 import pygame
 
+def determinar_direcao(teclas):
+    if teclas[pygame.K_a]:
+        return "A"
+    if teclas[pygame.K_w]:
+        return "W"
+    if teclas[pygame.K_s]:
+        return "S"
+    if teclas[pygame.K_d]:
+        return "D"
+
+    return ""
+
 def executar():
     """
     Fluxo principal do jogo, possui as seguintes etapas:
@@ -42,11 +54,27 @@ def executar():
 
     while True:
         # Análise dos eventos
+        teclas = pygame.key.get_pressed()
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 return
 
-        # Processamento do jogo
+            if evento.type == pygame.KEYUP:
+                # Processamento do jogo
+                if teclas[pygame.K_q]:
+                    print("Já correndo?")
+                    return
+
+                if teclas[pygame.K_t]:
+                    aventureiro.ver_atributos()
+
+                if not mecanicas.movimentar(aventureiro, determinar_direcao(teclas)):
+                    print("Game Over")
+                    return
+
+                if aventureiro.posicao == tesouro.posicao:
+                    print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
+                    return
 
         # Renderização na tela
         tela.renderizar(aventureiro, tesouro)
