@@ -19,12 +19,16 @@
 - Criar uma nova tela de jogo, antes de inicializar a tela principal
 - Processar os eventos e capturar o texto inserido
 
+[X] colocar que o aventureiro encontrou o tesouro na tela
+- Alterar a mensagem no topo da tela
+- Criar um texto grande no centro da tela dando parabéns
+- Fazer equivalente para o Game Over
+
 [ ] criar sistema de classes
 [ ] criar um timer para o jogador conseguir achar o tesouro
 [ ] criar mecânica de itens
 [ ] criar variedade de monstros
 [ ] colocar uma imagem dos monstros na tela
-[ ] colocar que o aventureiro encontrou o tesouro na tela
 [ ] opção de salvar o jogo
 [ ] ampliar o mapa, criando mais salas
 [ ] movimentação do monstro

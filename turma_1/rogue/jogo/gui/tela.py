@@ -8,7 +8,12 @@ TAM_MAPA = 10
 LARGURA = GRID * TAM_MAPA + 400
 ALTURA = GRID * TAM_MAPA + 100
 MARGEM = 10
-FONTE = "Courier New"
+FONTE = "Lucida Console"
+
+TEXTOS_FIM_JOGO = {
+    "Você foi derrotado...": "Derrota",
+    "Parabéns! Você encontrou o tesouro!": "Vitória"
+}
 
 def centralizar_grid(posicao, texto):
     x = posicao[0] * GRID + (GRID - texto.get_width()) // 2
@@ -28,7 +33,18 @@ class Tela:
         self.combate(mensagem_combate)
         self.relogio()
 
+        if mensagem_combate in TEXTOS_FIM_JOGO.keys():
+            self.fim_jogo(mensagem_combate)
+
         pygame.display.update()
+
+    def fim_jogo(self, mensagem_combate):
+        fonte = pygame.font.SysFont(FONTE, GRID * 2)
+        texto = fonte.render(TEXTOS_FIM_JOGO[mensagem_combate], True, CORES.vermelho, CORES.branco)
+        self.display.blit(
+            texto,
+            [(LARGURA - texto.get_width()) // 2, (ALTURA - texto.get_height()) // 2]
+        )
 
     def relogio(self):
         fonte = pygame.font.SysFont(FONTE, GRID // 2)

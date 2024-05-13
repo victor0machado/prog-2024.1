@@ -4,7 +4,7 @@ import pygame
 
 FONTE_TAMANHO = 25
 MARGEM = 10
-FONTE = "Courier New"
+FONTE = "Lucida Console"
 LARGURA = 400
 ALTURA = 100
 RECT_ALTURA = FONTE_TAMANHO + 2 * MARGEM

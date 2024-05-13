@@ -74,8 +74,8 @@ def executar():
                         mensagem_combate = "Continue explorando"
 
                 if aventureiro.posicao == tesouro.posicao:
-                    print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
-                    return
+                    mensagem_combate = "Parabéns! Você encontrou o tesouro!"
+                    jogo_encerrou = True
 
         tela.renderizar(aventureiro, tesouro, mensagem_combate)
         pygame.time.Clock().tick(60)
