@@ -2,10 +2,12 @@ import random
 
 from . import mecanicas
 
-from ..gui import mapa
+from ..gui.tela import Tela
 
 from ..personagens.aventureiro import Aventureiro
 from ..personagens.tesouro import Tesouro
+
+import pygame
 
 def executar():
     """
@@ -36,24 +38,16 @@ def executar():
 
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
-    mapa.desenhar(aventureiro, tesouro)
+    tela = Tela()
 
     while True:
-        op = input("Insira o seu comando: ").upper()
-        if op == "Q":
-            print("Já correndo?")
-            break
-        elif op == "T":
-            aventureiro.ver_atributos()
-        elif op in ["W", "A", "S", "D"]:
-            if mecanicas.movimentar(aventureiro, op):
-                mapa.desenhar(aventureiro, tesouro)
-            else:
-                print("Game Over...")
-                break
-        else:
-            print(f"{aventureiro.nome}, não conheço essa opção! Tente novamente!")
+        # Análise dos eventos
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                return
 
-        if aventureiro.posicao == tesouro.posicao:
-            print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
-            break
+        # Processamento do jogo
+
+        # Renderização na tela
+        tela.renderizar(aventureiro, tesouro)
+        pygame.time.Clock().tick(60)
