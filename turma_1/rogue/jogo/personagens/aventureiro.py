@@ -28,43 +28,22 @@ class Aventureiro:
         self.defesa += 2
         print(f"{self.nome} ganhou um nível!")
 
-    def andar(self, direcao):
-        """
-        Altera o valor da posição do aventureiro conforme a direção informada pelo
-        usuário. Direções válidas:
-        - W: cima
-        - A: esquerda
-        - S: baixo
-        - D: direita
-
-        Se o aventureiro estiver nos limites do mapa, não faz nenhum movimento.
-
-        Considerar que o mapa é um sistema cartesiano, com o eixo x aumentando
-        da esquerda para a direita, e o eixo y aumentando de cima para baixo.
-        Portanto, as coordenadas (0, 0) estão no canto superior esquerdo do mapa,
-        enquanto que as coordenadas (9, 9) estão no canto inferior direito.
-
-        Retorna True caso o aventureiro tenha andado, e False caso contrário.
-        """
+    def calcular_pos_futura(self, direcao):
+        x, y = self.posicao
         match direcao:
-            case "W":
-                if self.posicao[1] > 0:
-                    self.posicao[1] -= 1
-                    return True
-            case "S":
-                if self.posicao[1] < 9:
-                    self.posicao[1] += 1
-                    return True
             case "A":
-                if self.posicao[0] > 0:
-                    self.posicao[0] -= 1
-                    return True
+                x -= 1
+            case "W":
+                y -= 1
+            case "S":
+                y += 1
             case "D":
-                if self.posicao[0] < 9:
-                    self.posicao[0] += 1
-                    return True
+                x += 1
 
-        return False
+        return [x, y]
+
+    def andar(self, pos_futura):
+        self.posicao = pos_futura
 
     def atacar(self):
         """

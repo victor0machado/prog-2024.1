@@ -25,12 +25,13 @@ class Tela:
         self.display = pygame.display.set_mode((LARGURA, ALTURA))
         pygame.display.set_caption("Rogue")
 
-    def renderizar(self, aventureiro, tesouro, mensagem_combate):
+    def renderizar(self, aventureiro, tesouro, mensagem_combate, obstaculos):
         self.display.fill(CORES.preto)
         self.aventureiro(aventureiro)
         self.tesouro(tesouro)
-        self.mapa(aventureiro, tesouro)
+        self.mapa(aventureiro, tesouro, obstaculos)
         self.combate(mensagem_combate)
+        self.obstaculos(obstaculos)
         self.relogio()
 
         if mensagem_combate in TEXTOS_FIM_JOGO.keys():
@@ -61,6 +62,10 @@ class Tela:
         texto = fonte.render(mensagem, True, CORES.branco)
         self.display.blit(texto, centralizar_grid(posicao, texto))
 
+    def obstaculos(self, obstaculos):
+        for obstaculo in obstaculos:
+            self.escreve_grid("O", obstaculo.posicao)
+
     def aventureiro(self, aventureiro):
         self.escreve_grid("@", aventureiro.posicao)
 
@@ -76,9 +81,12 @@ class Tela:
     def tesouro(self, tesouro):
         self.escreve_grid("X", tesouro.posicao)
 
-    def mapa(self, aventureiro, tesouro):
+    def mapa(self, aventureiro, tesouro, obstaculos):
         for linha in range(10):
             for coluna in range(10):
-                if [linha, coluna] not in [aventureiro.posicao, tesouro.posicao]:
+                posicoes_invalidas = [aventureiro.posicao, tesouro.posicao]
+                for obstaculo in obstaculos:
+                    posicoes_invalidas.append(obstaculo.posicao)
+                if [linha, coluna] not in posicoes_invalidas:
                     self.escreve_grid(".", [linha, coluna])
 

@@ -2,10 +2,13 @@ from .mecanicas import movimentar
 
 from ..personagens.aventureiro import Aventureiro
 from ..personagens.tesouro import Tesouro
+from ..personagens.obstaculo import Obstaculos
 from ..gui.tela import Tela
 from ..gui.input_texto import InputBox
 
 import pygame
+
+TOTAL_OBSTACULOS = 5
 
 def input_box():
     inputbox = InputBox("Olá! Informe o seu nome:")
@@ -41,6 +44,7 @@ def executar():
     """
     aventureiro = Aventureiro()
     tesouro = Tesouro()
+    obstaculos = Obstaculos(TOTAL_OBSTACULOS, tesouro)
     aventureiro.nome = input_box()
 
     tela = Tela()
@@ -60,7 +64,7 @@ def executar():
                     print("Já correndo?")
                     return
 
-                resultado_movimento = movimentar(aventureiro, teclas)
+                resultado_movimento = movimentar(aventureiro, teclas, obstaculos)
                 if resultado_movimento == 0:
                     mensagem_combate = "Você foi derrotado..."
                     jogo_encerrou = True
@@ -77,5 +81,5 @@ def executar():
                     mensagem_combate = "Parabéns! Você encontrou o tesouro!"
                     jogo_encerrou = True
 
-        tela.renderizar(aventureiro, tesouro, mensagem_combate)
+        tela.renderizar(aventureiro, tesouro, mensagem_combate, obstaculos.obstaculos)
         pygame.time.Clock().tick(60)

@@ -24,6 +24,18 @@
 - Criar um texto grande no centro da tela dando parabéns
 - Fazer equivalente para o Game Over
 
+[X] criar obstáculos
+- Obstáculos:
+    - Gerar aleatoriamente as posições dos obstáculos (definir como 5)
+    - Renderizar os obstáculos na tela
+    - Impedir o movimento do aventureiro para o obstáculo
+
+[ ] criar armadilhas
+- Armadilhas:
+    - Estabelecer um percentual para ocorrer armadilha após andar
+    - Definir quais efeitos de armadilha
+    - Aplicar esses efeitos
+
 [ ] criar sistema de classes
 [ ] criar um timer para o jogador conseguir achar o tesouro
 [ ] criar mecânica de itens
@@ -41,9 +53,10 @@
 [ ] criar poções
 [ ] criar um NPC, com conversas
 [ ] criar mecânica de equipamentos (armas e armaduras)
-[ ] criar obstáculos e armadilhas
 [ ] criar um inventário
 [ ] criar upgrades permanentes
 [ ] níveis de dificuldade do jogo
 [ ] criar um pet com poderes
 [ ] criar música ambiente no jogo
+
+[ ] centralizar a janela de jogo na tela
