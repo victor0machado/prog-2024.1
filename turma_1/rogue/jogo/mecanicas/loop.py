@@ -3,8 +3,23 @@ from .mecanicas import movimentar
 from ..personagens.aventureiro import Aventureiro
 from ..personagens.tesouro import Tesouro
 from ..gui.tela import Tela
+from ..gui.input_texto import InputBox
 
 import pygame
+
+def input_box():
+    inputbox = InputBox("Olá! Informe o seu nome:")
+
+    while True:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                return inputbox.texto
+
+            texto = inputbox.tratar_eventos(evento)
+            if texto is not None:
+                return texto
+
+        inputbox.renderizar()
 
 def executar():
     """
@@ -26,8 +41,9 @@ def executar():
     """
     aventureiro = Aventureiro()
     tesouro = Tesouro()
-    tela = Tela()
+    aventureiro.nome = input_box()
 
+    tela = Tela()
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
     mensagem_combate = "Comece a explorar"

@@ -14,13 +14,17 @@
 - Criar um contador de tempo
 - No método renderizar, incluir o relógio
 
+[X] colocar caixa de diálogo para nomear o aventureiro
+- Criar uma classe para input box
+- Criar uma nova tela de jogo, antes de inicializar a tela principal
+- Processar os eventos e capturar o texto inserido
+
 [ ] criar sistema de classes
 [ ] criar um timer para o jogador conseguir achar o tesouro
 [ ] criar mecânica de itens
 [ ] criar variedade de monstros
 [ ] colocar uma imagem dos monstros na tela
 [ ] colocar que o aventureiro encontrou o tesouro na tela
-[ ] colocar caixa de diálogo para nomear o aventureiro
 [ ] opção de salvar o jogo
 [ ] ampliar o mapa, criando mais salas
 [ ] movimentação do monstro
