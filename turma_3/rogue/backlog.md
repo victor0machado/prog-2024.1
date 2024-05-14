@@ -10,7 +10,11 @@
     - Reduzir a vida
     - Reduzir a força/defesa
 
-[ ] mudar skin
+[x] mudar skin
+- Montar uma lista para possíveis skins
+- Montar uma lista para possíveis cores do aventureiro
+- Montar uma resposta do teclado para trocar a skin
+- Alterar as funções de render para usar as informações do aventureiro
 
 [ ] sistema de itens
 [ ] variedade de inimigos

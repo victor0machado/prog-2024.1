@@ -22,7 +22,7 @@ class Tela:
 
     def renderizar(self, aventureiro, tesouro):
         self.display.fill(CORES.preto)
-        self.personagem(aventureiro)
+        self.personagem(aventureiro, aventureiro.cor)
         self.personagem(tesouro)
         self.atributos(aventureiro)
         self.status(aventureiro.status)
@@ -47,9 +47,9 @@ class Tela:
                 if [linha, coluna] not in [aventureiro.posicao, tesouro.posicao]:
                     self.display.blit(texto, centralizar_grid(texto, [linha * GRID, coluna * GRID]))
 
-    def personagem(self, personagem):
+    def personagem(self, personagem, cor=CORES.branco):
         # renderização do texto
-        texto = self.fonte_grid.render(personagem.char, True, CORES.branco)
+        texto = self.fonte_grid.render(personagem.char, True, cor)
         # inserir o render na tela
         x = personagem.posicao[0] * GRID
         y = personagem.posicao[1] * GRID

@@ -74,7 +74,7 @@ def movimentar(aventureiro, direcao):
 
             return False
         if efeito == "armadilha":
-            impacto = random.choices(["morte", "dano", "força", "defesa"], [0.05, 0.65, 0.2, 0.2])[0]
+            impacto = random.choices(["morte", "dano", "força", "defesa"], [0.05, 0.55, 0.2, 0.2])[0]
             match impacto:
                 case "morte":
                     aventureiro.status = "Caiu numa armadilha! Morte instantânea..."
@@ -136,6 +136,11 @@ def loop():
                 if teclas[pygame.K_q]:
                     print("Já está correndo?")
                     return
+
+                if teclas[pygame.K_c]:
+                    aventureiro.trocar_char()
+                if teclas[pygame.K_v]:
+                    aventureiro.trocar_cor()
 
                 if not movimentar(aventureiro, determinar_direcao(teclas)):
                     print("Game over...")

@@ -1,5 +1,7 @@
 import random
 
+from ..gui.cores import CORES
+
 from .personagem import Personagem
 
 class Aventureiro(Personagem):
@@ -8,10 +10,26 @@ class Aventureiro(Personagem):
         self.defesa = random.randint(10, 18)
         self.vida = random.randint(100, 120)
         self.posicao = [0, 0]
+
+        self.chars = ["@", "#", "$"]
+        self.cores = [CORES.branco, CORES.vermelho, CORES.verde, CORES.azul]
         self.char = "@"
-        # self.nome = input("Deseja buscar um tesouro? Primeiro, informe seu nome: ")
+        self.cor = CORES.branco
+
         self.nome = "Aventureiro"
         self.status = "Comece a explorar"
+
+    def trocar_char(self):
+        indice = self.chars.index(self.char) + 1
+        if indice >= len(self.chars):
+            indice = 0
+        self.char = self.chars[indice]
+
+    def trocar_cor(self):
+        indice = self.cores.index(self.cor) + 1
+        if indice >= len(self.cores):
+            indice = 0
+        self.cor = self.cores[indice]
 
     def andar(self, direcao):
         """
