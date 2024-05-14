@@ -1,5 +1,5 @@
-[ ] desenhar um mapa
-[ ] estabelecer os movimentos
+[x] desenhar um mapa
+[x] estabelecer os movimentos
 [ ] ver os atributos na tela
 [ ] colocar um resumo do combate na tela
 

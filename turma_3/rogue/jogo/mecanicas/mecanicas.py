@@ -8,6 +8,18 @@ from ..personagens.tesouro import Tesouro
 
 import pygame
 
+def determinar_direcao(teclas):
+    if teclas[pygame.K_a]:
+        return "A"
+    if teclas[pygame.K_w]:
+        return "W"
+    if teclas[pygame.K_s]:
+        return "S"
+    if teclas[pygame.K_d]:
+        return "D"
+
+    return ""
+
 def iniciar_combate(aventureiro, monstro):
     """
     Executa um loop infinito, que possui as seguintes etapas:
@@ -89,11 +101,26 @@ def loop():
 
     while True:
         # Mapeamento de eventos
+        teclas = pygame.key.get_pressed()
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 return
 
-        # Processamento das ações
+            if evento.type == pygame.KEYUP:
+                # Processamento das ações
+                if teclas[pygame.K_t]:
+                    print(aventureiro)
+                if teclas[pygame.K_q]:
+                    print("Já está correndo?")
+                    return
+
+                if not movimentar(aventureiro, determinar_direcao(teclas)):
+                    print("Game over...")
+                    return
+
+        if aventureiro.posicao == tesouro.posicao:
+            print("Parabéns! Você achou o tesouro!")
+            return
 
         # Renderização da tela
         tela.renderizar(aventureiro, tesouro)
