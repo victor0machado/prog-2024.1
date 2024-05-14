@@ -25,9 +25,14 @@ class Tela:
         self.personagem(aventureiro)
         self.personagem(tesouro)
         self.atributos(aventureiro)
+        self.status(aventureiro.status)
         self.mapa(aventureiro, tesouro)
 
         pygame.display.update()
+
+    def status(self, mensagem):
+        texto = self.fonte_msg.render(mensagem, True, CORES.branco)
+        self.display.blit(texto, [MARGEM, MARGEM])
 
     def atributos(self, aventureiro):
         mensagem = f"{aventureiro.nome}: " \

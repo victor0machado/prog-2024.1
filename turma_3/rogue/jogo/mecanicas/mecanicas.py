@@ -64,14 +64,17 @@ def movimentar(aventureiro, direcao):
 
     Caso não seja um monstro, retorna True.
     """
-    if not aventureiro.andar(direcao):
-        return True
+    if aventureiro.andar(direcao):
+        efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
+        if efeito == "monstro":
+            monstro = Monstro()
+            if iniciar_combate(aventureiro, monstro):
+                aventureiro.status = "Monstro foi derrotado!"
+                return True
 
-    efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
-    if efeito == "monstro":
-        monstro = Monstro()
-        return iniciar_combate(aventureiro, monstro)
+            return False
 
+    aventureiro.status = "Continue explorando"
     return True
 
 

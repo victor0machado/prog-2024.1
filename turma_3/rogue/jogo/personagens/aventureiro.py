@@ -11,6 +11,7 @@ class Aventureiro(Personagem):
         self.char = "@"
         # self.nome = input("Deseja buscar um tesouro? Primeiro, informe seu nome: ")
         self.nome = "Aventureiro"
+        self.status = "Comece a explorar"
 
     def andar(self, direcao):
         """

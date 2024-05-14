@@ -1,6 +1,6 @@
 [x] desenhar um mapa
 [x] estabelecer os movimentos
-[ ] ver os atributos na tela
+[x] ver os atributos na tela
 [ ] colocar um resumo do combate na tela
 
 [ ] sistema de itens
