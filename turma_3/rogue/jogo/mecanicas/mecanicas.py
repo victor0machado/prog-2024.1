@@ -3,7 +3,8 @@ import random
 from ..gui.tela import Tela
 
 from ..personagens.aventureiro import Aventureiro
-from ..personagens.monstro import Monstro
+from ..personagens.monstros.monstro import Monstro
+from ..personagens.monstros.chefe import Chefe
 from ..personagens.tesouro import Tesouro
 
 import pygame
@@ -35,14 +36,14 @@ def iniciar_combate(aventureiro, monstro):
     while True:
         dano = aventureiro.atacar()
         monstro.defender(dano)
-        print(f"{aventureiro.nome} causa {dano} de dano! Vida do monstro: {monstro.vida}")
+        print(f"{aventureiro.nome} causa {dano} de dano! Vida de {monstro.nome}: {monstro.vida}")
         if not monstro.esta_vivo():
-            print("Monstro foi derrotado!")
+            print(f"{monstro.nome} foi derrotado!")
             return True
 
         dano = monstro.atacar()
         aventureiro.defender(dano)
-        print(f"Monstro causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
+        print(f"{monstro.nome} causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
         if not aventureiro.esta_vivo():
             print(f"{aventureiro.nome} foi derrotado!")
             return False
@@ -122,7 +123,8 @@ def loop():
 
     tela = Tela()
 
-    while True:
+    jogo_rodando = True
+    while jogo_rodando:
         # Mapeamento de eventos
         teclas = pygame.key.get_pressed()
         for evento in pygame.event.get():
@@ -134,8 +136,8 @@ def loop():
                 if teclas[pygame.K_t]:
                     print(aventureiro)
                 if teclas[pygame.K_q]:
-                    print("Já está correndo?")
-                    return
+                    aventureiro.status = "Já correndo?"
+                    jogo_rodando = False
 
                 if teclas[pygame.K_c]:
                     aventureiro.trocar_char()
@@ -143,12 +145,16 @@ def loop():
                     aventureiro.trocar_cor()
 
                 if not movimentar(aventureiro, determinar_direcao(teclas)):
-                    print("Game over...")
-                    return
+                    aventureiro.status = "Game over..."
+                    jogo_rodando = False
 
         if aventureiro.posicao == tesouro.posicao:
-            print("Parabéns! Você achou o tesouro!")
-            return
+            chefe = Chefe()
+            if iniciar_combate(aventureiro, chefe):
+                aventureiro.status = "Você lutou contra o chefe e recuperou o tesouro!"
+            else:
+                aventureiro.status = "Você foi derrotado pelo chefe do jogo!"
+            jogo_rodando = False
 
         # Renderização da tela
         tela.renderizar(aventureiro, tesouro)

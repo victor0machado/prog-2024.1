@@ -16,6 +16,11 @@
 - Montar uma resposta do teclado para trocar a skin
 - Alterar as funções de render para usar as informações do aventureiro
 
+[x] chefe final a cada fase
+- Criar uma subclasse de Monstro
+- Iniciar o combate quando o aventureiro chegar no tesouro
+- Disparar uma mensagem de sucesso no final
+
 [ ] sistema de itens
 [ ] variedade de inimigos
 [ ] possíveis ações (desafios)
@@ -28,7 +33,6 @@
 [ ] aliado
 [ ] puzzle
 [ ] loja in-game
-[ ] chefe final a cada fase
 [ ] armas e armaduras
 [ ] mudar objetivos do jogo
 [ ] sistema de loot
