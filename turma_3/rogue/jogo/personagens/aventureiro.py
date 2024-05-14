@@ -1,11 +1,14 @@
 import random
 
-class Aventureiro:
+from .personagem import Personagem
+
+class Aventureiro(Personagem):
     def __init__(self):
         self.forca = random.randint(10, 18)
         self.defesa = random.randint(10, 18)
         self.vida = random.randint(100, 120)
         self.posicao = [0, 0]
+        self.char = "@"
         # self.nome = input("Deseja buscar um tesouro? Primeiro, informe seu nome: ")
         self.nome = "Aventureiro"
 
