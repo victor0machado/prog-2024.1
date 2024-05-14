@@ -1,7 +1,16 @@
 [x] desenhar um mapa
 [x] estabelecer os movimentos
 [x] ver os atributos na tela
-[ ] colocar um resumo do combate na tela
+[x] colocar um resumo do combate na tela
+
+[x] armadilhas
+- Alterar as escolhas após movimento
+- Possíveis efeitos:
+    - Morrer
+    - Reduzir a vida
+    - Reduzir a força/defesa
+
+[ ] mudar skin
 
 [ ] sistema de itens
 [ ] variedade de inimigos
@@ -13,7 +22,6 @@
 [ ] sistema de níveis
 [ ] mapa maior
 [ ] aliado
-[ ] armadilhas
 [ ] puzzle
 [ ] loja in-game
 [ ] chefe final a cada fase
@@ -22,7 +30,6 @@
 [ ] sistema de loot
 [ ] tipos de dano diferentes
 [ ] sistema de classes
-[ ] mudar skin
 [ ] NPCs
 [ ] tela de abertura do jogo
 [ ] sistema de menus

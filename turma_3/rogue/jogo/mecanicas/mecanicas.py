@@ -65,7 +65,7 @@ def movimentar(aventureiro, direcao):
     Caso não seja um monstro, retorna True.
     """
     if aventureiro.andar(direcao):
-        efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
+        efeito = random.choices(["nada", "monstro", "armadilha"], [0.5, 0.4, 0.1])[0]
         if efeito == "monstro":
             monstro = Monstro()
             if iniciar_combate(aventureiro, monstro):
@@ -73,6 +73,26 @@ def movimentar(aventureiro, direcao):
                 return True
 
             return False
+        if efeito == "armadilha":
+            impacto = random.choices(["morte", "dano", "força", "defesa"], [0.05, 0.65, 0.2, 0.2])[0]
+            match impacto:
+                case "morte":
+                    aventureiro.status = "Caiu numa armadilha! Morte instantânea..."
+                    return False
+                case "dano":
+                    dano = random.randint(10, 25)
+                    aventureiro.defender(dano, usar_defesa=False)
+                    aventureiro.status = f"Caiu numa armadilha e sofreu {dano} de dano!"
+                    if not aventureiro.esta_vivo():
+                        return False
+                case "força":
+                    aventureiro.status = "Caiu numa armadilha e perdeu 1 de força!"
+                    aventureiro.forca -= 1
+                case "defesa":
+                    aventureiro.status = "Caiu numa armadilha e perdeu 1 de defesa!"
+                    aventureiro.defesa -= 1
+
+            return True
 
     aventureiro.status = "Continue explorando"
     return True

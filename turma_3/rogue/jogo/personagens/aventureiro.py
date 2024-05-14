@@ -58,7 +58,7 @@ class Aventureiro(Personagem):
         """
         return self.forca + random.randint(1, 6)
 
-    def defender(self, dano):
+    def defender(self, dano, usar_defesa=True):
         """
         Calcula o dano a ser absorvido pelo aventureiro, igual ao dano causado
         menos o atributo de defesa do aventureiro.
@@ -66,9 +66,10 @@ class Aventureiro(Personagem):
         Se o dano a ser absorvido é menor ou igual a zero, não faz nada. Se for
         maior que zero, reduz esse dano da vida do aventureiro.
         """
-        dano_levado = dano - self.defesa
-        if dano_levado > 0:
-            self.vida -= dano_levado
+        if usar_defesa:
+            dano -= self.defesa
+        if dano > 0:
+            self.vida -= dano
 
     def esta_vivo(self):
         """
