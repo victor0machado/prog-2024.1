@@ -18,16 +18,12 @@ def iniciar_combate(aventureiro, monstro):
     while True:
         dano = aventureiro.atacar()
         monstro.defender(dano)
-        print(f"{aventureiro.nome} causa {dano} de dano! Vida do monstro: {monstro.vida}")
         if not monstro.esta_vivo():
-            print("Monstro foi derrotado!")
             return True
 
         dano = monstro.atacar()
         aventureiro.defender(dano)
-        print(f"Monstro causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
         if not aventureiro.esta_vivo():
-            print(f"{aventureiro.nome} foi derrotado!")
             return False
 
 # Operação principal do jogo
@@ -53,6 +49,12 @@ def movimentar(aventureiro, direcao):
     efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
     if efeito == "monstro":
         monstro = Monstro()
-        return iniciar_combate(aventureiro, monstro)
+        if iniciar_combate(aventureiro, monstro):
+            aventureiro.status = "Monstro foi derrotado!"
+            return True
 
+        aventureiro.status = "Game Over..."
+        return False
+
+    aventureiro.status = "Continue explorando"
     return True

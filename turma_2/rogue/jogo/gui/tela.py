@@ -23,7 +23,7 @@ class Tela:
 
     def renderizar(self, aventureiro, tesouro):
         self.display.fill(CORES.preto)
-        self.atributos(aventureiro)
+        self.informacoes(aventureiro)
         self.personagem(tesouro)
         self.personagem(aventureiro)
         self.mapa(aventureiro, tesouro)
@@ -43,8 +43,11 @@ class Tela:
             centralizar_texto(texto, [personagem.posicao[0], personagem.posicao[1]])
         )
 
-    def atributos(self, aventureiro):
+    def informacoes(self, aventureiro):
         atributos = f"{aventureiro.nome} - " \
             f"Vida: {aventureiro.vida} / Força: {aventureiro.forca} / Defesa: {aventureiro.defesa}"
         texto = self.fonte_peq.render(atributos, True, CORES.branco)
         self.display.blit(texto, [MARGEM, ALTURA - MARGEM - texto.get_height()])
+
+        texto = self.fonte_peq.render(aventureiro.status, True, CORES.branco)
+        self.display.blit(texto, [MARGEM, MARGEM])

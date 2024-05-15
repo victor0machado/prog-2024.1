@@ -47,34 +47,28 @@ def executar():
     """
     aventureiro = Aventureiro()
     tesouro = Tesouro()
-
-    print(f"Saudações, {aventureiro.nome}! Boa sorte!")
-
     tela = Tela()
 
-    while True:
+    jogo_rodando = True
+    while jogo_rodando:
         # Análise dos eventos
         teclas = pygame.key.get_pressed()
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
-                return
+                jogo_rodando = False
 
             if evento.type == pygame.KEYUP:
                 # Processamento do jogo
                 if teclas[pygame.K_q]:
-                    print("Já correndo?")
-                    return
-
-                if teclas[pygame.K_t]:
-                    aventureiro.ver_atributos()
+                    aventureiro.status = "Já correndo?"
+                    jogo_rodando = False
 
                 if not mecanicas.movimentar(aventureiro, determinar_direcao(teclas)):
-                    print("Game Over")
-                    return
+                    jogo_rodando = False
 
                 if aventureiro.posicao == tesouro.posicao:
-                    print(f"Parabéns, {aventureiro.nome}! Você encontrou o tesouro!")
-                    return
+                    aventureiro.status = "Parabéns! Você encontrou o tesouro!"
+                    jogo_rodando = False
 
         # Renderização na tela
         tela.renderizar(aventureiro, tesouro)

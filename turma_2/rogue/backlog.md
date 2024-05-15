@@ -1,7 +1,7 @@
 [x] desenhar o mapa na tela
 [x] implementar os movimentos e a resposta do teclado
 [x] exibir os atributos do jogador na tela
-[ ] incluir na tela um resumo do combate
+[x] incluir na tela um resumo do combate
 
 [ ] aumentar o tamanho do mapa
 [ ] escolher os atributos

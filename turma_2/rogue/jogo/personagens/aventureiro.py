@@ -8,6 +8,7 @@ class Aventureiro:
         self.posicao = [0, 0]
         self.char = "@"
         self.nome = "Aventureiro"
+        self.status = "Comece a explorar"
 
     def andar(self, direcao):
         """
