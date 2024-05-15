@@ -3,12 +3,14 @@ from .cores import CORES
 import pygame
 
 GRID = 40
-LARGURA = GRID * 10
-ALTURA = GRID * 10
+MARGEM = 10
+LARGURA = GRID * 10 + 200
+ALTURA = GRID * 10 + 100
+FONTE = "Courier New"
 
 def centralizar_texto(texto, posicao_original):
-    x = posicao_original[0] + (GRID - texto.get_width()) // 2
-    y = posicao_original[1] + (GRID - texto.get_height()) // 2
+    x = posicao_original[0] + (LARGURA - 10 * GRID) // 2 + (GRID - texto.get_width()) // 2
+    y = posicao_original[1] + (ALTURA - 10 * GRID) // 2 + (GRID - texto.get_height()) // 2
     return [x, y]
 
 class Tela:
@@ -24,7 +26,7 @@ class Tela:
         pygame.display.update()
 
     def mapa(self, aventureiro, tesouro):
-        fonte = pygame.font.SysFont(None, GRID)
+        fonte = pygame.font.SysFont(FONTE, GRID)
         texto = fonte.render(".", True, CORES.branco)
         for linha in range(10):
             for coluna in range(10):
@@ -32,7 +34,7 @@ class Tela:
                     self.display.blit(texto, centralizar_texto(texto, [linha * GRID, coluna * GRID]))
 
     def tesouro(self, tesouro):
-        fonte = pygame.font.SysFont(None, GRID)
+        fonte = pygame.font.SysFont(FONTE, GRID)
         texto = fonte.render("X", True, CORES.branco)
         self.display.blit(
             texto,
@@ -41,7 +43,7 @@ class Tela:
 
     def aventureiro(self, aventureiro):
         # definição da fonte
-        fonte = pygame.font.SysFont(None, GRID)
+        fonte = pygame.font.SysFont(FONTE, GRID)
         # renderização do texto
         texto = fonte.render("@", True, CORES.branco)
         # inserção do render na tela
@@ -49,3 +51,9 @@ class Tela:
             texto,
             centralizar_texto(texto, [GRID * aventureiro.posicao[0], GRID * aventureiro.posicao[1]])
         )
+
+        fonte = pygame.font.SysFont(FONTE, GRID // 2)
+        atributos = f"{aventureiro.nome}: " \
+            f"Vida: {aventureiro.vida} / Força: {aventureiro.forca} / Defesa: {aventureiro.defesa}"
+        texto = fonte.render(atributos, True, CORES.branco)
+        self.display.blit(texto, [MARGEM, ALTURA - MARGEM - texto.get_height()])
