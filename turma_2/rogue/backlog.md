@@ -9,6 +9,13 @@
 - Criar uma subclasse de Inimigo, Boss
 - Adicionar a ação de combate quando o aventureiro chegar no tesouro
 
+[x] npcs
+- Criar uma classe NPC, com char, posicao e mensagem
+- Renderizar o NPC na tela
+- Impedir o aventureiro de se movimentar por cima do NPC
+- Criar um botão de ação para falar com o NPC
+- Renderizar a fala do NPC na tela
+
 [ ] criar áudio de fundo
 [ ] aumentar o tamanho do mapa
 [ ] escolher os atributos
@@ -24,7 +31,6 @@
 [ ] desbloquear outros personagens
 [ ] classes de personagens
 [ ] sistema financeiro no jogo
-[ ] npcs
 [ ] easter eggs
 [ ] sistema de nível do aventureiro
 [ ] interação do jogo com o jogador

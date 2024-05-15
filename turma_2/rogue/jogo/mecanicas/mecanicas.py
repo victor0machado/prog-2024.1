@@ -26,25 +26,23 @@ def iniciar_combate(aventureiro, inimigo):
         if not aventureiro.esta_vivo():
             return False
 
-# Operação principal do jogo
-def movimentar(aventureiro, direcao):
-    """
-    Realiza a ação de movimento e analisa as consequências.
-
-    Chama a função aventureiro_andar e analisa o seu resultado. Se for False,
-    ou seja, se o aventureiro não tiver andado nada, retorna True.
-
-    Em seguida, analisa o efeito do movimento. Há 60% de chance de nada
-    acontecer, e 40% de chance de um monstro aparecer (pesquise sobre a função
-    random.choices).
-
-    Se um monstro aparecer, inicia um novo monstro e retorna e resultado da
-    função iniciar_combate.
-
-    Caso não seja um monstro, retorna True.
-    """
-    if not aventureiro.andar(direcao):
+def existe_obstaculo(posicao, npc):
+    x, y = posicao
+    if x < 0 or x > 9 or y < 0 or y > 9:
         return True
+
+    if posicao == npc.posicao:
+        return True
+
+    return False
+
+# Operação principal do jogo
+def movimentar(aventureiro, direcao, npc):
+    pos_futura = aventureiro.calcular_pos_futura(direcao)
+    if existe_obstaculo(pos_futura, npc):
+        return True
+
+    aventureiro.andar(pos_futura)
 
     efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
     if efeito == "monstro":
@@ -58,3 +56,13 @@ def movimentar(aventureiro, direcao):
 
     aventureiro.status = "Continue explorando"
     return True
+
+def conversar(aventureiro, npc):
+    x_a, y_a = aventureiro.posicao
+    x_n, y_n = npc.posicao
+
+    if (x_a + 1 == x_n or x_a - 1 == x_n) and y_a == y_n:
+        aventureiro.status = npc.mensagem
+
+    if (y_a + 1 == y_n or y_a - 1 == y_n) and x_a == x_n:
+        aventureiro.status = npc.mensagem

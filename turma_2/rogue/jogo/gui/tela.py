@@ -21,19 +21,20 @@ class Tela:
         self.fonte_gde = pygame.font.SysFont(FONTE, GRID)
         self.fonte_peq = pygame.font.SysFont(FONTE, GRID // 2)
 
-    def renderizar(self, aventureiro, tesouro):
+    def renderizar(self, aventureiro, tesouro, npc):
         self.display.fill(CORES.preto)
         self.informacoes(aventureiro)
         self.personagem(tesouro)
         self.personagem(aventureiro)
-        self.mapa(aventureiro, tesouro)
+        self.personagem(npc)
+        self.mapa(aventureiro, tesouro, npc)
         pygame.display.update()
 
-    def mapa(self, aventureiro, tesouro):
+    def mapa(self, aventureiro, tesouro, npc):
         texto = self.fonte_gde.render(".", True, CORES.branco)
         for linha in range(10):
             for coluna in range(10):
-                if [linha, coluna] not in [aventureiro.posicao, tesouro.posicao]:
+                if [linha, coluna] not in [aventureiro.posicao, tesouro.posicao, npc.posicao]:
                     self.display.blit(texto, centralizar_texto(texto, [linha, coluna]))
 
     def personagem(self, personagem):
