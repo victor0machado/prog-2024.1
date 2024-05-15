@@ -1,11 +1,10 @@
-import random
-
 from . import mecanicas
 
 from ..gui.tela import Tela
 
 from ..personagens.aventureiro import Aventureiro
 from ..personagens.tesouro import Tesouro
+from ..personagens.inimigos.boss import Boss
 
 import pygame
 
@@ -67,7 +66,11 @@ def executar():
                     jogo_rodando = False
 
                 if aventureiro.posicao == tesouro.posicao:
-                    aventureiro.status = "Parabéns! Você encontrou o tesouro!"
+                    boss = Boss()
+                    if mecanicas.iniciar_combate(aventureiro, boss):
+                        aventureiro.status = f"Parabéns! Você derrotou {boss.nome} e encontrou o tesouro!"
+                    else:
+                        aventureiro.status = f"Você foi derrotado por {boss.nome}! Game over..."
                     jogo_rodando = False
 
         # Renderização na tela

@@ -1,9 +1,9 @@
 import random
 
-from ..personagens.monstro import Monstro
+from ..personagens.inimigos.monstro import Monstro
 
 # Combate
-def iniciar_combate(aventureiro, monstro):
+def iniciar_combate(aventureiro, inimigo):
     """
     Executa um loop infinito, que possui as seguintes etapas:
     - Calcula o dano causado pelo aventureiro
@@ -17,11 +17,11 @@ def iniciar_combate(aventureiro, monstro):
     """
     while True:
         dano = aventureiro.atacar()
-        monstro.defender(dano)
-        if not monstro.esta_vivo():
+        inimigo.defender(dano)
+        if not inimigo.esta_vivo():
             return True
 
-        dano = monstro.atacar()
+        dano = inimigo.atacar()
         aventureiro.defender(dano)
         if not aventureiro.esta_vivo():
             return False
@@ -50,10 +50,10 @@ def movimentar(aventureiro, direcao):
     if efeito == "monstro":
         monstro = Monstro()
         if iniciar_combate(aventureiro, monstro):
-            aventureiro.status = "Monstro foi derrotado!"
+            aventureiro.status = f"{monstro.nome} foi derrotado!"
             return True
 
-        aventureiro.status = "Game Over..."
+        aventureiro.status = f"Você foi derrotado por {monstro.nome}! Game Over..."
         return False
 
     aventureiro.status = "Continue explorando"

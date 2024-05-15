@@ -3,6 +3,13 @@
 [x] exibir os atributos do jogador na tela
 [x] incluir na tela um resumo do combate
 
+[x] boss
+- Criar uma superclasse Inimigo
+- Fazer Monstro herdar de Inimigo
+- Criar uma subclasse de Inimigo, Boss
+- Adicionar a ação de combate quando o aventureiro chegar no tesouro
+
+[ ] criar áudio de fundo
 [ ] aumentar o tamanho do mapa
 [ ] escolher os atributos
 [ ] adicionar outros tipos de monstro
@@ -22,7 +29,6 @@
 [ ] sistema de nível do aventureiro
 [ ] interação do jogo com o jogador
 [ ] dificuldade do jogo
-[ ] boss
 [ ] IA de monstros
 [ ] pet
 [ ] loja
