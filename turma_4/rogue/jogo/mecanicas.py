@@ -74,11 +74,9 @@ def movimentar(aventureiro, teclas):
     if not aventureiro.andar(direcao):
         return 2, None
 
-
-
     efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
     if efeito == "monstro":
-        monstro = random.choices([Thanos, Demogorgon])[0]()
+        monstro = random.choices([Thanos, Demogorgon])[0](aventureiro.dificuldade)
         return int(iniciar_combate(aventureiro, monstro)), monstro.nome
 
     return 2, None
@@ -124,28 +122,31 @@ def jogo():
 
                 if teclas[pygame.K_z]:
                     aventureiro.mudar_cor()
-
-                if teclas[pygame.K_x]:
+                elif teclas[pygame.K_x]:
                     aventureiro.mudar_char()
-
-                # Executar as ações do jogo
-                resultado, nome_monstro = movimentar(aventureiro, teclas)
-                if resultado == 0:
-                    mensagem_combate = f"Você foi derrotado por {nome_monstro}..."
-                    jogo_acabou = True
-                elif resultado == 1:
-                    mensagem_combate = f"{nome_monstro} foi derrotado!"
+                elif teclas[pygame.K_KP_PLUS]:
+                    aventureiro.aumentar_dificuldade()
+                elif teclas[pygame.K_KP_MINUS]:
+                    aventureiro.diminuir_dificuldade()
                 else:
-                    mensagem_combate = "Você não encontrou nada"
-
-                if aventureiro.posicao == tesouro.posicao:
-                    boss = Boss()
-                    if iniciar_combate(aventureiro, boss):
-                        mensagem_combate = f"Parabéns, {aventureiro.nome}, você encontrou o tesouro!"
+                    # Executar as ações do jogo
+                    resultado, nome_monstro = movimentar(aventureiro, teclas)
+                    if resultado == 0:
+                        mensagem_combate = f"Você foi derrotado por {nome_monstro}..."
+                        jogo_acabou = True
+                    elif resultado == 1:
+                        mensagem_combate = f"{nome_monstro} foi derrotado!"
                     else:
-                        mensagem_combate = f"Você foi derrotado pelo chefão... =("
+                        mensagem_combate = "Você não encontrou nada"
 
-                    jogo_acabou = True
+                    if aventureiro.posicao == tesouro.posicao:
+                        boss = Boss(aventureiro.dificuldade)
+                        if iniciar_combate(aventureiro, boss):
+                            mensagem_combate = f"Parabéns, {aventureiro.nome}, você encontrou o tesouro!"
+                        else:
+                            mensagem_combate = f"Você foi derrotado pelo chefão... =("
+
+                        jogo_acabou = True
 
         # Desenho na tela
         tela.renderizar(aventureiro, tesouro, mensagem_combate)

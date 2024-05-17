@@ -18,11 +18,20 @@ class Aventureiro:
         self.forca = random.randint(10, 18)
         self.defesa = random.randint(10, 18)
         self.posicao = [0, 0]
-        # self.nome = input("Deseja buscar um tesouro? Primeiro, informe seu nome: ")
         self.nome = "Aventureiro"
 
         self.cor = CORES.branco
         self.char = "@"
+
+        self.dificuldade = 1
+
+    def aumentar_dificuldade(self):
+        self.dificuldade *= 1.1
+        print(f"Aumentando dificuldade para {self.dificuldade:.3f}")
+
+    def diminuir_dificuldade(self):
+        self.dificuldade /= 1.1
+        print(f"Reduzindo dificuldade para {self.dificuldade:.3f}")
 
     def mudar_cor(self):
         self.cor = pega_prox_valor(CORES_POSSIVEIS, self.cor)

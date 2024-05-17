@@ -3,11 +3,11 @@ import random
 from .monstro import Monstro
 
 class Boss(Monstro):
-    def __init__(self):
+    def __init__(self, dificuldade):
         self.nome = "Boss"
-        self.vida = random.randint(80, 120)
-        self.forca = random.randint(15, 30)
-        self.defesa = random.randint(1, 10)
+        self.vida = int(dificuldade * random.randint(80, 120))
+        self.forca = int(dificuldade * random.randint(15, 30))
+        self.defesa = int(dificuldade * random.randint(1, 10))
         print("O boss do mapa apareceu!")
 
     def defender(self, dano):

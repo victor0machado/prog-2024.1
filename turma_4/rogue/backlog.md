@@ -21,11 +21,25 @@
 - Criar a lista de monstros
 - Na função `movimentar`, quando for definido que um monstro vai aparecer, escolher aleatoriamente entre os monstros
 
+[X] montar sistema de níveis de dificuldades
+- Criar uma variável `dificuldade` no módulo `mecanicas`
+- Alterar as classes de monstros para receber o nível de dificuldade
+- Alterar a definição dos atributos dos monstros conforme a dificuldade
+- Alterar as chamadas dos monstros nos combates
+- Associar a mudança de dificuldade a duas teclas do teclado
+
+[ ] sistema de níveis
+
+
+[ ] criar um inputbox para pedir o nome
+
+
+[ ] criar sistema de classes
+
+
+
 [ ] criar sistema de itens
 [ ] criar sistema de equipamentos
-[ ] criar sistema de classes
-[ ] monstar sistema de níveis de dificuldades
-[ ] sistema de níveis
 [ ] outros atributos
 [ ] sistema de batalhas por turnos
 [ ] habilidades diferentes
