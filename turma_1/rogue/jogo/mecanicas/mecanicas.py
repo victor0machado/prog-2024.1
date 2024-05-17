@@ -1,5 +1,7 @@
 import random
 
+from .armadilha import Armadilha
+
 from jogo.personagens.monstro import Monstro
 
 import pygame
@@ -19,17 +21,15 @@ def iniciar_combate(aventureiro, monstro):
     while True:
         dano = aventureiro.atacar()
         monstro.defender(dano)
-        print(f"{aventureiro.nome} causa {dano} de dano! Vida do monstro: {monstro.vida}")
         if not monstro.esta_vivo():
-            print("Monstro foi derrotado!")
+            aventureiro.status = "Monstro foi derrotado!"
             aventureiro.ganhar_xp(monstro.xp)
             return True
 
         dano = monstro.atacar()
         aventureiro.defender(dano)
-        print(f"Monstro causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
         if not aventureiro.esta_vivo():
-            print(f"{aventureiro.nome} foi derrotado!")
+            aventureiro.status = f"{aventureiro.nome} foi derrotado!"
             return False
 
 def determina_direcao(teclas):
@@ -71,8 +71,12 @@ def movimentar(aventureiro, teclas, obstaculos):
     else:
         return 2
 
-    efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
-    if efeito == "monstro":
+    evento = random.choices(["armadilha", "nada", "monstro"], [0.2, 0.4, 0.4])[0]
+    if evento == "armadilha":
+        Armadilha().aplicar_efeito(aventureiro)
+        if not aventureiro.esta_vivo():
+            return 0
+    elif evento == "monstro":
         monstro = Monstro()
         return int(iniciar_combate(aventureiro, monstro))
 

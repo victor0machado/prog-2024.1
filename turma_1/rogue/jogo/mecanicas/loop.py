@@ -50,7 +50,6 @@ def executar():
     tela = Tela()
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
-    mensagem_combate = "Comece a explorar"
     primeiro_movimento = True
     jogo_encerrou = False
     while not jogo_encerrou:
@@ -64,22 +63,24 @@ def executar():
                     print("Já correndo?")
                     return
 
+                if not primeiro_movimento:
+                    aventureiro.status = "Continue explorando"
+                primeiro_movimento = False
+
                 resultado_movimento = movimentar(aventureiro, teclas, obstaculos)
                 if resultado_movimento == 0:
-                    mensagem_combate = "Você foi derrotado..."
+                    aventureiro.fim_jogo = False
                     jogo_encerrou = True
-                elif resultado_movimento == 1:
-                    mensagem_combate = "Monstro foi derrotado!"
-                else:
-                    if primeiro_movimento:
-                        mensagem_combate = "Comece a explorar"
-                        primeiro_movimento = False
-                    else:
-                        mensagem_combate = "Continue explorando"
+                elif resultado_movimento == 2:
+                    aventureiro.causar_dano_veneno()
+                    if not aventureiro.esta_vivo():
+                        aventureiro.status = "Você foi morto por veneno..."
+                        aventureiro.fim_jogo = False
+                        jogo_encerrou = True
+                    elif aventureiro.posicao == tesouro.posicao:
+                        aventureiro.status = "Parabéns! Você encontrou o tesouro!"
+                        aventureiro.fim_jogo = True
+                        jogo_encerrou = True
 
-                if aventureiro.posicao == tesouro.posicao:
-                    mensagem_combate = "Parabéns! Você encontrou o tesouro!"
-                    jogo_encerrou = True
-
-        tela.renderizar(aventureiro, tesouro, mensagem_combate, obstaculos.obstaculos)
+        tela.renderizar(aventureiro, tesouro, obstaculos.obstaculos)
         pygame.time.Clock().tick(60)

@@ -30,13 +30,16 @@
     - Renderizar os obstáculos na tela
     - Impedir o movimento do aventureiro para o obstáculo
 
-[ ] criar armadilhas
+[X] criar armadilhas
 - Armadilhas:
     - Estabelecer um percentual para ocorrer armadilha após andar
     - Definir quais efeitos de armadilha
     - Aplicar esses efeitos
 
 [ ] criar sistema de classes
+
+
+
 [ ] criar um timer para o jogador conseguir achar o tesouro
 [ ] criar mecânica de itens
 [ ] criar variedade de monstros

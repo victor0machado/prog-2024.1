@@ -9,10 +9,25 @@ class Aventureiro:
         self.vida_max = random.randint(100, 120)
         self.vida = self.vida_max
         self.posicao = [0, 0]
-        # self.nome = input("Deseja buscar um tesouro? Primeiro, informe seu nome: ")
-        self.nome = "Qualquer coisa"
+
         self.nivel = 1
         self.xp = 0
+
+        self.turnos_veneno = 0
+
+        self.status = "Comece a explorar"
+        self.fim_jogo = None
+
+    def iniciar_veneno(self):
+        if self.turnos_veneno == 0:
+            self.turnos_veneno = random.randint(2, 10)
+
+    def causar_dano_veneno(self):
+        if self.turnos_veneno > 0:
+            dano = random.randint(5, 10)
+            self.defender(dano, usar_defesa=False)
+            self.turnos_veneno -= 1
+            self.status = f"{self.nome} tomou {dano} de dano de veneno! Turnos restantes: {self.turnos_veneno}"
 
     def ganhar_xp(self, xp_ganha):
         self.xp += xp_ganha
@@ -52,7 +67,7 @@ class Aventureiro:
         """
         return self.forca + random.randint(1, 6)
 
-    def defender(self, dano):
+    def defender(self, dano, usar_defesa=True):
         """
         Calcula o dano a ser absorvido pelo aventureiro, igual ao dano causado
         menos o atributo de defesa do aventureiro.
@@ -60,9 +75,10 @@ class Aventureiro:
         Se o dano a ser absorvido é menor ou igual a zero, não faz nada. Se for
         maior que zero, reduz esse dano da vida do aventureiro.
         """
-        dano_levado = dano - self.defesa
-        if dano_levado > 0:
-            self.vida -= dano_levado
+        if usar_defesa:
+            dano -= self.defesa
+        if dano > 0:
+            self.vida -= dano
 
     def esta_vivo(self):
         """

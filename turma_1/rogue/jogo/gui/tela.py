@@ -10,11 +10,6 @@ ALTURA = GRID * TAM_MAPA + 100
 MARGEM = 10
 FONTE = "Lucida Console"
 
-TEXTOS_FIM_JOGO = {
-    "Você foi derrotado...": "Derrota",
-    "Parabéns! Você encontrou o tesouro!": "Vitória"
-}
-
 def centralizar_grid(posicao, texto):
     x = posicao[0] * GRID + (GRID - texto.get_width()) // 2
     y = posicao[1] * GRID + (GRID - texto.get_height()) // 2
@@ -25,23 +20,26 @@ class Tela:
         self.display = pygame.display.set_mode((LARGURA, ALTURA))
         pygame.display.set_caption("Rogue")
 
-    def renderizar(self, aventureiro, tesouro, mensagem_combate, obstaculos):
+    def renderizar(self, aventureiro, tesouro, obstaculos):
         self.display.fill(CORES.preto)
         self.aventureiro(aventureiro)
         self.tesouro(tesouro)
         self.mapa(aventureiro, tesouro, obstaculos)
-        self.combate(mensagem_combate)
+        self.combate(aventureiro.status)
         self.obstaculos(obstaculos)
         self.relogio()
 
-        if mensagem_combate in TEXTOS_FIM_JOGO.keys():
-            self.fim_jogo(mensagem_combate)
+        if aventureiro.fim_jogo is not None:
+            self.fim_jogo(aventureiro.fim_jogo)
 
         pygame.display.update()
 
-    def fim_jogo(self, mensagem_combate):
+    def fim_jogo(self, fim_jogo):
         fonte = pygame.font.SysFont(FONTE, GRID * 2)
-        texto = fonte.render(TEXTOS_FIM_JOGO[mensagem_combate], True, CORES.vermelho, CORES.branco)
+        mensagem = "Derrota"
+        if fim_jogo:
+            mensagem = "Vitória"
+        texto = fonte.render(mensagem, True, CORES.vermelho, CORES.branco)
         self.display.blit(
             texto,
             [(LARGURA - texto.get_width()) // 2, (ALTURA - texto.get_height()) // 2]
