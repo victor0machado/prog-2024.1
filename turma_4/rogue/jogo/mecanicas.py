@@ -11,7 +11,7 @@ from jogo.personagens.tesouro import Tesouro
 
 import pygame
 
-def iniciar_combate(aventureiro, monstro):
+def iniciar_combate(aventureiro, inimigo):
     """
     Executa um loop infinito, que possui as seguintes etapas:
     - Calcula o dano causado pelo aventureiro
@@ -25,15 +25,16 @@ def iniciar_combate(aventureiro, monstro):
     """
     while True:
         dano = aventureiro.atacar()
-        monstro.defender(dano)
-        print(f"{aventureiro.nome} causa {dano} de dano! Vida de {monstro.nome}: {monstro.vida}")
-        if not monstro.esta_vivo():
-            print(f"{monstro.nome} foi derrotado!")
+        inimigo.defender(dano)
+        print(f"{aventureiro.nome} causa {dano} de dano! Vida de {inimigo.nome}: {inimigo.vida}")
+        if not inimigo.esta_vivo():
+            aventureiro.ganhar_xp(inimigo.xp)
+            print(f"{inimigo.nome} foi derrotado!")
             return True
 
-        dano = monstro.atacar()
+        dano = inimigo.atacar()
         aventureiro.defender(dano)
-        print(f"{monstro.nome} causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
+        print(f"{inimigo.nome} causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
         if not aventureiro.esta_vivo():
             print(f"{aventureiro.nome} foi derrotado!")
             return False

@@ -25,6 +25,24 @@ class Aventureiro:
 
         self.dificuldade = 1
 
+        self.xp = 0
+        self.nivel = 1
+        self.xp_por_nivel = 5
+
+    def ganhar_xp(self, valor):
+        self.xp += valor
+        if self.xp >= self.xp_por_nivel:
+            self.xp -= self.xp_por_nivel
+            self.subir_nivel()
+
+    def subir_nivel(self):
+        self.nivel += 1
+        self.vida += 50
+        self.forca += 1
+        self.defesa += 1
+        self.aumentar_dificuldade()
+        self.xp_por_nivel = int(self.xp_por_nivel * 1.2)
+
     def aumentar_dificuldade(self):
         self.dificuldade *= 1.1
         print(f"Aumentando dificuldade para {self.dificuldade:.3f}")

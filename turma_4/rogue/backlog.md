@@ -28,8 +28,13 @@
 - Alterar as chamadas dos monstros nos combates
 - Associar a mudança de dificuldade a duas teclas do teclado
 
-[ ] sistema de níveis
-
+[X] sistema de níveis
+- Criar um atributo xp para os monstros
+- Criar atributos xp e nível para o aventureiro
+- Criar métodos para o aventureiro ganhar xp e subir de nível
+- Criar uma forma de progressão dos atributos do aventureiro (vida, força e defesa)
+- Alterar a função de combate, para que o aventureiro ganhe xp quando derrotar o monstro
+- Alterar a interface para mostrar o nível do aventureiro
 
 [ ] criar um inputbox para pedir o nome
 

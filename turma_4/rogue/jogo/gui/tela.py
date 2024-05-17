@@ -45,7 +45,8 @@ class Tela:
     def aventureiro(self, aventureiro):
         self.desenha_mensagem(aventureiro.char, aventureiro.posicao, aventureiro.cor)
 
-        atributos = f"{aventureiro.nome}: vida - {aventureiro.vida}; força - {aventureiro.forca}; defesa: {aventureiro.defesa}"
+        atributos = f"{aventureiro.nome} nv. {aventureiro.nivel} ({aventureiro.xp}/{aventureiro.xp_por_nivel}): " \
+            f"vida {aventureiro.vida}; força {aventureiro.forca}; defesa {aventureiro.defesa}"
 
         fonte = pygame.font.SysFont(FONTE, GRID // 2)
         texto = fonte.render(atributos, True, CORES.branco)
