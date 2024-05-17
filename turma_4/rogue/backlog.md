@@ -36,8 +36,11 @@
 - Alterar a função de combate, para que o aventureiro ganhe xp quando derrotar o monstro
 - Alterar a interface para mostrar o nível do aventureiro
 
-[ ] criar um inputbox para pedir o nome
-
+[X] criar um inputbox para pedir o nome
+- Criar uma nova classe InputBox, semelhante à Tela, para ter a interface para ler textos
+- Refatorar o módulo mecanicas para melhorar a organização do código
+- Criar um módulo inputbox com uma função que retorna o texto inserido pelo usuário
+- Ajustar a função jogo para ler o nome e atribuir ao aventureiro antes do jogo começar
 
 [ ] criar sistema de classes
 

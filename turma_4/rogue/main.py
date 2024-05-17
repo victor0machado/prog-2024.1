@@ -1,6 +1,6 @@
 import time
 
-from jogo.mecanicas import jogo
+from jogo.mecanicas.loop import jogo
 
 import pygame
 
