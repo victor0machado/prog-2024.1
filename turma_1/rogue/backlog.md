@@ -36,9 +36,10 @@
     - Definir quais efeitos de armadilha
     - Aplicar esses efeitos
 
-[ ] criar sistema de classes
-
-
+[X] criar sistema de classes
+- Criar subclasses de aventureiro
+- Criar tela para seleção da classe
+- Criar interação no loop
 
 [ ] criar um timer para o jogador conseguir achar o tesouro
 [ ] criar mecânica de itens

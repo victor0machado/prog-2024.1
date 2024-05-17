@@ -1,10 +1,13 @@
 from .mecanicas import movimentar
 
-from ..personagens.aventureiro import Aventureiro
+from ..personagens.aventureiro.aventureiro import Aventureiro
+from ..personagens.aventureiro.guerreiro import Guerreiro
+from ..personagens.aventureiro.tank import Tank
 from ..personagens.tesouro import Tesouro
 from ..personagens.obstaculo import Obstaculos
 from ..gui.tela import Tela
 from ..gui.input_texto import InputBox
+from ..gui.menu_classe import MenuClasse
 
 import pygame
 
@@ -24,28 +27,37 @@ def input_box():
 
         inputbox.renderizar()
 
+def selecionar_classe():
+    menu = MenuClasse("Agora escolha sua classe:")
+
+    while True:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                return "Aventureiro"
+
+            if evento.type == pygame.MOUSEBUTTONUP:
+                pos = pygame.mouse.get_pos()
+                clique = MenuClasse.selecionou_botao(pos)
+                if clique:
+                    return clique
+
+        menu.renderizar()
+
 def executar():
-    """
-    Fluxo principal do jogo, possui as seguintes etapas:
-    - Instancia um aventureiro
-    - Instancia um tesouro
-    - Desenha o mapa pela primeira vez
-    - Em um loop infinito:
-        - Lê o comando inserido pelo usuário
-        - Se for o comando "Q", encerra o programa
-        - Se for o comando "T", exibe os atributos do aventureiro
-        - Se o comando for "W", "A", "S" ou "D":
-            - Realiza o movimento e verifica o resultado da função movimentar
-            - Se o resultado for True, desenha novamente o mapa
-            - Se for False, imprime "Game over" na tela e encerra o programa
-        - Se o usuário inserir algum comando diferente, diz que não reconheceu
-        - Se a posição do aventureiro for igual à posição do tesouro, dispara
-        uma mensagem que o aventureiro ganhou o jogo
-    """
-    aventureiro = Aventureiro()
     tesouro = Tesouro()
     obstaculos = Obstaculos(TOTAL_OBSTACULOS, tesouro)
-    aventureiro.nome = input_box()
+
+    nome = input_box()
+    classe = selecionar_classe()
+    match classe:
+        case "Aventureiro":
+            aventureiro = Aventureiro()
+        case "Guerreiro":
+            aventureiro = Guerreiro()
+        case "Tank":
+            aventureiro = Tank()
+
+    aventureiro.nome = nome
 
     tela = Tela()
     print(f"Saudações, {aventureiro.nome}! Boa sorte!")
@@ -71,7 +83,7 @@ def executar():
                 if resultado_movimento == 0:
                     aventureiro.fim_jogo = False
                     jogo_encerrou = True
-                elif resultado_movimento == 2:
+                else:
                     aventureiro.causar_dano_veneno()
                     if not aventureiro.esta_vivo():
                         aventureiro.status = "Você foi morto por veneno..."
