@@ -42,9 +42,12 @@
 - Criar um módulo inputbox com uma função que retorna o texto inserido pelo usuário
 - Ajustar a função jogo para ler o nome e atribuir ao aventureiro antes do jogo começar
 
-[ ] criar sistema de classes
-
-
+[X] criar sistema de classes
+- Criar subclasses para cada classe de aventureiro
+- Definir mudanças de atributos para cada nova classe
+- Criar nova classe ButtonBox na GUI
+- Criar uma nova função em mecanicas para selecionar a classe
+- Instanciar a classe desejada ao invés de Aventureiro
 
 [ ] criar sistema de itens
 [ ] criar sistema de equipamentos

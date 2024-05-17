@@ -1,9 +1,8 @@
 import random
 
-from ..gui.cores import CORES
+from ...gui.cores import CORES
 
 CORES_POSSIVEIS = [CORES.branco, CORES.vermelho, CORES.verde, CORES.azul]
-CHARS_POSSIVEIS = ["@", "#", "$", "&"]
 
 def pega_prox_valor(lista, valor_atual):
     ind = lista.index(valor_atual) + 1
@@ -18,10 +17,10 @@ class Aventureiro:
         self.forca = random.randint(10, 18)
         self.defesa = random.randint(10, 18)
         self.posicao = [0, 0]
-        self.nome = "Aventureiro"
 
         self.cor = CORES.branco
         self.char = "@"
+        self.chars_possiveis = ["@", "#", "$", "&"]
 
         self.dificuldade = 1
 
@@ -55,7 +54,7 @@ class Aventureiro:
         self.cor = pega_prox_valor(CORES_POSSIVEIS, self.cor)
 
     def mudar_char(self):
-        self.char = pega_prox_valor(CHARS_POSSIVEIS, self.char)
+        self.char = pega_prox_valor(self.chars_possiveis, self.char)
 
     def andar(self, direcao):
         """

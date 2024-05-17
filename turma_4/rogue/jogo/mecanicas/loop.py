@@ -2,20 +2,32 @@ from jogo.gui.tela import Tela
 
 from . import movimento
 from . import inputbox
+from . import buttonbox
 
 from jogo.personagens.monstros.boss import Boss
-from jogo.personagens.aventureiro import Aventureiro
+from jogo.personagens.aventureiro.aventureiro import Aventureiro
+from jogo.personagens.aventureiro.guerreiro import Guerreiro
+from jogo.personagens.aventureiro.tank import Tank
 from jogo.personagens.tesouro import Tesouro
 
 import pygame
 
 def jogo():
-    aventureiro = Aventureiro()
     tesouro = Tesouro()
 
     nome = inputbox.ler_texto("Informe o seu nome:")
-    aventureiro.nome = nome
-    print(f"Saudações, {aventureiro.nome}! Boa sorte!")
+    classe = buttonbox.selecionar_classe("Clique na classe desejada:")
+
+    match classe:
+        case "Aventureiro":
+            jogador = Aventureiro()
+        case "Guerreiro":
+            jogador = Guerreiro()
+        case "Tank":
+            jogador = Tank()
+
+    jogador.nome = nome
+    print(f"Saudações, {jogador.nome}! Boa sorte!")
 
     tela = Tela()
 
@@ -35,16 +47,16 @@ def jogo():
                     return
 
                 if teclas[pygame.K_z]:
-                    aventureiro.mudar_cor()
+                    jogador.mudar_cor()
                 elif teclas[pygame.K_x]:
-                    aventureiro.mudar_char()
+                    jogador.mudar_char()
                 elif teclas[pygame.K_KP_PLUS]:
-                    aventureiro.aumentar_dificuldade()
+                    jogador.aumentar_dificuldade()
                 elif teclas[pygame.K_KP_MINUS]:
-                    aventureiro.diminuir_dificuldade()
+                    jogador.diminuir_dificuldade()
                 else:
                     # Executar as ações do jogo
-                    resultado, nome_monstro = movimento.movimentar(aventureiro, teclas)
+                    resultado, nome_monstro = movimento.movimentar(jogador, teclas)
                     if resultado == 0:
                         mensagem_combate = f"Você foi derrotado por {nome_monstro}..."
                         jogo_acabou = True
@@ -53,17 +65,17 @@ def jogo():
                     else:
                         mensagem_combate = "Você não encontrou nada"
 
-                    if aventureiro.posicao == tesouro.posicao:
-                        boss = Boss(aventureiro.dificuldade)
-                        if movimento.iniciar_combate(aventureiro, boss):
-                            mensagem_combate = f"Parabéns, {aventureiro.nome}, você encontrou o tesouro!"
+                    if jogador.posicao == tesouro.posicao:
+                        boss = Boss(jogador.dificuldade)
+                        if movimento.iniciar_combate(jogador, boss):
+                            mensagem_combate = f"Parabéns, {jogador.nome}, você encontrou o tesouro!"
                         else:
                             mensagem_combate = f"Você foi derrotado pelo chefão... =("
 
                         jogo_acabou = True
 
         # Desenho na tela
-        tela.renderizar(aventureiro, tesouro, mensagem_combate)
+        tela.renderizar(jogador, tesouro, mensagem_combate)
 
         # Chamar o relógio interno do jogo
         pygame.time.Clock().tick(60)
