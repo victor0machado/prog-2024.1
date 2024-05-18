@@ -21,14 +21,23 @@
 - Iniciar o combate quando o aventureiro chegar no tesouro
 - Disparar uma mensagem de sucesso no final
 
-[ ] sistema de itens
+[ ] customizar o nome do personagem
+
 [ ] variedade de inimigos
+
+[ ] sistema de níveis
+
+[ ] sistema de classes
+
+[ ] checkpoint
+
+
+
+[ ] sistema de itens
 [ ] possíveis ações (desafios)
 [ ] recuperar vida
 [ ] mecânica de ataque e defesa
-[ ] checkpoint
 [ ] habilidades do aventureiro
-[ ] sistema de níveis
 [ ] mapa maior
 [ ] aliado
 [ ] puzzle
@@ -37,7 +46,6 @@
 [ ] mudar objetivos do jogo
 [ ] sistema de loot
 [ ] tipos de dano diferentes
-[ ] sistema de classes
 [ ] NPCs
 [ ] tela de abertura do jogo
 [ ] sistema de menus

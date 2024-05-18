@@ -16,10 +16,20 @@
 - Criar um botão de ação para falar com o NPC
 - Renderizar a fala do NPC na tela
 
+[ ] customizar o nome do personagem
+
+[ ] classes de personagens
+
+[ ] sistema de nível do aventureiro
+
 [ ] criar áudio de fundo
+
+[ ] adicionar outros tipos de monstro
+
+
+
 [ ] aumentar o tamanho do mapa
 [ ] escolher os atributos
-[ ] adicionar outros tipos de monstro
 [ ] implementar novas mecânicas de combate
 [ ] itens de cura
 [ ] sistema de itens, armas e equipamentos
@@ -29,10 +39,8 @@
 [ ] iluminação do jogo
 [ ] mapa com várias salas
 [ ] desbloquear outros personagens
-[ ] classes de personagens
 [ ] sistema financeiro no jogo
 [ ] easter eggs
-[ ] sistema de nível do aventureiro
 [ ] interação do jogo com o jogador
 [ ] dificuldade do jogo
 [ ] IA de monstros

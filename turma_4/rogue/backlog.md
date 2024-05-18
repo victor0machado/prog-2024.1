@@ -49,6 +49,15 @@
 - Criar uma nova função em mecanicas para selecionar a classe
 - Instanciar a classe desejada ao invés de Aventureiro
 
+[ ] criar obstáculos no mapa
+
+[ ] criar um relógio na tela
+
+[ ] possibilitar salvar o jogo
+
+
+
+
 [ ] criar sistema de itens
 [ ] criar sistema de equipamentos
 [ ] outros atributos

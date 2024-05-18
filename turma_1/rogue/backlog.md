@@ -41,26 +41,32 @@
 - Criar tela para seleção da classe
 - Criar interação no loop
 
+[ ] criar variedade de monstros
+
+[ ] criar um boss no local do tesouro ou em cada nível
+
+[ ] co-op local
+
+[ ] opção de salvar o jogo
+
+[ ] colocar uma imagem dos monstros na tela
+
+
+
+[ ] criar upgrades permanentes
 [ ] criar um timer para o jogador conseguir achar o tesouro
 [ ] criar mecânica de itens
-[ ] criar variedade de monstros
-[ ] colocar uma imagem dos monstros na tela
-[ ] opção de salvar o jogo
 [ ] ampliar o mapa, criando mais salas
 [ ] movimentação do monstro
 [ ] criar níveis da dungeon
 [ ] criar design bonitinho para eventos
-[ ] criar um boss no local do tesouro ou em cada nível
-[ ] co-op local
 [ ] loja para comprar itens
 [ ] criar um sistema monetário para o jogo
 [ ] criar poções
 [ ] criar um NPC, com conversas
 [ ] criar mecânica de equipamentos (armas e armaduras)
 [ ] criar um inventário
-[ ] criar upgrades permanentes
 [ ] níveis de dificuldade do jogo
 [ ] criar um pet com poderes
 [ ] criar música ambiente no jogo
-
 [ ] centralizar a janela de jogo na tela
