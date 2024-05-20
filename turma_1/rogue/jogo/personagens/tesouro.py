@@ -12,7 +12,7 @@ class Tesouro:
         while True:
             x = random.randint(0, 9)
             y = random.randint(0, 9)
-            if not (x == y == 0):
+            if not (x == y == 0) and not (x == y == 9):
                 break
 
         self.posicao = [x, y]

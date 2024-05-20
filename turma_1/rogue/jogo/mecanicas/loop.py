@@ -1,5 +1,4 @@
-from .mecanicas import movimentar
-from .mecanicas import iniciar_combate
+from . import mecanicas
 
 from ..personagens.aventureiro.aventureiro import Aventureiro
 from ..personagens.aventureiro.guerreiro import Guerreiro
@@ -15,8 +14,8 @@ import pygame
 
 TOTAL_OBSTACULOS = 5
 
-def input_box():
-    inputbox = InputBox("Olá! Informe o seu nome:")
+def input_box(id_jogador):
+    inputbox = InputBox(f"Informe o nome do aventureiro {id_jogador}:")
 
     while True:
         for evento in pygame.event.get():
@@ -29,8 +28,8 @@ def input_box():
 
         inputbox.renderizar()
 
-def selecionar_classe():
-    menu = MenuClasse("Agora escolha sua classe:")
+def selecionar_classe(id_jogador):
+    menu = MenuClasse(f"Agora escolha a classe do aventureiro {id_jogador}:")
 
     while True:
         for evento in pygame.event.get():
@@ -48,24 +47,25 @@ def selecionar_classe():
 def executar():
     tesouro = Tesouro()
     obstaculos = Obstaculos(TOTAL_OBSTACULOS, tesouro)
+    aventureiros = [None, None]
 
-    nome = input_box()
-    classe = selecionar_classe()
-    match classe:
-        case "Aventureiro":
-            aventureiro = Aventureiro()
-        case "Guerreiro":
-            aventureiro = Guerreiro()
-        case "Tank":
-            aventureiro = Tank()
+    for i in range(2):
+        nome = input_box(i + 1)
+        classe = selecionar_classe(i + 1)
+        match classe:
+            case "Aventureiro":
+                aventureiro = Aventureiro(nome, i)
+            case "Guerreiro":
+                aventureiro = Guerreiro(nome, i)
+            case "Tank":
+                aventureiro = Tank(nome, i)
 
-    aventureiro.nome = nome
+        aventureiros[i] = aventureiro
 
     tela = Tela()
-    print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
-    primeiro_movimento = True
     jogo_encerrou = False
+    i = 0
     while not jogo_encerrou:
         teclas = pygame.key.get_pressed()
         for evento in pygame.event.get():
@@ -77,30 +77,33 @@ def executar():
                     print("Já correndo?")
                     return
 
-                if not primeiro_movimento:
-                    aventureiro.status = "Continue explorando"
-                primeiro_movimento = False
+                if not aventureiros[i].primeiro_movimento:
+                    aventureiros[i].status = f"Continue explorando"
+                aventureiros[i].primeiro_movimento = False
 
-                resultado_movimento = movimentar(aventureiro, teclas, obstaculos)
-                if resultado_movimento == 0:
-                    aventureiro.fim_jogo = False
-                    jogo_encerrou = True
-                else:
-                    aventureiro.causar_dano_veneno()
-                    if not aventureiro.esta_vivo():
-                        aventureiro.status = "Você foi morto por veneno..."
-                        aventureiro.fim_jogo = False
+                direcao = mecanicas.determina_direcao(teclas, i)
+                if direcao:
+                    resultado_movimento = mecanicas.movimentar(aventureiros[i], direcao, obstaculos)
+                    if resultado_movimento == 0:
+                        aventureiros[i].fim_jogo = False
                         jogo_encerrou = True
-                    elif aventureiro.posicao == tesouro.posicao:
-                        chefe = Chefe()
-                        if iniciar_combate(aventureiro, chefe):
-                            aventureiro.status = f"Parabéns! Você derrotou {chefe.nome} e encontrou o tesouro!"
-                            aventureiro.fim_jogo = True
-                        else:
-                            aventureiro.status = f"Você foi derrotado pelo {chefe.nome}..."
-                            aventureiro.fim_jogo=  False
+                    else:
+                        aventureiros[i].causar_dano_veneno()
+                        if not aventureiros[i].esta_vivo():
+                            aventureiros[i].status = f"{aventureiros[i]} foi morto por veneno..."
+                            aventureiros[i].fim_jogo = False
+                            jogo_encerrou = True
+                        elif aventureiros[i].posicao == tesouro.posicao:
+                            chefe = Chefe()
+                            if mecanicas.iniciar_combate(aventureiros[i], chefe):
+                                aventureiros[i].status = f"Parabéns! {aventureiros[i]} derrotou {chefe.nome} e encontrou o tesouro!"
+                                aventureiros[i].fim_jogo = True
+                            else:
+                                aventureiros[i].status = f"{aventureiros[i]} foi derrotado pelo {chefe.nome}..."
+                                aventureiros[i].fim_jogo=  False
 
-                        jogo_encerrou = True
+                            jogo_encerrou = True
+                        i = 1 - i
 
-        tela.renderizar(aventureiro, tesouro, obstaculos.obstaculos)
+        tela.renderizar(aventureiros, tesouro, obstaculos.obstaculos, i)
         pygame.time.Clock().tick(60)

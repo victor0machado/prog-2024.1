@@ -5,7 +5,7 @@ class Obstaculo:
         while True:
             x = random.randint(0, 9)
             y = random.randint(0, 9)
-            if not (x == y == 0) and [x, y] != tesouro.posicao:
+            if not (x == y == 0) and not (x == y == 9) and [x, y] != tesouro.posicao:
                 break
 
         self.posicao = [x, y]

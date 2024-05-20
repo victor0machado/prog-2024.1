@@ -5,10 +5,10 @@ import pygame
 FONTE_TAMANHO = 25
 MARGEM = 10
 FONTE = "Lucida Console"
-LARGURA = 400
+LARGURA = 650
 ALTURA = 100
 
-LB = 170
+LB = (LARGURA - 3 * MARGEM) // 2
 AB = 50
 
 class MenuClasse:

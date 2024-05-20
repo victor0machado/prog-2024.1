@@ -6,7 +6,7 @@ import pygame
 GRID = 40
 TAM_MAPA = 10
 LARGURA = GRID * TAM_MAPA + 400
-ALTURA = GRID * TAM_MAPA + 100
+ALTURA = GRID * TAM_MAPA + 150
 MARGEM = 10
 FONTE = "Lucida Console"
 
@@ -20,19 +20,26 @@ class Tela:
         self.display = pygame.display.set_mode((LARGURA, ALTURA))
         pygame.display.set_caption("Rogue")
 
-    def renderizar(self, aventureiro, tesouro, obstaculos):
+    def renderizar(self, aventureiros, tesouro, obstaculos, id_jogador):
         self.display.fill(CORES.preto)
-        self.aventureiro(aventureiro)
+        self.aventureiro(aventureiros)
         self.tesouro(tesouro)
-        self.mapa(aventureiro, tesouro, obstaculos)
-        self.combate(aventureiro.status)
+        self.mapa(aventureiros, tesouro, obstaculos)
+        self.combate(aventureiros[1 - id_jogador].status)
         self.obstaculos(obstaculos)
+        self.turno(id_jogador)
         self.relogio()
 
-        if aventureiro.fim_jogo is not None:
-            self.fim_jogo(aventureiro.fim_jogo)
+        for aventureiro in aventureiros:
+            if aventureiro.fim_jogo is not None:
+                self.fim_jogo(aventureiro.fim_jogo)
 
         pygame.display.update()
+
+    def turno(self, id_jogador):
+        fonte = pygame.font.SysFont(FONTE, GRID // 2)
+        texto = fonte.render(f"Turno do jog. {id_jogador + 1}", True, CORES.branco)
+        self.display.blit(texto, [LARGURA - MARGEM - texto.get_width(), MARGEM * 2 + texto.get_height()])
 
     def fim_jogo(self, fim_jogo):
         fonte = pygame.font.SysFont(FONTE, GRID * 2)
@@ -64,25 +71,26 @@ class Tela:
         for obstaculo in obstaculos:
             self.escreve_grid("O", obstaculo.posicao)
 
-    def aventureiro(self, aventureiro):
-        self.escreve_grid("@", aventureiro.posicao)
-
-        atributos = f"{aventureiro.nome}" \
-            f" nv {aventureiro.nivel}" \
-            f" - vida: {aventureiro.vida}/{aventureiro.vida_max};" \
-            f" força: {aventureiro.forca};" \
-            f" defesa: {aventureiro.defesa}"
+    def aventureiro(self, aventureiros):
         fonte = pygame.font.SysFont(FONTE, GRID // 2)
-        texto = fonte.render(atributos, True, CORES.branco)
-        self.display.blit(texto, [MARGEM, ALTURA - MARGEM - texto.get_height()])
+        for i, aventureiro in enumerate(aventureiros):
+            self.escreve_grid(aventureiro.char, aventureiro.posicao)
+
+            atributos = f"{aventureiro.nome}" \
+                f" nv {aventureiro.nivel}" \
+                f" - vida: {aventureiro.vida}/{aventureiro.vida_max};" \
+                f" força: {aventureiro.forca};" \
+                f" defesa: {aventureiro.defesa}"
+            texto = fonte.render(atributos, True, CORES.branco)
+            self.display.blit(texto, [MARGEM, ALTURA - MARGEM * (2 - i) - texto.get_height() * (2 - i)])
 
     def tesouro(self, tesouro):
         self.escreve_grid("X", tesouro.posicao)
 
-    def mapa(self, aventureiro, tesouro, obstaculos):
+    def mapa(self, aventureiros, tesouro, obstaculos):
         for linha in range(10):
             for coluna in range(10):
-                posicoes_invalidas = [aventureiro.posicao, tesouro.posicao]
+                posicoes_invalidas = [aventureiros[0].posicao, aventureiros[1].posicao, tesouro.posicao]
                 for obstaculo in obstaculos:
                     posicoes_invalidas.append(obstaculo.posicao)
                 if [linha, coluna] not in posicoes_invalidas:

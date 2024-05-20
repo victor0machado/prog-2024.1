@@ -49,12 +49,14 @@
 - Criar uma nova subclasse para Inimigo
 - Modificar as ações quando a posição do aventureiro for igual à do tesouro
 
-[ ] co-op local
+[X] co-op local
+- Instanciar um segundo aventureiro, abrindo novas janelas de prompt
+- Estabelecer um ponto de partida para o segundo aventureiro
+- Criar um mecanismo de turnos para aceitar o comando de um ou de outro jogador
 
 [ ] opção de salvar o jogo
 
 [ ] colocar uma imagem dos monstros na tela
-
 
 
 [ ] criar upgrades permanentes

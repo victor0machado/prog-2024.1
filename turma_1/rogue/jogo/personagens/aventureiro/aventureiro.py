@@ -3,19 +3,25 @@ import random
 XP_POR_NIVEL = 5
 
 class Aventureiro:
-    def __init__(self):
+    def __init__(self, nome, i):
         self.forca = random.randint(10, 18)
         self.defesa = random.randint(10, 18)
         self.vida_max = random.randint(100, 120)
         self.vida = self.vida_max
         self.posicao = [0, 0]
+        if i == 1:
+            self.posicao = [9, 9]
+
+        self.char = ["@", "#"][i]
+        self.nome = nome
 
         self.nivel = 1
         self.xp = 0
 
         self.turnos_veneno = 0
 
-        self.status = "Comece a explorar"
+        self.primeiro_movimento = True
+        self.status = f"Comece a explorar"
         self.fim_jogo = None
 
     def iniciar_veneno(self):
