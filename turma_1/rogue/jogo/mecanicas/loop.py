@@ -1,8 +1,10 @@
 from .mecanicas import movimentar
+from .mecanicas import iniciar_combate
 
 from ..personagens.aventureiro.aventureiro import Aventureiro
 from ..personagens.aventureiro.guerreiro import Guerreiro
 from ..personagens.aventureiro.tank import Tank
+from ..personagens.inimigos.chefe import Chefe
 from ..personagens.tesouro import Tesouro
 from ..personagens.obstaculo import Obstaculos
 from ..gui.tela import Tela
@@ -90,8 +92,14 @@ def executar():
                         aventureiro.fim_jogo = False
                         jogo_encerrou = True
                     elif aventureiro.posicao == tesouro.posicao:
-                        aventureiro.status = "Parabéns! Você encontrou o tesouro!"
-                        aventureiro.fim_jogo = True
+                        chefe = Chefe()
+                        if iniciar_combate(aventureiro, chefe):
+                            aventureiro.status = f"Parabéns! Você derrotou {chefe.nome} e encontrou o tesouro!"
+                            aventureiro.fim_jogo = True
+                        else:
+                            aventureiro.status = f"Você foi derrotado pelo {chefe.nome}..."
+                            aventureiro.fim_jogo=  False
+
                         jogo_encerrou = True
 
         tela.renderizar(aventureiro, tesouro, obstaculos.obstaculos)

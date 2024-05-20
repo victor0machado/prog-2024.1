@@ -45,7 +45,9 @@
 - Criar subclasses de Monstro
 - Modificar a função `movimentar` para instanciar tipos diferentes de monstros
 
-[ ] criar um boss no local do tesouro ou em cada nível
+[X] criar um boss no local do tesouro ou em cada nível
+- Criar uma nova subclasse para Inimigo
+- Modificar as ações quando a posição do aventureiro for igual à do tesouro
 
 [ ] co-op local
 
