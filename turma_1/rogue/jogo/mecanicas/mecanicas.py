@@ -2,7 +2,9 @@ import random
 
 from .armadilha import Armadilha
 
-from jogo.personagens.monstro import Monstro
+from jogo.personagens.inimigos.aranha import Aranha
+from jogo.personagens.inimigos.esqueleto import Esqueleto
+from jogo.personagens.inimigos.golem import Golem
 
 import pygame
 
@@ -22,7 +24,7 @@ def iniciar_combate(aventureiro, monstro):
         dano = aventureiro.atacar()
         monstro.defender(dano)
         if not monstro.esta_vivo():
-            aventureiro.status = "Monstro foi derrotado!"
+            aventureiro.status = f"{monstro.nome} foi derrotado!"
             aventureiro.ganhar_xp(monstro.xp)
             return True
 
@@ -77,7 +79,7 @@ def movimentar(aventureiro, teclas, obstaculos):
         if not aventureiro.esta_vivo():
             return 0
     elif evento == "monstro":
-        monstro = Monstro()
-        return int(iniciar_combate(aventureiro, monstro))
+        inimigo = random.choices([Aranha, Esqueleto, Golem], [5, 2, 1])[0]()
+        return int(iniciar_combate(aventureiro, inimigo))
 
     return 2

@@ -1,20 +1,11 @@
 import random
 
-class Monstro:
+class Inimigo:
     def __init__(self):
-        """
-        Inicia um novo monstro, com os seguintes atributos:
-
-        - forca: Um valor aleatório entre 5 e 25
-        - vida: um valor aleatório entre 10 e 100
-
-        Antes de finalizar o método, exibe na tela a mensagem "Um novo monstro
-        apareceu!".
-        """
         self.forca = random.randint(5, 25)
         self.vida = random.randint(10, 100)
         self.xp = 1
-        print("Um novo monstro apareceu!")
+        self.nome = "Monstro"
 
     def atacar(self):
         """

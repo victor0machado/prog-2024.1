@@ -41,7 +41,9 @@
 - Criar tela para seleção da classe
 - Criar interação no loop
 
-[ ] criar variedade de monstros
+[X] criar variedade de monstros
+- Criar subclasses de Monstro
+- Modificar a função `movimentar` para instanciar tipos diferentes de monstros
 
 [ ] criar um boss no local do tesouro ou em cada nível
 
