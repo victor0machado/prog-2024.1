@@ -14,8 +14,7 @@ Para finalizar o jogo, atenda aos seguintes requisitos adicionais de projeto:
   - Dobra a vida máxima do jogador, e recupera toda a vida;
   - Aumenta em 15 a força do jogador;
   - Aumenta em 10 a defesa do jogador;
-- Crie um sistema de dificuldade do jogo, onde ao pressionar a tecla "N", o jogo fica mais simples (divida por 1.1 todos os atributos dos monstros gerados), e ao pressionar a tecla "M", o jogo fica mais difícil (multiplique por 1.1 todos os atributos dos monstros gerados). Os atributos dos monstros devem ser multiplicados pelo fator da dificuldade e convertidos para um tipo inteiro;
-- Coloque, abaixo do relógio do jogo, um número do tipo `float`, com quatro casas decimais, representando o índice de dificuldade do jogo.
+- Coloque, abaixo do relógio do jogo, um número do tipo `int`, representando o número de rodadas até o momento.
 
 - Inclua uma nova funcionalidade para o jogo! Essa nova funcionalidade pode render até um ponto extra na nota do projeto (até o limite de 10,0). Quanto mais complexa a funcionalidade, maior a pontuação que será concedida.
 
