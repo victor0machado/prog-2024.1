@@ -1,5 +1,3 @@
-import time
-
 from jogo.mecanicas import loop
 
 import pygame
@@ -14,7 +12,6 @@ def encerrar():
 def main():
     iniciar()
     loop.executar()
-    time.sleep(2)
     encerrar()
 
 if __name__ == "__main__":

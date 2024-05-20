@@ -1,9 +1,14 @@
+import time
+
 from . import mecanicas
 from .inputbox import ler_texto
+from .buttonbox import escolher_classe
 
 from ..gui.tela import Tela
 
-from ..personagens.aventureiro import Aventureiro
+from ..personagens.aventureiro.aventureiro import Aventureiro
+from ..personagens.aventureiro.guerreiro import Guerreiro
+from ..personagens.aventureiro.tank import Tank
 from ..personagens.tesouro import Tesouro
 from ..personagens.npc import NPC
 from ..personagens.inimigos.boss import Boss
@@ -24,7 +29,15 @@ def determinar_direcao(teclas):
 
 def executar():
     nome = ler_texto()
-    aventureiro = Aventureiro(nome)
+    classe = escolher_classe()
+    match classe:
+        case "Guerreiro":
+            aventureiro = Guerreiro(nome)
+        case "Tank":
+            aventureiro = Tank(nome)
+        case _:
+            aventureiro = Aventureiro(nome)
+
     tesouro = Tesouro()
     npc = NPC(tesouro)
     tela = Tela()
@@ -35,7 +48,7 @@ def executar():
         teclas = pygame.key.get_pressed()
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
-                jogo_rodando = False
+                return
 
             if evento.type == pygame.KEYUP:
                 # Processamento do jogo
@@ -60,3 +73,5 @@ def executar():
         # Renderização na tela
         tela.renderizar(aventureiro, tesouro, npc)
         pygame.time.Clock().tick(60)
+
+    time.sleep(2)

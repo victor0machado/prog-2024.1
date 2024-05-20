@@ -23,6 +23,10 @@
 - Alterar a classe `Aventureiro`, para ter um parâmetro de entrada, `nome`
 
 [ ] classes de personagens
+- Criar duas subclasses de `Aventureiro`: `Guerreiro` e `Tank`
+- Criar uma outra janela, com dois botões, para seleção da classe
+- Modificar o loop principal, para chamar a janela de botões
+- Instanciar a classe correta do aventureiro, conforme a seleção do usuário
 
 [ ] sistema de nível do aventureiro
 
