@@ -1,13 +1,13 @@
 import random
 
 class Aventureiro:
-    def __init__(self):
+    def __init__(self, nome):
         self.forca = random.randint(10, 18)
         self.defesa = random.randint(10, 18)
         self.vida = random.randint(100, 120)
         self.posicao = [0, 0]
         self.char = "@"
-        self.nome = "Aventureiro"
+        self.nome = nome
         self.status = "Comece a explorar"
 
     def calcular_pos_futura(self, direcao):

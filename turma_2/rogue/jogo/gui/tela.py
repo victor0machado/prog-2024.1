@@ -4,7 +4,7 @@ import pygame
 
 GRID = 40
 MARGEM = 10
-LARGURA = GRID * 10 + 300
+LARGURA = GRID * 10 + 450
 ALTURA = GRID * 10 + 100
 FONTE = "Courier New"
 

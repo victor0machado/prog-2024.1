@@ -16,7 +16,11 @@
 - Criar um botão de ação para falar com o NPC
 - Renderizar a fala do NPC na tela
 
-[ ] customizar o nome do personagem
+[x] customizar o nome do personagem
+- Criar uma tela, InputBox, com três elementos
+- Modificar o loop, para chamar o InputBox
+- Montar uma função `ler_texto`, que retorna o texto inserido pelo usuário
+- Alterar a classe `Aventureiro`, para ter um parâmetro de entrada, `nome`
 
 [ ] classes de personagens
 

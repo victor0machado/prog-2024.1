@@ -1,4 +1,5 @@
 from . import mecanicas
+from .inputbox import ler_texto
 
 from ..gui.tela import Tela
 
@@ -22,30 +23,8 @@ def determinar_direcao(teclas):
     return ""
 
 def executar():
-    """
-    Fluxo principal do jogo, possui as seguintes etapas:
-    - Inicia um aventureiro num dicionário com as propriedades:
-        - forca: valor inteiro aleatório entre 10 e 18
-        - defesa: valor inteiro aleatório entre 10 e 18
-        - vida: valor inteiro aleatório entre 100 e 120
-        - posicao: uma lista [0, 0]
-
-    - Gera uma posição aleatória para o tesouro, usando a função gerar_tesouro
-    - Lê um nome para o aventureiro, e armazena no dicionário
-    - Desenha o mapa pela primeira vez
-    - Em um loop infinito:
-        - Lê o comando inserido pelo usuário
-        - Se for o comando "Q", encerra o programa
-        - Se for o comando "T", exibe os atributos do aventureiro
-        - Se o comando for "W", "A", "S" ou "D":
-            - Realiza o movimento e verifica o resultado da função movimentar
-            - Se o resultado for True, desenha novamente o mapa
-            - Se for False, imprime "Game over" na tela e encerra o programa
-        - Se o usuário inserir algum comando diferente, diz que não reconheceu
-        - Se a posição do aventureiro for igual à posição do tesouro, dispara
-        uma mensagem que o aventureiro ganhou o jogo
-    """
-    aventureiro = Aventureiro()
+    nome = ler_texto()
+    aventureiro = Aventureiro(nome)
     tesouro = Tesouro()
     npc = NPC(tesouro)
     tela = Tela()
