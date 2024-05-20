@@ -59,7 +59,8 @@ def executar():
                 if teclas[pygame.K_SPACE]:
                     mecanicas.conversar(aventureiro, npc)
                 else:
-                    if not mecanicas.movimentar(aventureiro, determinar_direcao(teclas), npc):
+                    direcao = determinar_direcao(teclas)
+                    if direcao != "" and not mecanicas.movimentar(aventureiro, direcao, npc):
                         jogo_rodando = False
 
                     if aventureiro.posicao == tesouro.posicao:

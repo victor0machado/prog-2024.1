@@ -8,6 +8,7 @@ class Boss(Inimigo):
         self.vida = random.randint(50, 130)
         self.defesa = random.randint(1, 6)
         self.nome = "Boss"
+        self.xp = 5
 
     def defender(self, dano):
         dano -= self.defesa

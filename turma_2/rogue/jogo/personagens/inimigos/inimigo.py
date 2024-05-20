@@ -4,6 +4,7 @@ class Inimigo:
     def __init__(self):
         self.forca = random.randint(5, 25)
         self.vida = random.randint(10, 100)
+        self.xp = 1
 
     def atacar(self):
         return self.forca

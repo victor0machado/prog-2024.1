@@ -22,13 +22,18 @@
 - Montar uma função `ler_texto`, que retorna o texto inserido pelo usuário
 - Alterar a classe `Aventureiro`, para ter um parâmetro de entrada, `nome`
 
-[ ] classes de personagens
+[x] classes de personagens
 - Criar duas subclasses de `Aventureiro`: `Guerreiro` e `Tank`
 - Criar uma outra janela, com dois botões, para seleção da classe
 - Modificar o loop principal, para chamar a janela de botões
 - Instanciar a classe correta do aventureiro, conforme a seleção do usuário
 
-[ ] sistema de nível do aventureiro
+[x] sistema de nível do aventureiro
+- Criar um atributo xp para os monstros
+- Criar atributos xp e nível para o aventureiro
+- Montar um método para subir de nível
+- Montar um sistema de progressão de nível
+- Exibir o nível na tela principal do jogo
 
 [ ] criar áudio de fundo
 

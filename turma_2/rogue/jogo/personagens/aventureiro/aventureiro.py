@@ -10,6 +10,23 @@ class Aventureiro:
         self.nome = nome
         self.status = "Comece a explorar"
 
+        self.xp_por_nivel = 5
+        self.xp = 0
+        self.nivel = 1
+
+    def ganhar_xp(self, xp_ganho):
+        self.xp += xp_ganho
+        if self.xp >= self.xp_por_nivel:
+            self.xp -= self.xp_por_nivel
+            self.xp_por_nivel += 1
+            self.subir_nivel()
+
+    def subir_nivel(self):
+        self.nivel += 1
+        self.vida += 10
+        self.forca += 1
+        self.defesa += 1
+
     def calcular_pos_futura(self, direcao):
         x, y = self.posicao
         match direcao:
