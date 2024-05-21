@@ -22,6 +22,10 @@
 - Disparar uma mensagem de sucesso no final
 
 [ ] customizar o nome do personagem
+- Modificar a classe Aventureiro para ela receber um parâmetro `nome`
+- Criar uma nova tela para o input do usuário
+- Criar uma nova função que inicia essa tela e executa a leitura do teclado
+- Modificar o loop principal para chamar essa função
 
 [ ] variedade de inimigos
 

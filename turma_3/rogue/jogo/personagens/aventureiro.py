@@ -5,7 +5,7 @@ from ..gui.cores import CORES
 from .personagem import Personagem
 
 class Aventureiro(Personagem):
-    def __init__(self):
+    def __init__(self, nome):
         self.forca = random.randint(10, 18)
         self.defesa = random.randint(10, 18)
         self.vida = random.randint(100, 120)
@@ -16,7 +16,7 @@ class Aventureiro(Personagem):
         self.char = "@"
         self.cor = CORES.branco
 
-        self.nome = "Aventureiro"
+        self.nome = nome
         self.status = "Comece a explorar"
 
     def trocar_char(self):

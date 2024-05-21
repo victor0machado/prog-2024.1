@@ -3,7 +3,7 @@ from .cores import CORES
 import pygame
 
 GRID = 40
-LARGURA = 10 * GRID + 200
+LARGURA = 10 * GRID + 350
 ALTURA = 10 * GRID + 100
 MARGEM = 10
 FONTE = "Courier New"
