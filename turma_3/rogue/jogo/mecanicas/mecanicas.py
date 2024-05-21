@@ -42,6 +42,7 @@ def iniciar_combate(aventureiro, monstro):
         dano = aventureiro.atacar()
         monstro.defender(dano)
         if not monstro.esta_vivo():
+            aventureiro.ganhar_xp(monstro.xp)
             return True
 
         dano = monstro.atacar()

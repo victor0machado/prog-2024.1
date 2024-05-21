@@ -38,7 +38,13 @@
 - Criar características distintas para elas
 - Alterar a função movimentar para chamar diferentes tipos de monstro
 
-[ ] sistema de níveis
+[x] sistema de níveis
+- Criar um atributo `xp` para todos os inimigos
+- Criar atributos `xp` e `nivel` para o `Aventureiro`
+- Criar um mecanismo para ganhar experiência
+- Criar um método para fazer a progressão
+- Chamar o método para ganhar xp na função de combate
+- Atualizar a GUI para incluir o nível na tela
 
 [ ] checkpoint
 

@@ -35,7 +35,7 @@ class Tela:
         self.display.blit(texto, [MARGEM, MARGEM])
 
     def atributos(self, aventureiro):
-        mensagem = f"{aventureiro.nome}: " \
+        mensagem = f"{aventureiro.nome} nv {aventureiro.nivel}: " \
             f"Vida {aventureiro.vida} - Força {aventureiro.forca} - Defesa {aventureiro.defesa}"
         texto = self.fonte_msg.render(mensagem, True, CORES.branco)
         self.display.blit(texto, [MARGEM, ALTURA - MARGEM - texto.get_height()])
