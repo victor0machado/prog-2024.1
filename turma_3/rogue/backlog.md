@@ -21,17 +21,21 @@
 - Iniciar o combate quando o aventureiro chegar no tesouro
 - Disparar uma mensagem de sucesso no final
 
-[ ] customizar o nome do personagem
+[x] customizar o nome do personagem
 - Modificar a classe Aventureiro para ela receber um parâmetro `nome`
 - Criar uma nova tela para o input do usuário
 - Criar uma nova função que inicia essa tela e executa a leitura do teclado
 - Modificar o loop principal para chamar essa função
 
+[x] sistema de classes
+- Criar duas novas subclasses para a classe `Aventureiro`
+- Criar uma nova tela para seleção da classe
+- Criar uma nova função que inicia a tela e mapear o clique do usuário
+- Modificar o loop principal para chamar a função e decidir qual classe de jogador vai iniciar
+
 [ ] variedade de inimigos
 
 [ ] sistema de níveis
-
-[ ] sistema de classes
 
 [ ] checkpoint
 

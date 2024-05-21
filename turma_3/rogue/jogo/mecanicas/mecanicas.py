@@ -2,10 +2,10 @@ import time
 import random
 
 from .inputbox import ler_texto
+from .menu_classe import selecionar_classe
 
 from ..gui.tela import Tela
 
-from ..personagens.aventureiro import Aventureiro
 from ..personagens.monstros.monstro import Monstro
 from ..personagens.monstros.chefe import Chefe
 from ..personagens.tesouro import Tesouro
@@ -100,7 +100,8 @@ def movimentar(aventureiro, direcao):
 
 def loop():
     nome = ler_texto()
-    aventureiro = Aventureiro(nome)
+    classe = selecionar_classe()
+    aventureiro = classe(nome)
     tesouro = Tesouro()
 
     tela = Tela()

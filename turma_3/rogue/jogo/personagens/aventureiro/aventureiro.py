@@ -1,8 +1,8 @@
 import random
 
-from ..gui.cores import CORES
+from ...gui.cores import CORES
 
-from .personagem import Personagem
+from ..personagem import Personagem
 
 class Aventureiro(Personagem):
     def __init__(self, nome):
