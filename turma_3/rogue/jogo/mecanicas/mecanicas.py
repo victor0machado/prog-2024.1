@@ -1,3 +1,4 @@
+import time
 import random
 
 from ..gui.tela import Tela
@@ -36,16 +37,12 @@ def iniciar_combate(aventureiro, monstro):
     while True:
         dano = aventureiro.atacar()
         monstro.defender(dano)
-        print(f"{aventureiro.nome} causa {dano} de dano! Vida de {monstro.nome}: {monstro.vida}")
         if not monstro.esta_vivo():
-            print(f"{monstro.nome} foi derrotado!")
             return True
 
         dano = monstro.atacar()
         aventureiro.defender(dano)
-        print(f"{monstro.nome} causa {dano} de dano! Vida de {aventureiro.nome}: {aventureiro.vida}")
         if not aventureiro.esta_vivo():
-            print(f"{aventureiro.nome} foi derrotado!")
             return False
 
 # Operação principal do jogo
@@ -119,7 +116,6 @@ def loop():
     """
     aventureiro = Aventureiro()
     tesouro = Tesouro()
-    print(f"Saudações, {aventureiro.nome}! Boa sorte!")
 
     tela = Tela()
 
@@ -159,3 +155,5 @@ def loop():
         # Renderização da tela
         tela.renderizar(aventureiro, tesouro)
         pygame.time.Clock().tick(60)
+
+    time.sleep(2)
