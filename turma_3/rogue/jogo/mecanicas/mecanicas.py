@@ -3,6 +3,7 @@ import random
 
 from .inputbox import ler_texto
 from .menu_classe import selecionar_classe
+from . import arquivo
 
 from ..gui.tela import Tela
 
@@ -102,10 +103,14 @@ def movimentar(aventureiro, direcao):
 
 
 def loop():
-    nome = ler_texto()
-    classe = selecionar_classe()
-    aventureiro = classe(nome)
-    tesouro = Tesouro()
+    if arquivo.existe_save():
+        aventureiro, tesouro = arquivo.abrir_arquivo()
+        arquivo.apagar_save()
+    else:
+        nome = ler_texto()
+        classe = selecionar_classe()
+        aventureiro = classe(nome)
+        tesouro = Tesouro()
 
     tela = Tela()
 
@@ -119,18 +124,20 @@ def loop():
 
             if evento.type == pygame.KEYUP:
                 # Processamento das ações
-                if teclas[pygame.K_t]:
-                    print(aventureiro)
-                if teclas[pygame.K_q]:
+                if teclas[pygame.K_o]:
+                    aventureiro, tesouro = arquivo.abrir_arquivo()
+                    aventureiro.status = "Carregou um arquivo salvo!"
+                elif teclas[pygame.K_p]:
+                    arquivo.salvar_jogo(aventureiro, tesouro)
+                    aventureiro.status = "Jogo salvo!"
+                elif teclas[pygame.K_q]:
                     aventureiro.status = "Já correndo?"
                     jogo_rodando = False
-
-                if teclas[pygame.K_c]:
+                elif teclas[pygame.K_c]:
                     aventureiro.trocar_char()
-                if teclas[pygame.K_v]:
+                elif teclas[pygame.K_v]:
                     aventureiro.trocar_cor()
-
-                if not movimentar(aventureiro, determinar_direcao(teclas)):
+                elif not movimentar(aventureiro, determinar_direcao(teclas)):
                     aventureiro.status = "Game over..."
                     jogo_rodando = False
 

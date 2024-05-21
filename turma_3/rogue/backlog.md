@@ -47,6 +47,11 @@
 - Atualizar a GUI para incluir o nível na tela
 
 [ ] checkpoint
+- Criar uma tecla de ação para salvar o jogo
+- Criar uma função que vai salvar os dados do jogo em um arquivo
+- Criar uma função para inicializar o jogo novamente
+- Alterar a classe `Tesouro` para ter um método para modificar a posição
+- Alterar a função `loop` para chamar a função de abrir arquivo ao invés das telas de nome e classe
 
 
 

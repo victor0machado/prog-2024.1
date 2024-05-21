@@ -23,6 +23,34 @@ class Aventureiro(Personagem):
         self.nivel = 1
         self.xp_por_nivel = 5
 
+    def info(self):
+        return {
+            "classe": self.__class__.__name__,
+            "forca": self.forca,
+            "defesa": self.defesa,
+            "vida": self.vida,
+            "posicao": self.posicao,
+            "char": self.char,
+            "cor": self.cor,
+            "nome": self.nome,
+            "status": self.status,
+            "xp": self.xp,
+            "nivel": self.nivel,
+            "xp_por_nivel": self.xp_por_nivel
+        }
+
+    def carregar(self, dados):
+        self.forca = dados["forca"]
+        self.defesa = dados["defesa"]
+        self.vida = dados["vida"]
+        self.posicao = dados["posicao"]
+        self.char = dados["char"]
+        self.cor = dados["cor"]
+        self.status = dados["status"]
+        self.xp = dados["xp"]
+        self.nivel = dados["nivel"]
+        self.xp_por_nivel = dados["xp_por_nivel"]
+
     def ganhar_xp(self, valor):
         self.xp += valor
         if self.xp >= self.xp_por_nivel:

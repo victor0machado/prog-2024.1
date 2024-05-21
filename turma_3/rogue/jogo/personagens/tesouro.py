@@ -19,3 +19,12 @@ class Tesouro(Personagem):
 
         self.posicao = [x, y]
         self.char = "X"
+
+    def alterar_posicao(self, nova_pos):
+        self.posicao = nova_pos
+
+    def carregar(self, dados):
+        self.posicao = dados["posicao"]
+
+    def info(self):
+        return {"posicao": self.posicao}
