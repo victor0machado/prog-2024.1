@@ -33,7 +33,10 @@
 - Criar uma nova função que inicia a tela e mapear o clique do usuário
 - Modificar o loop principal para chamar a função e decidir qual classe de jogador vai iniciar
 
-[ ] variedade de inimigos
+[x] variedade de inimigos
+- Criar três subclasses de `Inimigo`, substituindo a subclasse `Monstro`
+- Criar características distintas para elas
+- Alterar a função movimentar para chamar diferentes tipos de monstro
 
 [ ] sistema de níveis
 

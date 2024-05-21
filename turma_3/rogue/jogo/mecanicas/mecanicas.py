@@ -6,7 +6,9 @@ from .menu_classe import selecionar_classe
 
 from ..gui.tela import Tela
 
-from ..personagens.monstros.monstro import Monstro
+from ..personagens.monstros.zumbi import Zumbi
+from ..personagens.monstros.esqueleto import Esqueleto
+from ..personagens.monstros.creeper import Creeper
 from ..personagens.monstros.chefe import Chefe
 from ..personagens.tesouro import Tesouro
 
@@ -67,9 +69,9 @@ def movimentar(aventureiro, direcao):
     if aventureiro.andar(direcao):
         efeito = random.choices(["nada", "monstro", "armadilha"], [0.5, 0.4, 0.1])[0]
         if efeito == "monstro":
-            monstro = Monstro()
+            monstro = random.choices([Zumbi, Esqueleto, Creeper], [7, 2, 1])[0]()
             if iniciar_combate(aventureiro, monstro):
-                aventureiro.status = "Monstro foi derrotado!"
+                aventureiro.status = f"{monstro.nome} foi derrotado!"
                 return True
 
             return False
