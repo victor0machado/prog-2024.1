@@ -14,7 +14,8 @@ Para finalizar o jogo, atenda aos seguintes requisitos adicionais de projeto:
   - Dobra a vida do jogador;
   - Aumenta em 15 a força do jogador;
   - Aumenta em 10 a defesa do jogador;
-- Crie um sistema de dificuldade do jogo, onde ao pressionar a tecla "N", o jogo fica mais simples (divida por 1.1 todos os atributos dos monstros gerados), e ao pressionar a tecla "M", o jogo fica mais difícil (multiplique por 1.1 todos os atributos dos monstros gerados). Os atributos dos monstros devem ser multiplicados pelo fator da dificuldade e convertidos para um tipo inteiro;
+- Crie um código secreto para o jogo. Sempre que o jogador inserir o texto "SEGREDO" como nome do aventureiro, o jogo começa com uma classe secreta, em que o aventureiro possui vida inicial igual a 200, força igual a 30 e defesa igual a 30.
+- Coloque, no canto superior direito da tela, um número do tipo `int`, representando o número de rodadas jogadas até o momento.
 - Coloque, no canto superior direito da tela, um número do tipo `float`, com quatro casas decimais, representando o índice de dificuldade do jogo.
 
 - Inclua uma nova funcionalidade para o jogo! Essa nova funcionalidade pode render até um ponto extra na nota do projeto (até o limite de 10,0). Quanto mais complexa a funcionalidade, maior a pontuação que será concedida.
