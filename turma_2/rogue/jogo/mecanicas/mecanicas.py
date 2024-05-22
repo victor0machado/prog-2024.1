@@ -1,6 +1,8 @@
 import random
 
-from ..personagens.inimigos.monstro import Monstro
+from ..personagens.inimigos.leviathan import Leviathan
+from ..personagens.inimigos.goblin import Goblin
+from ..personagens.inimigos.ogro import Ogro
 
 # Combate
 def iniciar_combate(aventureiro, inimigo):
@@ -47,7 +49,7 @@ def movimentar(aventureiro, direcao, npc):
 
     efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
     if efeito == "monstro":
-        monstro = Monstro()
+        monstro = random.choices([Leviathan, Ogro, Goblin], [1, 3, 10])[0]()
         if iniciar_combate(aventureiro, monstro):
             aventureiro.status = f"{monstro.nome} foi derrotado!"
             return True
