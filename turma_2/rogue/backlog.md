@@ -43,7 +43,7 @@
 - Escolher um áudio mp3
 - Modificar o início do loop para começar a música
 
-[ ] skin
+[x] skin
 - Adicionar mais cores possíveis na classe de cores
 - Criar para `Aventureiro` uma lista de cores e caracteres possíveis
 - Montar métodos para trocar de cor ou caractere
