@@ -59,6 +59,13 @@ def executar():
                     aventureiro.status = "Já correndo?"
                     jogo_rodando = False
 
+                if teclas[pygame.K_c]:
+                    aventureiro.trocar_char()
+                elif teclas[pygame.K_v]:
+                    aventureiro.trocar_cor()
+                elif teclas[pygame.K_b]:
+                    aventureiro.trocar_cor(aleatorio=True)
+
                 if teclas[pygame.K_SPACE]:
                     mecanicas.conversar(aventureiro, npc)
                 else:

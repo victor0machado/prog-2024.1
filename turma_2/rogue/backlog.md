@@ -43,7 +43,11 @@
 - Escolher um áudio mp3
 - Modificar o início do loop para começar a música
 
-
+[ ] skin
+- Adicionar mais cores possíveis na classe de cores
+- Criar para `Aventureiro` uma lista de cores e caracteres possíveis
+- Montar métodos para trocar de cor ou caractere
+- Criar botões no teclado para realizar as operações
 
 [ ] aumentar o tamanho do mapa
 [ ] escolher os atributos
@@ -63,5 +67,4 @@
 [ ] IA de monstros
 [ ] pet
 [ ] loja
-[ ] skin
 [ ] skill tree

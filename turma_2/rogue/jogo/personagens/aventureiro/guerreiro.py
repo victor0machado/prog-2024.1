@@ -9,5 +9,8 @@ class Guerreiro(Aventureiro):
         self.defesa = random.randint(8, 15)
         self.vida = random.randint(90, 110)
 
+        self.char = "G"
+        self.chars.append("G")
+
     def atacar(self):
         return self.forca + random.randint(1, 8)

@@ -9,6 +9,9 @@ class Tank(Aventureiro):
         self.defesa = random.randint(15, 25)
         self.vida = random.randint(120, 150)
 
+        self.char = "T"
+        self.chars.append("T")
+
     def defender(self, dano):
         dano_levado = dano - self.defesa - random.randint(1, 4)
         if dano_levado > 0:

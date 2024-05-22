@@ -1,6 +1,7 @@
 import os.path
 import random
 
+from ...gui.cores import CORES
 from ...mecanicas import som
 
 import pygame
@@ -11,13 +12,36 @@ class Aventureiro:
         self.defesa = random.randint(10, 18)
         self.vida = random.randint(100, 120)
         self.posicao = [0, 0]
+
+        self.chars = ["@", "#", "$"]
+        self.cores = [CORES.branco, CORES.vermelho, CORES.verde, CORES.azul]
         self.char = "@"
+        self.cor = CORES.branco
+
         self.nome = nome
         self.status = "Comece a explorar"
 
         self.xp_por_nivel = 5
         self.xp = 0
         self.nivel = 1
+
+    def trocar_cor(self, aleatorio=False):
+        if aleatorio:
+            self.cor = (random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+        else:
+            if self.cor in self.cores:
+                cor = self.cores.index(self.cor) + 1
+                if cor == len(self.cores):
+                    cor = 0
+                self.cor = self.cores[cor]
+            else:
+                self.cor = self.cores[0]
+
+    def trocar_char(self):
+        char = self.chars.index(self.char) + 1
+        if char == len(self.chars):
+            char = 0
+        self.char = self.chars[char]
 
     def ganhar_xp(self, xp_ganho):
         self.xp += xp_ganho

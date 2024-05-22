@@ -25,7 +25,7 @@ class Tela:
         self.display.fill(CORES.preto)
         self.informacoes(aventureiro)
         self.personagem(tesouro)
-        self.personagem(aventureiro)
+        self.personagem(aventureiro, cor=aventureiro.cor)
         self.personagem(npc)
         self.mapa(aventureiro, tesouro, npc)
         pygame.display.update()
@@ -37,8 +37,8 @@ class Tela:
                 if [linha, coluna] not in [aventureiro.posicao, tesouro.posicao, npc.posicao]:
                     self.display.blit(texto, centralizar_texto(texto, [linha, coluna]))
 
-    def personagem(self, personagem):
-        texto = self.fonte_gde.render(personagem.char, True, CORES.branco)
+    def personagem(self, personagem, cor=CORES.branco):
+        texto = self.fonte_gde.render(personagem.char, True, cor)
         self.display.blit(
             texto,
             centralizar_texto(texto, [personagem.posicao[0], personagem.posicao[1]])
