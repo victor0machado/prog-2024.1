@@ -35,12 +35,13 @@
 - Montar um sistema de progressão de nível
 - Exibir o nível na tela principal do jogo
 
-[ ] adicionar outros tipos de monstro
+[x] adicionar outros tipos de monstro
 - Criar subclasses que herdem de `Inimigo`
 - Modificar função `movimentar` para decidir qual monstro será escolhido
 
 [ ] criar áudio de fundo
-
+- Escolher um áudio mp3
+- Modificar o início do loop para começar a música
 
 
 

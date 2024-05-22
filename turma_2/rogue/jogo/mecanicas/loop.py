@@ -1,3 +1,4 @@
+import os
 import time
 
 from . import mecanicas
@@ -27,7 +28,19 @@ def determinar_direcao(teclas):
 
     return ""
 
+def iniciar_musica():
+    pygame.mixer.init()
+
+    raiz = os.getcwd()
+    caminho = os.path.join(raiz, "assets", "sound", "song18.mp3")
+
+    pygame.mixer.music.load(caminho)
+    pygame.mixer.music.play(-1)
+
+
 def executar():
+    iniciar_musica()
+
     nome = ler_texto()
     classe = escolher_classe()
     match classe:
