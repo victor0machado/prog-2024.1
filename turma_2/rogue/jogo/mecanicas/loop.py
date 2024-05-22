@@ -1,6 +1,6 @@
-import os
 import time
 
+from . import som
 from . import mecanicas
 from .inputbox import ler_texto
 from .buttonbox import escolher_classe
@@ -28,18 +28,8 @@ def determinar_direcao(teclas):
 
     return ""
 
-def iniciar_musica():
-    pygame.mixer.init()
-
-    raiz = os.getcwd()
-    caminho = os.path.join(raiz, "assets", "sound", "song18.mp3")
-
-    pygame.mixer.music.load(caminho)
-    pygame.mixer.music.play(-1)
-
-
 def executar():
-    iniciar_musica()
+    som.iniciar_musica()
 
     nome = ler_texto()
     classe = escolher_classe()

@@ -1,4 +1,9 @@
+import os.path
 import random
+
+from ...mecanicas import som
+
+import pygame
 
 class Aventureiro:
     def __init__(self, nome):
@@ -19,9 +24,17 @@ class Aventureiro:
         if self.xp >= self.xp_por_nivel:
             self.xp -= self.xp_por_nivel
             self.xp_por_nivel += 1
-            self.subir_nivel()
+            return True
+        return False
+
+    @staticmethod
+    def morrer():
+        morte = pygame.mixer.Sound(os.path.join(som.DIRETORIO, "morte.wav"))
+        pygame.mixer.Sound.play(morte)
 
     def subir_nivel(self):
+        levelup = pygame.mixer.Sound(os.path.join(som.DIRETORIO, "levelup.wav"))
+        pygame.mixer.Sound.play(levelup)
         self.nivel += 1
         self.vida += 10
         self.forca += 1

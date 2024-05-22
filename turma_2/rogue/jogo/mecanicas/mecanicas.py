@@ -1,5 +1,7 @@
 import random
 
+from . import som
+
 from ..personagens.inimigos.leviathan import Leviathan
 from ..personagens.inimigos.goblin import Goblin
 from ..personagens.inimigos.ogro import Ogro
@@ -21,12 +23,16 @@ def iniciar_combate(aventureiro, inimigo):
         dano = aventureiro.atacar()
         inimigo.defender(dano)
         if not inimigo.esta_vivo():
-            aventureiro.ganhar_xp(inimigo.xp)
+            if aventureiro.ganhar_xp(inimigo.xp):
+                aventureiro.subir_nivel()
+            else:
+                inimigo.morrer()
             return True
 
         dano = inimigo.atacar()
         aventureiro.defender(dano)
         if not aventureiro.esta_vivo():
+            aventureiro.morrer()
             return False
 
 def existe_obstaculo(posicao, npc):
@@ -58,6 +64,7 @@ def movimentar(aventureiro, direcao, npc):
         return False
 
     aventureiro.status = "Continue explorando"
+    som.passo()
     return True
 
 def conversar(aventureiro, npc):
@@ -66,6 +73,8 @@ def conversar(aventureiro, npc):
 
     if (x_a + 1 == x_n or x_a - 1 == x_n) and y_a == y_n:
         aventureiro.status = npc.mensagem
+        npc.falar()
 
     if (y_a + 1 == y_n or y_a - 1 == y_n) and x_a == x_n:
         aventureiro.status = npc.mensagem
+        npc.falar()
