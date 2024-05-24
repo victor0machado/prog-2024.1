@@ -1,4 +1,5 @@
 from . import mecanicas
+from . import arquivo
 
 from ..personagens.aventureiro.aventureiro import Aventureiro
 from ..personagens.aventureiro.guerreiro import Guerreiro
@@ -76,6 +77,12 @@ def executar():
                 if teclas[pygame.K_q]:
                     print("Já correndo?")
                     return
+
+                if teclas[pygame.K_p]:
+                    arquivo.salvar(aventureiros, tesouro, obstaculos)
+                if teclas[pygame.K_o]:
+                    if arquivo.existe():
+                        aventureiros, tesouro, obstaculos = arquivo.abrir()
 
                 if not aventureiros[i].primeiro_movimento:
                     aventureiros[i].status = f"Continue explorando"

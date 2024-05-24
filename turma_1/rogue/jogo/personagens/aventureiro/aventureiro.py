@@ -24,6 +24,43 @@ class Aventureiro:
         self.status = f"Comece a explorar"
         self.fim_jogo = None
 
+    def exportar(self):
+        return {
+            "forca": self.forca,
+            "defesa": self.defesa,
+            "vida_max": self.vida_max,
+            "vida": self.vida,
+            "posicao": self.posicao,
+            "char": self.char,
+            "nome": self.nome,
+            "nivel": self.nivel,
+            "xp": self.xp,
+            "turnos_veneno": self.turnos_veneno,
+            "primeiro_movimento": self.primeiro_movimento,
+            "status": self.status,
+            "fim_jogo": self.fim_jogo,
+            "classe": self.__class__.__name__
+        }
+
+    def importar(self, dados):
+        self.forca = dados["forca"]
+        self.defesa = dados["defesa"]
+        self.vida_max = dados["vida_max"]
+        self.vida = dados["vida"]
+        self.posicao = dados["posicao"]
+
+        self.char = dados["char"]
+        self.nome = dados["nome"]
+
+        self.nivel = dados["nivel"]
+        self.xp = dados["xp"]
+
+        self.turnos_veneno = dados["turnos_veneno"]
+
+        self.primeiro_movimento = dados["primeiro_movimento"]
+        self.status = dados["status"]
+        self.fim_jogo = dados["fim_jogo"]
+
     def iniciar_veneno(self):
         if self.turnos_veneno == 0:
             self.turnos_veneno = random.randint(2, 10)

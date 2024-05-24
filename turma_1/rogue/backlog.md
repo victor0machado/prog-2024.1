@@ -55,10 +55,18 @@
 - Criar um mecanismo de turnos para aceitar o comando de um ou de outro jogador
 
 [ ] opção de salvar o jogo
+- Criar métodos de exportação e importação de dados para cada classe do projeto (`Aventureiro`, `Tesouro`, `Obstaculo`)
+- Criar método para exportar o tempo do jogo e definir um horário para o jogo
+- Criar um módulo para salvar e abrir arquivos .json
+- Configurar teclas do teclado para executar as ações de salvar e abrir
+
+
+[ ] colocar uma música de fundo e efeitos de som
+-
+
+
 
 [ ] colocar uma imagem dos monstros na tela
-
-
 [ ] criar upgrades permanentes
 [ ] criar um timer para o jogador conseguir achar o tesouro
 [ ] criar mecânica de itens

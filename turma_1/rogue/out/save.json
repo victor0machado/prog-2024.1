@@ -1,0 +1,84 @@
+{
+    "aventureiros": [
+        {
+            "forca": 26,
+            "defesa": 18,
+            "vida_max": 115,
+            "vida": 115,
+            "posicao": [
+                3,
+                3
+            ],
+            "char": "@",
+            "nome": "aaa",
+            "nivel": 2,
+            "xp": 2,
+            "turnos_veneno": 0,
+            "primeiro_movimento": false,
+            "status": "Golem foi derrotado!",
+            "fim_jogo": null,
+            "classe": "Guerreiro"
+        },
+        {
+            "forca": 10,
+            "defesa": 25,
+            "vida_max": 151,
+            "vida": 151,
+            "posicao": [
+                6,
+                9
+            ],
+            "char": "#",
+            "nome": "bbb",
+            "nivel": 1,
+            "xp": 4,
+            "turnos_veneno": 0,
+            "primeiro_movimento": false,
+            "status": "Continue explorando",
+            "fim_jogo": null,
+            "classe": "Tank"
+        }
+    ],
+    "tesouro": {
+        "posicao": [
+            7,
+            6
+        ]
+    },
+    "obstaculos": [
+        {
+            "posicao": [
+                7,
+                7
+            ]
+        },
+        {
+            "posicao": [
+                8,
+                0
+            ]
+        },
+        {
+            "posicao": [
+                5,
+                3
+            ]
+        },
+        {
+            "posicao": [
+                6,
+                5
+            ]
+        },
+        {
+            "posicao": [
+                3,
+                5
+            ]
+        }
+    ],
+    "relogio": {
+        "inicio": 1716580554.4617972,
+        "atual": 1716580567.0741942
+    }
+}

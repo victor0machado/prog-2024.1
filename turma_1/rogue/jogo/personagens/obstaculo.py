@@ -10,11 +10,24 @@ class Obstaculo:
 
         self.posicao = [x, y]
 
+    def exportar(self):
+        return {"posicao": self.posicao}
+
+    def importar(self, dados):
+        self.posicao = dados["posicao"]
+
 class Obstaculos:
     def __init__(self, total_obstaculos, tesouro):
         self.obstaculos = []
         for _ in range(total_obstaculos):
             self.adicionar_obstaculo(tesouro)
+
+    def exportar(self):
+        return [obstaculo.exportar() for obstaculo in self.obstaculos]
+
+    def importar(self, dados):
+        for obstaculo, dado in zip(self.obstaculos, dados):
+            obstaculo.importar(dado)
 
     def adicionar_obstaculo(self, tesouro):
         while True:

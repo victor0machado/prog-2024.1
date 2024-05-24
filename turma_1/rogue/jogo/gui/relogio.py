@@ -8,6 +8,15 @@ class Relogio:
         tempo_decorrido = time.time() - self.inicio
         minutos = int(tempo_decorrido // 60)
         segundos = int(tempo_decorrido - minutos * 60)
-        return f"{str(minutos).rjust(2, "0")}:{str(segundos).rjust(2, "0")}"
+        return f"{minutos:02d}:{segundos:02d}"
+
+    def exportar(self):
+        return {
+            "inicio": self.inicio,
+            "atual": time.time()
+        }
+
+    def importar(self, dados):
+        self.inicio = time.time() - (dados["atual"] - dados["inicio"])
 
 relogio = Relogio()
