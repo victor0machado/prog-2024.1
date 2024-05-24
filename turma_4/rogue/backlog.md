@@ -49,9 +49,17 @@
 - Criar uma nova função em mecanicas para selecionar a classe
 - Instanciar a classe desejada ao invés de Aventureiro
 
-[ ] criar obstáculos no mapa
+[X] criar obstáculos no mapa
+- Criar classes de obstáculos
+- Modificar método `andar` do `Aventureiro` para separar a mudança de posição do cálculo da posição futura
+- Incluir função para verificar se há alguma barreira na coordenada passada
+- Modificar renderização na tela
 
-[ ] criar um relógio na tela
+[X] criar um relógio na tela
+- Criar um módulo `relogio` no pacote `mecanicas`, com uma variável global `tempo`
+    - Criar uma função `tempo_decorrido`, que retorna o tempo em `MM:SS`
+- No módulo `main`, iniciar o relógio
+- No módulo `tela`, renderizar o tempo decorrido no canto superior direito
 
 [ ] possibilitar salvar o jogo
 

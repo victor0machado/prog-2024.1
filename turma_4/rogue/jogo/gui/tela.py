@@ -1,5 +1,7 @@
 from .cores import CORES
 
+from ..mecanicas import relogio
+
 import pygame
 
 GRID = 40
@@ -8,6 +10,9 @@ TAMANHO_MAPA = 10
 LARGURA_ADICIONAL = 500
 ALTURA_ADICIONAL = 100
 MARGEM = 10
+
+LARGURA = TAMANHO_MAPA * GRID + LARGURA_ADICIONAL
+ALTURA = TAMANHO_MAPA * GRID + ALTURA_ADICIONAL
 
 FONTE = "Courier New"
 
@@ -18,9 +23,7 @@ def centralizar_texto_mapa(posicao_inicial, texto):
 
 class Tela:
     def __init__(self):
-        self.display = pygame.display.set_mode(
-            (TAMANHO_MAPA * GRID + LARGURA_ADICIONAL, TAMANHO_MAPA * GRID + ALTURA_ADICIONAL)
-        )
+        self.display = pygame.display.set_mode((LARGURA, ALTURA))
         pygame.display.set_caption("Rogue")
 
     def renderizar(self, aventureiro, tesouro, mensagem_combate, obstaculos):
@@ -30,8 +33,15 @@ class Tela:
         self.obstaculos(obstaculos)
         self.mapa(aventureiro, tesouro, obstaculos)
         self.combate(mensagem_combate)
+        self.cronometro()
 
         pygame.display.update()
+
+    def cronometro(self):
+        tempo = relogio.tempo_decorrido()
+        fonte = pygame.font.SysFont(FONTE, GRID // 2)
+        texto = fonte.render(tempo, True, CORES.branco)
+        self.display.blit(texto, [LARGURA - MARGEM - texto.get_width(), MARGEM])
 
     def obstaculos(self, obstaculos):
         for obstaculo in obstaculos:
