@@ -45,7 +45,17 @@ def determina_direcao(teclas):
 
     return ""
 
-def movimentar(aventureiro, teclas):
+def verifica_barreiras(posicao, obstaculos):
+    x, y = posicao
+    if x == -1 or x == 10 or y == -1 or y == 10:
+        return True
+    for obstaculo in obstaculos:
+        if posicao == obstaculo.posicao:
+            return True
+
+    return False
+
+def movimentar(aventureiro, teclas, obstaculos):
     """
     Realiza a ação de movimento e analisa as consequências.
 
@@ -66,8 +76,10 @@ def movimentar(aventureiro, teclas):
     if direcao == "":
         return 2, None
 
-    if not aventureiro.andar(direcao):
+    pos_futura = aventureiro.calcular_pos_futura(direcao)
+    if verifica_barreiras(pos_futura, obstaculos):
         return 2, None
+    aventureiro.andar(pos_futura)
 
     efeito = random.choices(["nada", "monstro"], [0.6, 0.4])[0]
     if efeito == "monstro":

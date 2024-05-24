@@ -23,14 +23,19 @@ class Tela:
         )
         pygame.display.set_caption("Rogue")
 
-    def renderizar(self, aventureiro, tesouro, mensagem_combate):
+    def renderizar(self, aventureiro, tesouro, mensagem_combate, obstaculos):
         self.display.fill(CORES.preto)
         self.aventureiro(aventureiro)
         self.tesouro(tesouro)
-        self.mapa(aventureiro, tesouro)
+        self.obstaculos(obstaculos)
+        self.mapa(aventureiro, tesouro, obstaculos)
         self.combate(mensagem_combate)
 
         pygame.display.update()
+
+    def obstaculos(self, obstaculos):
+        for obstaculo in obstaculos:
+            self.desenha_mensagem("O", obstaculo.posicao)
 
     def combate(self, mensagem_combate):
         fonte = pygame.font.SysFont(FONTE, GRID // 2)
@@ -57,8 +62,11 @@ class Tela:
     def tesouro(self, tesouro):
         self.desenha_mensagem("X", tesouro.posicao)
 
-    def mapa(self, aventureiro, tesouro):
+    def mapa(self, aventureiro, tesouro, obstaculos):
         for linha in range(TAMANHO_MAPA):
             for coluna in range(TAMANHO_MAPA):
-                if [linha, coluna] not in [aventureiro.posicao, tesouro.posicao]:
+                pos_preenchidas = [aventureiro.posicao, tesouro.posicao]
+                for obstaculo in obstaculos:
+                    pos_preenchidas.append(obstaculo.posicao)
+                if [linha, coluna] not in pos_preenchidas:
                     self.desenha_mensagem(".", [linha, coluna])

@@ -1,3 +1,5 @@
+import time
+
 from jogo.gui.tela import Tela
 
 from . import movimento
@@ -9,6 +11,7 @@ from jogo.personagens.aventureiro.aventureiro import Aventureiro
 from jogo.personagens.aventureiro.guerreiro import Guerreiro
 from jogo.personagens.aventureiro.tank import Tank
 from jogo.personagens.tesouro import Tesouro
+from jogo.personagens.obstaculo import Obstaculo
 
 import pygame
 
@@ -29,6 +32,10 @@ def jogo():
     jogador.nome = nome
     print(f"Saudações, {jogador.nome}! Boa sorte!")
 
+    obstaculos = []
+    for _ in range(5):
+        obstaculos.append(Obstaculo(tesouro, obstaculos))
+
     tela = Tela()
 
     mensagem_combate = ""
@@ -44,7 +51,7 @@ def jogo():
             if evento.type == pygame.KEYUP:
                 if teclas[pygame.K_q]:
                     print("Já correndo?")
-                    return
+                    jogo_acabou = True
 
                 if teclas[pygame.K_z]:
                     jogador.mudar_cor()
@@ -56,7 +63,7 @@ def jogo():
                     jogador.diminuir_dificuldade()
                 else:
                     # Executar as ações do jogo
-                    resultado, nome_monstro = movimento.movimentar(jogador, teclas)
+                    resultado, nome_monstro = movimento.movimentar(jogador, teclas, obstaculos)
                     if resultado == 0:
                         mensagem_combate = f"Você foi derrotado por {nome_monstro}..."
                         jogo_acabou = True
@@ -75,7 +82,9 @@ def jogo():
                         jogo_acabou = True
 
         # Desenho na tela
-        tela.renderizar(jogador, tesouro, mensagem_combate)
+        tela.renderizar(jogador, tesouro, mensagem_combate, obstaculos)
 
         # Chamar o relógio interno do jogo
         pygame.time.Clock().tick(60)
+
+    time.sleep(2)
