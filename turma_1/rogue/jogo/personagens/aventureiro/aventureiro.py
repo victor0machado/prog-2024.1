@@ -1,5 +1,7 @@
 import random
 
+from ...mecanicas import som
+
 XP_POR_NIVEL = 5
 
 class Aventureiro:
@@ -85,6 +87,7 @@ class Aventureiro:
         self.forca += 2
         self.defesa += 2
         print(f"{self.nome} ganhou um nível!")
+        som.levelup()
 
     def calcular_pos_futura(self, direcao):
         x, y = self.posicao

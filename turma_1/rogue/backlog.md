@@ -54,15 +54,17 @@
 - Estabelecer um ponto de partida para o segundo aventureiro
 - Criar um mecanismo de turnos para aceitar o comando de um ou de outro jogador
 
-[ ] opção de salvar o jogo
+[X] opção de salvar o jogo
 - Criar métodos de exportação e importação de dados para cada classe do projeto (`Aventureiro`, `Tesouro`, `Obstaculo`)
 - Criar método para exportar o tempo do jogo e definir um horário para o jogo
 - Criar um módulo para salvar e abrir arquivos .json
 - Configurar teclas do teclado para executar as ações de salvar e abrir
 
-
 [ ] colocar uma música de fundo e efeitos de som
--
+- Baixar arquivos de som (https://opengameart.org/)
+- Criar um módulo de som
+- Inicializar a música no momento que começar o jogo
+- Chamar uma função para tocar o som quando o aventureiro subir de nível
 
 
 

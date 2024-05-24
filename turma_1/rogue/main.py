@@ -1,5 +1,6 @@
 import time
 
+from jogo.mecanicas import som
 from jogo.mecanicas import loop
 from jogo.gui.relogio import relogio
 
@@ -7,6 +8,8 @@ import pygame
 
 def iniciar():
     pygame.init()
+    pygame.mixer.init()
+    som.reproduzir_musica()
     relogio.iniciar()
 
 def encerrar():
