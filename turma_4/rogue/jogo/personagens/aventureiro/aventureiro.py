@@ -12,7 +12,9 @@ def pega_prox_valor(lista, valor_atual):
     return lista[ind]
 
 class Aventureiro:
-    def __init__(self):
+    def __init__(self, nome):
+        self.nome = nome
+
         self.vida = random.randint(100, 120)
         self.forca = random.randint(10, 18)
         self.defesa = random.randint(10, 18)
@@ -27,6 +29,41 @@ class Aventureiro:
         self.xp = 0
         self.nivel = 1
         self.xp_por_nivel = 5
+
+    def exportar(self):
+        return {
+            "nome": self.nome,
+            "vida": self.vida,
+            "forca": self.forca,
+            "defesa": self.defesa,
+            "posicao": self.posicao,
+            "cor": self.cor,
+            "char": self.char,
+            "chars_possiveis": self.chars_possiveis,
+            "dificuldade": self.dificuldade,
+            "xp": self.xp,
+            "nivel": self.nivel,
+            "xp_por_nivel": self.xp_por_nivel,
+            "classe": self.__class__.__name__
+        }
+
+    def importar(self, dados):
+        self.nome = dados["nome"]
+        
+        self.vida = dados["vida"]
+        self.forca = dados["forca"]
+        self.defesa = dados["defesa"]
+        self.posicao = dados["posicao"]
+
+        self.cor = dados["cor"]
+        self.char = dados["char"]
+        self.chars_possiveis = dados["chars_possiveis"]
+
+        self.dificuldade = dados["dificuldade"]
+
+        self.xp = dados["xp"]
+        self.nivel = dados["nivel"]
+        self.xp_por_nivel = dados["xp_por_nivel"]
 
     def ganhar_xp(self, valor):
         self.xp += valor

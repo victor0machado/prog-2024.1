@@ -16,3 +16,9 @@ class Tesouro:
                 break
 
         self.posicao = [x, y]
+
+    def exportar(self):
+        return {"posicao": self.posicao}
+
+    def importar(self, dados):
+        self.posicao = dados["posicao"]

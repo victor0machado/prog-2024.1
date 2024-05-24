@@ -61,7 +61,14 @@
 - No módulo `main`, iniciar o relógio
 - No módulo `tela`, renderizar o tempo decorrido no canto superior direito
 
-[ ] possibilitar salvar o jogo
+[X] possibilitar salvar o jogo
+- Criar módulo `save` no pacote `mecanicas`
+- Criar métodos em `Aventureiro`, `Tesouro` e `Obstaculo` que retornam os dados do objeto
+- Criar métodos em `Aventureiro`, `Tesouro` e `Obstaculo` que sobrescrevem os dados do objeto
+- Criar ou modificar funções do relógio
+- No módulo `save`, obter os dados dos elementos do jogo e salvar em um arquivo .json
+- No módulo `save`, ler um arquivo .json e retornar instâncias dos objetos
+- No loop, criar botões de acesso para salvar e carregar um jogo
 
 
 

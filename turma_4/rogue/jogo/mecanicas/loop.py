@@ -5,6 +5,7 @@ from jogo.gui.tela import Tela
 from . import movimento
 from . import inputbox
 from . import buttonbox
+from . import arquivo
 
 from jogo.personagens.monstros.boss import Boss
 from jogo.personagens.aventureiro.aventureiro import Aventureiro
@@ -23,13 +24,12 @@ def jogo():
 
     match classe:
         case "Aventureiro":
-            jogador = Aventureiro()
+            jogador = Aventureiro(nome)
         case "Guerreiro":
-            jogador = Guerreiro()
+            jogador = Guerreiro(nome)
         case "Tank":
-            jogador = Tank()
+            jogador = Tank(nome)
 
-    jogador.nome = nome
     print(f"Saudações, {jogador.nome}! Boa sorte!")
 
     obstaculos = []
@@ -53,7 +53,12 @@ def jogo():
                     print("Já correndo?")
                     jogo_acabou = True
 
-                if teclas[pygame.K_z]:
+                if teclas[pygame.K_p]:
+                    arquivo.salvar(jogador, tesouro, obstaculos)
+                elif teclas[pygame.K_o]:
+                    if arquivo.save_existe():
+                        jogador, tesouro, obstaculos = arquivo.carregar()
+                elif teclas[pygame.K_z]:
                     jogador.mudar_cor()
                 elif teclas[pygame.K_x]:
                     jogador.mudar_char()
