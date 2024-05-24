@@ -1,5 +1,6 @@
 import random
 
+from ...mecanicas import som
 from ...gui.cores import CORES
 
 CORES_POSSIVEIS = [CORES.branco, CORES.vermelho, CORES.verde, CORES.azul]
@@ -49,7 +50,7 @@ class Aventureiro:
 
     def importar(self, dados):
         self.nome = dados["nome"]
-        
+
         self.vida = dados["vida"]
         self.forca = dados["forca"]
         self.defesa = dados["defesa"]
@@ -72,6 +73,7 @@ class Aventureiro:
             self.subir_nivel()
 
     def subir_nivel(self):
+        som.level_up()
         self.nivel += 1
         self.vida += 50
         self.forca += 1

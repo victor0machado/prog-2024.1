@@ -70,6 +70,11 @@
 - No módulo `save`, ler um arquivo .json e retornar instâncias dos objetos
 - No loop, criar botões de acesso para salvar e carregar um jogo
 
+[X] criar uma música de fundo e efeitos de som
+- Baixar arquivos de som para o jogo
+- Criar um módulo `som`
+- Modificar a `main` para inicializar o mixer da pygame e começar a música
+- Modificar o método `subir_nivel` do `Aventureiro` para tocar um som
 
 
 
