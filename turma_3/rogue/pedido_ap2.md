@@ -8,7 +8,7 @@ Para finalizar o jogo, atenda aos seguintes requisitos adicionais de projeto:
 - Centralize a mensagem do inferior da tela (atributos do aventureiro);
 - Inclua na mensagem no inferior da tela a quantidade de experiência atual e a quantidade de experiência por nível, conforme o modelo abaixo:
 
-    Aventureiro nv 3 (2 / 5) - Vida 120/150 - Força 10 - Defesa 20
+    Aventureiro nv 3 (2 / 5) - Vida 120 - Força 10 - Defesa 20
 
 - Crie um objeto "poção", que será representado no mapa pelo caractere `%`. Esse objeto deve ser inicializado no início do jogo, e deve ficar visível no mapa enquanto o jogador não tiver passado por ele. Ao chegar no item, um de três possíveis efeitos pode acontecer:
   - Dobra a vida do jogador;
